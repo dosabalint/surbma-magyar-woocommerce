@@ -1,10 +1,10 @@
 === Surbma - Magyar WooCommerce ===
 Contributors: Surbma
 Donate link: https://surbma.hu/wordpress/wordpress-bovitmenyek/
-Tags: woocommerce, hungarian, hungary
+Tags: woocommerce, hungarian, hungary, magyar, magyarország, webáruház
 Requires at least: 3.0
 Tested up to: 4.8
-Stable tag: 1.0.0
+Stable tag: 2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,7 @@ A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet �
 **A bővítmény eddigi funkciói:**
 - A keresztnév és vezetéknév sorrendjének a megfordítása a Pénztár oldalon akkor, ha a cím Magyarország. Ahogy mi szeretjük. :) Mindezt úgy, hogy reszponzív nézetben is jó legyen és a CRM, számlázó programok is tudják értelmezni.
 - Megye mező elrejtése. Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés. De ha valakinek nagyon kell, akkor visszaállítható. Ehhez a wp-config.php fájlba kell ezt a sort megadni: `define( 'SURBMA_MWC_MEGYE' , true );`
+- Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
 - További funkciók hamarosan...
 
 **Szeretnél résztvenni vagy segíteni a bővítmény fejlesztésében?**
@@ -58,6 +59,17 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 2.0 =
+
+- Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+- A Megye mező elrejtését most már WooCommerce filter kezeli. (Köszönet: Viszt Péter - @passatgt)
+- További címkék a bővítményhez a jobb keresési találatok miatt.
+
+= 1.1 =
+
+- Kód elírás javítása.
+- Leírások hozzáadása a függvényekhez.
 
 = 1.0.0 =
 
