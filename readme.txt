@@ -4,7 +4,7 @@ Donate link: https://surbma.hu/wordpress/wordpress-bovitmenyek/
 Tags: woocommerce, hungarian, hungary, magyar, magyarország, webáruház
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 3.0
+Stable tag: 4.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,13 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 4.0 =
+
+- A bővítmény most már felül tudja írni a WooCommerce template fájlokat.
+- Fiók adatoknál is jól jelenik meg a nevek sorrendje, ha a számlázási cím Magyarország.
+- Szállítási és számlázási címeknél is helyes a név megjelenítése magyarországi cím esetén.
+- Kisebb kód javítások.
 
 = 3.0 =
 
