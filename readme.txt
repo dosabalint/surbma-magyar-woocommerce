@@ -4,7 +4,7 @@ Donate link: https://surbma.hu/wordpress/wordpress-bovitmenyek/
 Tags: woocommerce, hungarian, hungary, magyar, magyarország, webáruház
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 4.1
+Stable tag: 4.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,10 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 4.2 =
+
+- A keresztnév mező autofocus törlése. #1
 
 = 4.1 =
 
