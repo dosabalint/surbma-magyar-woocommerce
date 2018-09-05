@@ -1,4 +1,4 @@
-=== Surbma - Magyar WooCommerce ===
+=== Surbma | Magyar WooCommerce ===
 Contributors: Surbma
 Donate link: https://surbma.hu/wordpress/wordpress-bovitmenyek/
 Tags: woocommerce, hungarian, hungary, magyar, magyarország, webáruház
@@ -60,6 +60,10 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 4.4 =
+
+- FIX - A form-edit-account template fájl frissítése a legújabb verzióra.
 
 = 4.3 =
 
