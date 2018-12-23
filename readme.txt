@@ -1,39 +1,44 @@
 === Surbma | Magyar WooCommerce ===
 Contributors: Surbma
 Donate link: https://surbma.hu/wordpress/wordpress-bovitmenyek/
-Tags: woocommerce, hungarian, hungary, magyar, magyarország, webáruház
-Requires at least: 4.4
-Tested up to: 4.9
-Stable tag: 4.4
+Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
+Requires at least: 4.9
+Tested up to: 5.0
+Stable tag: 4.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
+Hasznos javítások a magyar WooCommerce webáruházakhoz.
 
 == Description ==
+
+>Hasznos javítások a magyar WooCommerce webáruházakhoz.
 
 A WooCommerce a világ és most már Magyarország legnépszerűbb webáruház platformja is. De ez a tény a WooCommerce fejlesztőket nem érdekli annyira, hogy a magyar igényekhez igazítsák a bővítmény bizonyos funkcióit. Szerencsére adnak bőven lehetőséget a módosításokra, de ezekhez az átlag felhasználó nem ért. Ezért hoztam létre ezt a bővítményt, hogy a magyar WooCommerce webáruházak is végre rendben legyenek.
 
 A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet új funkciókat kérni.
 
-**A bővítmény eddigi funkciói:**
+### A bővítmény eddigi funkciói
+
 - A keresztnév és vezetéknév sorrendjének a megfordítása a Pénztár oldalon akkor, ha a cím Magyarország. Ahogy mi szeretjük. :) Mindezt úgy, hogy reszponzív nézetben is jó legyen és a CRM, számlázó programok is tudják értelmezni.
 - Megye mező elrejtése. Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés. De ha valakinek nagyon kell, akkor visszaállítható. Ehhez a wp-config.php fájlba kell ezt a sort megadni: `define( 'SURBMA_MWC_MEGYE' , true );`
 - Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
 - Ideiglenes fordítási hiányosságok javítása.
 - További funkciók hamarosan...
 
-**Szeretnél résztvenni vagy segíteni a bővítmény fejlesztésében?**
+### Surbma infók
+
+#### Szeretnél résztvenni vagy segíteni a bővítmény fejlesztésében?
 
 Megtalálod a teljes forráskódot a GitHub-on: [https://github.com/Surbma/surbma-magyar-woocommerce](https://github.com/Surbma/surbma-magyar-woocommerce)
 
-**További bővítményeket és projekteket is találsz a GitHub oldalamon:**
+#### További bővítményeket és projekteket is találsz a GitHub oldalamon:
 
 [https://github.com/Surbma](https://github.com/Surbma)
 
 Nyugodtan segíthetsz a bővítmények, sablonok és egyéb projektek fejlesztésében.
 
-**Szeretnél többet tudni rólam és a szolgáltatásaimról?**
+#### Szeretnél többet tudni rólam és a szolgáltatásaimról?
 
 Nézd meg a weboldalam: [Surbma.hu](https://surbma.hu/)
 
@@ -60,6 +65,12 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 4.5 =
+
+- Kis javítás a leírásban.
+- Tesztelve a WooCommerce 3.5 verziójával.
+- Tesztelve a WordPress 5.0 verziójával.
 
 = 4.4 =
 

@@ -5,7 +5,7 @@ Plugin Name: Surbma | Magyar WooCommerce
 Plugin URI: https://surbma.hu/wordpress/wordpress-bovitmenyek/
 Description: Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
 
-Version: 4.4
+Version: 4.5
 
 Author: Surbma
 Author URI: https://surbma.hu/
@@ -13,7 +13,7 @@ Author URI: https://surbma.hu/
 License: GPLv2
 
 WC requires at least: 3.4.5
-WC tested up to: 3.4.5
+WC tested up to: 3.5.3
 */
 
 // Prevent direct access to the plugin
