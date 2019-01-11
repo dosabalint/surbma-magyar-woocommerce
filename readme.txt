@@ -1,10 +1,10 @@
-=== Surbma | Magyar WooCommerce ===
+=== HuCommerce - Magyar WooCommerce kiegészítések ===
 Contributors: Surbma
-Donate link: https://surbma.hu/wordpress/wordpress-bovitmenyek/
+Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 4.5
+Stable tag: 5.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,19 +18,47 @@ A WooCommerce a világ és most már Magyarország legnépszerűbb webáruház p
 
 A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet új funkciókat kérni.
 
-### A bővítmény eddigi funkciói
+### A bővítmény funkciói
 
-- A keresztnév és vezetéknév sorrendjének a megfordítása a Pénztár oldalon akkor, ha a cím Magyarország. Ahogy mi szeretjük. :) Mindezt úgy, hogy reszponzív nézetben is jó legyen és a CRM, számlázó programok is tudják értelmezni.
-- Megye mező elrejtése. Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés. De ha valakinek nagyon kell, akkor visszaállítható. Ehhez a wp-config.php fájlba kell ezt a sort megadni: `define( 'SURBMA_MWC_MEGYE' , true );`
-- Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
-- Ideiglenes fordítási hiányosságok javítása.
+- Plusz/minusz mennyiségi gombok a termékekhez
+- Vezetéknév és keresztnév rendbetétele
+- Megye mező elrejtése
+- Pénztár oldal formázása
+- Fordítási hiányosságok javítása
 - További funkciók hamarosan...
 
-### Surbma infók
+#### Plusz/minusz mennyiségi gombok a termékekhez
+
+A WooCommerce alapból csak egy szám típusú mezőt használ a termékek mennyiségénél, de ez felhasználói szemmel nézve nem elég. Ez a funkció a mennyiségi mező elé és után betesz egy plusz/minusz gombot, amivel a felhasználók könnyedén tudják változtatni a mennyiséget mind a termék végoldalon, mind pedig a kosár összegzés oldalán.
+
+FIGYELEM! A gombok a különböző sablonoknál esetleg másképp vagy nem megfelelően jelenhetnek meg. Ez minden esetben javítható egy kis CSS segítségével. Én azon vagyok, hogy a lehető legnépszerűbb sablonoknál már automatikusan jól nézzen ki, illetve kap egy alap formázást is, hogy a legtöbb esetben megfelelő legyen, de biztosan lesznek olyan sablonok, ahol ez még így is igényel majd további CSS formázást. A bővítmény támogatás fórumában lehet ezeket jelezni, de nem tudom vállalni, hogy mindenkinek, gyorsan tudok segíteni.
+
+Jelenleg ezeket a sablonokat támogatja alapból a bővítmény:
+
+- Storefront
+
+#### Vezetéknév és keresztnév rendbetétele
+
+A keresztnév és vezetéknév sorrendjének a megfordítása, ha a cím Magyarország. Ahogy mi szeretjük. :) Mindezt úgy, hogy reszponzív nézetben is jó legyen és a CRM, számlázó programok is tudják értelmezni.
+
+#### Megye mező elrejtése
+
+Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés. De ha valakinek nagyon kell, akkor visszaállítható.
+
+#### Pénztár oldal formázása
+
+Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+
+#### Fordítási hiányosságok javítása
+
+Ideiglenes fordítási hiányosságok javítása, amíg a hivatalos fordításban esetleg nem jelenik meg vagy nem frissíti a rendszer. Én hivatalos szerkesztője is vagyok a magyar WooCommerce fordítási csapatának, ezért ott sokmindent megcsinálok, de néha szükség van erre a kis trükkre.
+
+### Egyéb fejlesztői infók
 
 #### Szeretnél résztvenni vagy segíteni a bővítmény fejlesztésében?
 
-Megtalálod a teljes forráskódot a GitHub-on: [https://github.com/Surbma/surbma-magyar-woocommerce](https://github.com/Surbma/surbma-magyar-woocommerce)
+Megtalálod a teljes forráskódot a GitHub-on:
+[https://github.com/Surbma/surbma-magyar-woocommerce](https://github.com/Surbma/surbma-magyar-woocommerce)
 
 #### További bővítményeket és projekteket is találsz a GitHub oldalamon:
 
@@ -44,15 +72,36 @@ Nézd meg a weboldalam: [Surbma.hu](https://surbma.hu/)
 
 == Installation ==
 
-1. Töltsd fel a `surbma-magyar-woocommerce` mappát a `/wp-content/plugins/` mappába.
-2. Aktiváld a Surbma - Magyar WooCommerce bővítményt a 'Bővítmények' menüpont alatt a WordPress admin felületen.
-3. Ennyi az egész. :)
+### Automatikus telepítés
+
+1. A "Bővítmények -> Új hozzáadása" menüpont alatt keress rá a *HuCommerce - Magyar WooCommerce kiegészítések* bővítményre.
+2. A bővítmény dobozában kattints a "Telepítés most" gombra.
+3. Telepítés után ugyanebben a dobozban kattints a "Bekapcsol" gombra, hogy aktiváld a *HuCommerce - Magyar WooCommerce kiegészítések* bővítményt.
+4. A "WooCommerce -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
+5. Ennyi az egész. :)
+
+### Manuális telepítés az admin felületen
+
+1. Töltsd le a bővítményt: [HuCommerce - Magyar WooCommerce kiegészítések](https://downloads.wordpress.org/plugin/surbma-magyar-woocommerce.zip)
+2. Töltsd fel a `surbma-magyar-woocommerce.zip` fájlt a "Bővítmények -> Új hozzáadása" menüpont alatt a "Bővítmény feltöltése" gombra kattintva.
+3. Aktiváld a *HuCommerce - Magyar WooCommerce kiegészítések* bővítményt a feltöltés után.
+4. A "WooCommerce -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
+5. Ennyi az egész. :)
+
+### Manuális telepítés FTP használatával
+
+1. Töltsd le a bővítményt: [HuCommerce - Magyar WooCommerce kiegészítések](https://downloads.wordpress.org/plugin/surbma-magyar-woocommerce.zip)
+2. Tömörítsd ki a zip fájlt a számítógépeden.
+3. Töltsd fel a `surbma-magyar-woocommerce` mappát a `/wp-content/plugins/` mappába.
+4. Aktiváld a *HuCommerce - Magyar WooCommerce kiegészítések* bővítményt a "Bővítmények" menüpont alatt a WordPress admin felületen.
+5. A "WooCommerce -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
+6. Ennyi az egész. :)
 
 == Frequently Asked Questions ==
 
 = Hol találom a bővítmény beállításait? =
 
-A bővítménynek egyelőre nincsenek beállításai. A felsorolt funkciók a bővítmény aktiválása után automatikusan érvényesek lesznek.
+A *HuCommerce - Magyar WooCommerce kiegészítések* bővítmény beállításait a "WooCommerce -> HuCommerce" menüpont alatt éred el.
 
 = Nem cserélődtek meg a nevek a Pénztár oldalon. =
 
@@ -65,6 +114,17 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 5.0 =
+
+- FRISSÍTÉS - 2019-01-11
+- ÚJ - Mennyiségi gombok a termékekhez.
+- ÚJ - A bővítmény nevének módosítása: HuCommerce - Magyar WooCommerce kiegészítések
+- ÚJ - Admin beállítások a bővítményhez. Minden modul ki- bekapcsolható.
+- ÚJ - Moduláris felépítés első lépései, felkészítés további hasznos funkciók optimális implementálásához.
+- JAVÍTÁS - A WooCommerce myaccount/form-edit-account.php sablon frissítése a 3.5.0 verzióra.
+- MÓDOSÍTÁS - A megye mező elrejtésének a kikapcsolása már nem működik az eddigi globális változó megadásával, ezt is az admin felületen lehet beállítani.
+- MÓDOSÍTÁS - Kisebb javítások a leírásban.
 
 = 4.5 =
 
