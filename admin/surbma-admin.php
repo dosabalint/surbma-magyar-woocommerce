@@ -8,9 +8,9 @@ function surbma_hc_admin_scripts( $hook ) {
 	global $surbma_hc_cookies_page;
 	global $surbma_hc_documentation_page;
 	if ( $hook == $surbma_hc_settings_page || $hook == $surbma_hc_social_page || $hook == $surbma_hc_cookies_page || $hook == $surbma_hc_documentation_page ) {
-		wp_enqueue_script( 'uikit-js', $admin_url . '/uikit/js/uikit.min.js', array( 'jquery' ), '3.0.0-rc.2' );
-		wp_enqueue_script( 'uikit-icons', $admin_url . '/uikit/js/uikit-icons.min.js', array( 'jquery' ), '3.0.0-rc.2' );
-		wp_enqueue_style( 'uikit-css', $admin_url . '/uikit/css/uikit.min.css', false, '3.0.0-rc.2' );
+		wp_enqueue_script( 'uikit-js', $admin_url . '/uikit/js/uikit.min.js', array( 'jquery' ), '3.0.0-rc.26' );
+		wp_enqueue_script( 'uikit-icons', $admin_url . '/uikit/js/uikit-icons.min.js', array( 'jquery' ), '3.0.0-rc.26' );
+		wp_enqueue_style( 'uikit-css', $admin_url . '/uikit/css/uikit.min.css', false, '3.0.0-rc.26' );
 		wp_enqueue_style( 'surbma-admin', $admin_url . '/surbma-admin.css' );
 	}
 	wp_enqueue_style( 'surbma-global-admin', $admin_url . '/surbma-global-admin.css' );

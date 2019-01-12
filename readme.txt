@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 5.1
+Stable tag: 5.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,7 +116,12 @@ A vezetéknevem visszafelé. ;)
 
 == Changelog ==
 
-= 5.0 =
+= 5.2 =
+
+- FRISSÍTÉS - 2019-01-12
+- MÓDOSÍTÁS- Admin UIkit frissítése.
+
+= 5.1 =
 
 - FRISSÍTÉS - 2019-01-12
 - JAVÍTÁS - Divi sablon egyedi formázások a plusz/minusz gombokhoz.
