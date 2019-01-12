@@ -57,23 +57,22 @@ function surbma_hc_plus_minus_scripts() {
 add_action( 'wp_footer', 'surbma_hc_plus_minus_scripts' );
 
 function surbma_hc_plus_minus_button_styles() {
-	if ( is_product() || is_cart() ) {
-	?>
-	<style>
+	if ( is_product() || is_cart() ) { ?>
+<style id="hucommerce-style">
 	.quantity input::-webkit-outer-spin-button,
 	.quantity input::-webkit-inner-spin-button {display: none;margin: 0;}
 	.quantity input.qty {appearance: textfield;-webkit-appearance: none;-moz-appearance: textfield;}
-	</style>
-	<?php
-	}
-
-	if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'storefront' && is_cart() ) {
-	?>
-	<style>
+	.quantity input.qty-button {cursor: pointer;}
+<?php if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'storefront' ) { ?>
 	table.cart td.product-quantity .qty {padding: .6180469716em;}
 	table.cart .product-quantity .minus, table.cart .product-quantity .plus {display: inline-block;}
-	</style>
-	<?php
-	}
+<?php } ?>
+<?php if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'Divi' ) { ?>
+	.woocommerce .quantity input.qty-button {height: 49px !important;border-radius: 3px !important;font-weight: 500 !important;}
+	.woocommerce .quantity input.qty-button:hover {color: #fff!important;background-color: rgba(0,0,0,.2) !important;}
+	.woocommerce .quantity {width: auto;}
+<?php } ?>
+</style>
+	<?php }
 }
-add_action( 'wp_head', 'surbma_hc_plus_minus_button_styles' );
+add_action( 'wp_head', 'surbma_hc_plus_minus_button_styles', 999 );

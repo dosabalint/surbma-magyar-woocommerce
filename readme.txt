@@ -1,10 +1,10 @@
 === HuCommerce - Magyar WooCommerce kiegészítések ===
-Contributors: Surbma
+Contributors: Surbma, HuCommerce
 Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 5.0
+Stable tag: 5.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,7 @@ FIGYELEM! A gombok a különböző sablonoknál esetleg másképp vagy nem megfe
 Jelenleg ezeket a sablonokat támogatja alapból a bővítmény:
 
 - Storefront
+- Divi
 
 #### Vezetéknév és keresztnév rendbetétele
 
@@ -114,6 +115,12 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 5.0 =
+
+- FRISSÍTÉS - 2019-01-12
+- JAVÍTÁS - Divi sablon egyedi formázások a plusz/minusz gombokhoz.
+- JAVÍTÁS - Kisebb kód optimalizálás a plusz/minusz gombok CSS formázásánál.
 
 = 5.0 =
 
