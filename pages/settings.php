@@ -109,6 +109,19 @@ function surbma_hc_settings_page() {
 							</div>
 
 							<div class="uk-margin">
+								<div class="uk-form-label">Belépés és regisztráció utáni átirányítás <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Beállítható, hogy a látogatók a belépés és regisztráció után a meghatározott oldalra legyenek automatikusan átirányítva.; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $loginregistrationredirectValue = isset( $options['loginregistrationredirect'] ) ? $options['loginregistrationredirect'] : 0; ?>
+											<input id="surbma_hc_fields[loginregistrationredirect]" name="surbma_hc_fields[loginregistrationredirect]" type="checkbox" value="1" <?php checked( '1', $loginregistrationredirectValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
 								<div class="uk-form-label">Fordítási hiányosságok javítása <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ideiglenes fordítási hiányosságok javítása, amíg a hivatalos fordításban esetleg nem jelenik meg vagy nem frissíti a rendszer.; pos: right"></span></div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">
@@ -223,6 +236,24 @@ function surbma_hc_settings_page() {
 								</div>
 							</div>
 
+							<h4 class="uk-heading-divider">Belépés és regisztráció utáni átirányítás</h4>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[loginredirecturl]">Belépés utáni átirányítási URL <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Abszolút URL megadása. Ha üres a mező, akkor az alapértelmezett WooCommerce átirányítás működik.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $loginredirecturlValue = isset( $options['loginredirecturl'] ) ? $options['loginredirecturl'] : wc_get_page_permalink( 'shop' ); ?>
+									<input id="surbma_hc_fields[loginredirecturl]" class="uk-input" type="text" name="surbma_hc_fields[loginredirecturl]" value="<?php echo stripslashes( $loginredirecturlValue ); ?>" />
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[registrationredirecturl]">Regisztráció utáni átirányítási URL <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Abszolút URL megadása. Ha üres a mező, akkor az alapértelmezett WooCommerce átirányítás működik.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $registrationredirecturlValue = isset( $options['registrationredirecturl'] ) ? $options['registrationredirecturl'] : wc_get_page_permalink( 'shop' ); ?>
+									<input id="surbma_hc_fields[registrationredirecturl]" class="uk-input" type="text" name="surbma_hc_fields[registrationredirecturl]" value="<?php echo stripslashes( $registrationredirecturlValue ); ?>" />
+								</div>
+							</div>
+
 						</div>
 						<div class="uk-card-footer uk-background-muted">
 							<p><input type="submit" class="uk-button uk-button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
@@ -266,6 +297,8 @@ function surbma_hc_fields_validate( $input ) {
 
 	// Say our text option must be safe text with no HTML tags
 	$input['returntoshopmessage'] = wp_filter_nohtml_kses( $input['returntoshopmessage'] );
+	$input['loginredirecturl'] = wp_filter_nohtml_kses( $input['loginredirecturl'] );
+	$input['registrationredirecturl'] = wp_filter_nohtml_kses( $input['registrationredirecturl'] );
 
 	return $input;
 }

@@ -1,0 +1,9 @@
+<wpml-config>
+	<admin-texts>
+		<key name="surbma_hc_fields">
+			<key name="returntoshopmessage" />
+			<key name="loginredirecturl" />
+			<key name="registrationredirecturl" />
+		</key>
+	</admin-texts>
+</wpml-config>

@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 6.0
+Stable tag: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,9 @@ A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet �
 - Pénztár oldal formázása
 - Plusz/minusz mennyiségi gombok a termékekhez
 - Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
+- Belépés és regisztráció utáni átirányítás
 - Fordítási hiányosságok javítása
+- WPML és Polylang kompatibilitás
 - További funkciók hamarosan...
 
 #### Vezetéknév és keresztnév rendbetétele
@@ -57,9 +59,17 @@ A Kosár és a Pénztár oldalakon megjeleníthető egy plusz Vásárlás folyta
 
 A gombok pozíciója mind a Kosár, mind a Pénztár oldalon beállítható, valamint van lehetőség egyedi üzenet megjelenítésére is bizonyos pozíciókban.
 
+#### Belépés és regisztráció utáni átirányítás
+
+Beállítható, hogy a látogatók a belépés és regisztráció után a meghatározott oldalra legyenek automatikusan átirányítva. A belépéshez és regisztrációhoz külön-külön állítható be a cél URL. A Pénztár oldalon nem veszi figyelembe az egyedi beállítást, hogy ott ne zavarja a vásárlás befejezését.
+
 #### Fordítási hiányosságok javítása
 
 Ideiglenes fordítási hiányosságok javítása, amíg a hivatalos fordításban esetleg nem jelenik meg vagy nem frissíti a rendszer. Én hivatalos szerkesztője is vagyok a magyar WooCommerce fordítási csapatának, ezért ott sokmindent megcsinálok, de néha szükség van erre a kis trükkre.
+
+#### WPML és Polylang kompatibilitás
+
+A szöveges mezők kompatibilisek a WPML, Polylang bővítményekkel, így azok beállíthatók a különböző nyelveken is.
 
 ### Egyéb fejlesztői infók
 
@@ -122,6 +132,12 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 7.0 =
+
+- FRISSÍTÉS - 2019-02-06
+- ÚJ - Belépés és regisztráció utáni átirányítás.
+- ÚJ - WPML és Polylang kompatibilitás a szöveges mezőkhöz.
 
 = 6.0 =
 
