@@ -1,4 +1,4 @@
-Surbma | Magyar WooCommerce
-===========================
+HuCommerce - Magyar WooCommerce kiegészítések
+=============================================
 
-Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
+Hasznos javítások a magyar WooCommerce webáruházakhoz.
