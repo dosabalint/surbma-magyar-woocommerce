@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 7.1
+Stable tag: 8.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,7 @@ A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet �
 - Plusz/minusz mennyiségi gombok a termékekhez
 - Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
 - Belépés és regisztráció utáni átirányítás
+- Ingyenes szállítás értesítés
 - Fordítási hiányosságok javítása
 - WPML és Polylang kompatibilitás
 - További funkciók hamarosan...
@@ -62,6 +63,10 @@ A gombok pozíciója mind a Kosár, mind a Pénztár oldalon beállítható, val
 #### Belépés és regisztráció utáni átirányítás
 
 Beállítható, hogy a látogatók a belépés és regisztráció után a meghatározott oldalra legyenek automatikusan átirányítva. A belépéshez és regisztrációhoz külön-külön állítható be a cél URL. A Pénztár oldalon nem veszi figyelembe az egyedi beállítást, hogy ott ne zavarja a vásárlás befejezését.
+
+#### Ingyenes szállítás értesítés
+
+A Kosár oldalon kijelzi, hogy mennyi vásárlási összeg hiányzik még az ingyenes szállításhoz. A szöveg módosítható és többnyelvűsíthető.
 
 #### Fordítási hiányosságok javítása
 
@@ -132,6 +137,12 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 8.0 =
+
+- FRISSÍTÉS - 2019-02-06
+- ÚJ - Ingyenes szállítás értesítés.
+- JAVÍTÁS - Mező értékek validálásának a javítása.
 
 = 7.1 =
 

@@ -122,6 +122,19 @@ function surbma_hc_settings_page() {
 							</div>
 
 							<div class="uk-margin">
+								<div class="uk-form-label">Ingyenes szállítás értesítés <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A Kosár oldalon kijelzi, hogy mennyi vásárlási összeg hiányzik még az ingyenes szállításhoz.; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $freeshippingnoticeValue = isset( $options['freeshippingnotice'] ) ? $options['freeshippingnotice'] : 0; ?>
+											<input id="surbma_hc_fields[freeshippingnotice]" name="surbma_hc_fields[freeshippingnotice]" type="checkbox" value="1" <?php checked( '1', $freeshippingnoticeValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
 								<div class="uk-form-label">Fordítási hiányosságok javítása <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ideiglenes fordítási hiányosságok javítása, amíg a hivatalos fordításban esetleg nem jelenik meg vagy nem frissíti a rendszer.; pos: right"></span></div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">
@@ -254,6 +267,16 @@ function surbma_hc_settings_page() {
 								</div>
 							</div>
 
+							<h4 class="uk-heading-divider">Ingyenes szállítás értesítés</h4>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[freeshippingnoticemessage]">Üzenet szövege</label>
+								<div class="uk-form-controls">
+									<?php $freeshippingnoticemessageValue = isset( $options['freeshippingnoticemessage'] ) && ( $options['freeshippingnoticemessage'] != '' ) ? $options['freeshippingnoticemessage'] : 'Az Ingyenes szállításhoz szükséges további vásárlás értéke'; ?>
+									<input id="surbma_hc_fields[freeshippingnoticemessage]" class="uk-input" type="text" name="surbma_hc_fields[freeshippingnoticemessage]" value="<?php echo stripslashes( $freeshippingnoticemessageValue ); ?>" />
+								</div>
+							</div>
+
 						</div>
 						<div class="uk-card-footer uk-background-muted">
 							<p><input type="submit" class="uk-button uk-button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
@@ -287,6 +310,8 @@ function surbma_hc_fields_validate( $input ) {
 	$input['plusminus'] = isset( $input['plusminus'] ) && $input['plusminus'] == 1 ? 1 : 0;
 	$input['translations'] = isset( $input['translations'] ) && $input['translations'] == 1 ? 1 : 0;
 	$input['returntoshop'] = isset( $input['returntoshop'] ) && $input['returntoshop'] == 1 ? 1 : 0;
+	$input['loginregistrationredirect'] = isset( $input['loginregistrationredirect'] ) && $input['loginregistrationredirect'] == 1 ? 1 : 0;
+	$input['freeshippingnotice'] = isset( $input['freeshippingnotice'] ) && $input['freeshippingnotice'] == 1 ? 1 : 0;
 	$input['nocounty'] = isset( $input['nocounty'] ) && $input['nocounty'] == 1 ? 1 : 0;
 
 	// Our select option must actually be in our array of select options
@@ -299,6 +324,7 @@ function surbma_hc_fields_validate( $input ) {
 	$input['returntoshopmessage'] = wp_filter_nohtml_kses( $input['returntoshopmessage'] );
 	$input['loginredirecturl'] = wp_filter_nohtml_kses( $input['loginredirecturl'] );
 	$input['registrationredirecturl'] = wp_filter_nohtml_kses( $input['registrationredirecturl'] );
+	$input['freeshippingnoticemessage'] = wp_filter_nohtml_kses( $input['freeshippingnoticemessage'] );
 
 	return $input;
 }
