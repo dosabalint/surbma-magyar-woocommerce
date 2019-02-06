@@ -125,6 +125,7 @@ A vezetéknevem visszafelé. ;)
 
 = 6.0 =
 
+- FRISSÍTÉS - 2019-02-06
 - ÚJ - Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon. A gomb pozíciója is beállítható.
 
 = 5.2 =
