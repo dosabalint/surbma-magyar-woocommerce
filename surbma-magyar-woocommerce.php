@@ -5,10 +5,10 @@ Plugin Name: HuCommerce - Magyar WooCommerce kiegészítések
 Plugin URI: https://www.hucommerce.hu/
 Description: Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
 
-Version: 5.2
+Version: 6.0
 
-Author: Surbma, HuCommerce
-Author URI: https://surbma.hu/
+Author: HuCommerce
+Author URI: https://www.hucommerce.hu/
 
 License: GPLv2
 
@@ -32,6 +32,7 @@ $options = get_option( 'surbma_hc_fields' );
 $huformatfixValue = isset( $options['huformatfix'] ) ? $options['huformatfix'] : 1;
 $plusminusValue = isset( $options['plusminus'] ) ? $options['plusminus'] : 0;
 // $translationsValue = isset( $options['translations'] ) ? $options['translations'] : 1;
+$returntoshopValue = isset( $options['returntoshop'] ) ? $options['returntoshop'] : 0;
 
 // Include files & modules
 if ( is_admin() ) {
@@ -42,6 +43,7 @@ else {
 }
 if( $huformatfixValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/hu-format-fix.php' );
 if( $plusminusValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/plus-minus-buttons.php' );
+if( $returntoshopValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/return-to-shop.php' );
 
 // Add plugin woocommerce templates if exist
 function surbma_hc_locate_template( $template, $template_name, $template_path ) {

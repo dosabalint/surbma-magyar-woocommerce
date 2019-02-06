@@ -1,10 +1,10 @@
 === HuCommerce - Magyar WooCommerce kiegészítések ===
-Contributors: Surbma, HuCommerce
+Contributors: Surbma
 Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 5.2
+Stable tag: 6.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,23 +20,13 @@ A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet �
 
 ### A bővítmény funkciói
 
-- Plusz/minusz mennyiségi gombok a termékekhez
 - Vezetéknév és keresztnév rendbetétele
 - Megye mező elrejtése
 - Pénztár oldal formázása
+- Plusz/minusz mennyiségi gombok a termékekhez
+- Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
 - Fordítási hiányosságok javítása
 - További funkciók hamarosan...
-
-#### Plusz/minusz mennyiségi gombok a termékekhez
-
-A WooCommerce alapból csak egy szám típusú mezőt használ a termékek mennyiségénél, de ez felhasználói szemmel nézve nem elég. Ez a funkció a mennyiségi mező elé és után betesz egy plusz/minusz gombot, amivel a felhasználók könnyedén tudják változtatni a mennyiséget mind a termék végoldalon, mind pedig a kosár összegzés oldalán.
-
-FIGYELEM! A gombok a különböző sablonoknál esetleg másképp vagy nem megfelelően jelenhetnek meg. Ez minden esetben javítható egy kis CSS segítségével. Én azon vagyok, hogy a lehető legnépszerűbb sablonoknál már automatikusan jól nézzen ki, illetve kap egy alap formázást is, hogy a legtöbb esetben megfelelő legyen, de biztosan lesznek olyan sablonok, ahol ez még így is igényel majd további CSS formázást. A bővítmény támogatás fórumában lehet ezeket jelezni, de nem tudom vállalni, hogy mindenkinek, gyorsan tudok segíteni.
-
-Jelenleg ezeket a sablonokat támogatja alapból a bővítmény:
-
-- Storefront
-- Divi
 
 #### Vezetéknév és keresztnév rendbetétele
 
@@ -49,6 +39,23 @@ Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés. De 
 #### Pénztár oldal formázása
 
 Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+
+#### Plusz/minusz mennyiségi gombok a termékekhez
+
+A WooCommerce alapból csak egy szám típusú mezőt használ a termékek mennyiségénél, de ez felhasználói szemmel nézve nem elég. Ez a funkció a mennyiségi mező elé és után betesz egy plusz/minusz gombot, amivel a felhasználók könnyedén tudják változtatni a mennyiséget mind a termék végoldalon, mind pedig a kosár összegzés oldalán.
+
+FIGYELEM! A gombok a különböző sablonoknál esetleg másképp vagy nem megfelelően jelenhetnek meg. Ez minden esetben javítható egy kis CSS segítségével. Én azon vagyok, hogy a lehető legnépszerűbb sablonoknál már automatikusan jól nézzen ki, illetve kap egy alap formázást is, hogy a legtöbb esetben megfelelő legyen, de biztosan lesznek olyan sablonok, ahol ez még így is igényel majd további CSS formázást. A bővítmény támogatás fórumában lehet ezeket jelezni, de nem tudom vállalni, hogy mindenkinek, gyorsan tudok segíteni.
+
+Jelenleg ezeket a sablonokat támogatja alapból a bővítmény:
+
+- Storefront
+- Divi
+
+#### Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
+
+A Kosár és a Pénztár oldalakon megjeleníthető egy plusz Vásárlás folytatása gomb, ami az üzlet oldalra viszi a látogatókat, hogy esetleg még tovább válogassanak a termékek között. Sokszor csak kíváncsiságból kattintanak a látogatók a Kosár gombra, de még nem fejezték be a vásárlásukat.
+
+A gombok pozíciója mind a Kosár, mind a Pénztár oldalon beállítható, valamint van lehetőség egyedi üzenet megjelenítésére is bizonyos pozíciókban.
 
 #### Fordítási hiányosságok javítása
 
@@ -115,6 +122,10 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 6.0 =
+
+- ÚJ - Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon. A gomb pozíciója is beállítható.
 
 = 5.2 =
 
