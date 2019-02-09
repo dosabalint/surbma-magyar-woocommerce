@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 8.0
+Stable tag: 9.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,8 +21,10 @@ A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet �
 ### A bővítmény funkciói
 
 - Vezetéknév és keresztnév rendbetétele
-- Megye mező elrejtése
+- Adószám bekérése vásárlásnál
+- Jogi megfelelés (GDPR, ePrivacy, stb.)
 - Pénztár oldal formázása
+- Megye mező elrejtése
 - Plusz/minusz mennyiségi gombok a termékekhez
 - Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
 - Belépés és regisztráció utáni átirányítás
@@ -33,15 +35,33 @@ A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet �
 
 #### Vezetéknév és keresztnév rendbetétele
 
-A keresztnév és vezetéknév sorrendjének a megfordítása, ha a cím Magyarország. Ahogy mi szeretjük. :) Mindezt úgy, hogy reszponzív nézetben is jó legyen és a CRM, számlázó programok is tudják értelmezni.
+A keresztnév és vezetéknév sorrendjének a megfordítása, ha a webáruház magyar nyelvre van állítva. Ahogy mi szeretjük. :) Mindezt úgy, hogy reszponzív nézetben is jó legyen és a CRM, számlázó programok is tudják értelmezni.
 
-#### Megye mező elrejtése
+A megjelenítés kompatibilis a WPML bővítménnyel, így többnyelvű webáruháznál is magyar sorrendben jelenik meg a név, ha magyar nyelven nézik a webáruházat a látogatók.
 
-Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés. De ha valakinek nagyon kell, akkor visszaállítható.
+A név sorrendje a megrendelés visszaigazolásánál, a vásárló fiókjában és az értesítő levelekben is jól jelenik meg.
+
+#### Adószám bekérése vásárlásnál
+
+A Pénztár oldalon a Cég mező alatt már Adószámot is be lehet kérni. Az adószám a rendelésen kívül az adott felhasználó profil adatainál is elmentésre kerül. Az adószám megjelenik mind a visszaigazoláson, mind a rendelés szerkesztésénél, valamint az értesítő levelekben is.
+
+#### Jogi megfelelés (GDPR, ePrivacy, stb.)
+
+**FIGYELEM!** A webáruház jogi megfelelése az aktuális törvényeknek és adatvédelmi rendeleteknek minden esetben a webáruház tulajdonosának a felelőssége. Ez az opció nem mentesít senkit sem az alól, hogy a megfelelést felülvizsgáltassa szakértővel vagy jogásszal. A fejlesztők nem vállalnak semmilyen felelősséget a webáruház jogi megfeleléséért.
+
+Lehetőség van az Általános Szerződési Feltételek és az Adatkezelési tájékoztató aktív cselekvésen alapuló elfogadtatására, azaz ki kell pipálnia a vásárlónak ezek elfogadását, mielőtt a rendelést leadhatná. Az adatok a rendeléseknél kerülnek elmentésre és a rendelés szerkesztése oldalon megjelenik az elfogadott státusz.
+
+A vásárló profil adatainál nem kerül elmentésre az elfogadás, így azt bejelentkezve is minden vásárlás alkalmával el kell fogadnia.
+
+Opcionális a két mező használata, így ha valakinek csak az egyik elfogadtatására és megerősítésére van szüksége, akkor egyik vagy másik kikapcsolható.
 
 #### Pénztár oldal formázása
 
 Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+
+#### Megye mező elrejtése
+
+Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés. De ha valakinek nagyon kell, akkor visszaállítható.
 
 #### Plusz/minusz mennyiségi gombok a termékekhez
 
@@ -137,6 +157,15 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a válasz
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 9.0 =
+
+- FRISSÍTÉS - 2019-02-09
+- ÚJ - Adószám bekérése vásárlásnál
+- ÚJ - Jogi megfelelés (GDPR, ePrivacy, stb.)
+- MÓDOSÍTÁS - A magyar név sorrend mostantól nem akkor érvényes, ha a cím magyar, hanem minden esetben, ha magyar nyelvű a webáruház.
+- JAVÍTÁS - A magyar név sorrend kompatibilis a WPML bővítménnyel, így többnyelvű webáruháznál igazodik a választott nyelvhez.
+- MÓDOSÍTÁS - Kisebb változtatás az admin megjelenésén.
 
 = 8.0 =
 

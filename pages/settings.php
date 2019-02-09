@@ -82,6 +82,8 @@ function surbma_hc_settings_page() {
 								</div>
 							</div>
 
+							<hr>
+
 							<div class="uk-margin">
 								<div class="uk-form-label">Plusz/minusz mennyiségi gombok <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A mennyiség mezőnél megjelenít egy plusz/minusz gombot, amivel lehet módosítani a mennyiséget.; pos: right"></span></div>
 								<div class="uk-form-controls">
@@ -94,6 +96,8 @@ function surbma_hc_settings_page() {
 									</p>
 								</div>
 							</div>
+
+							<hr>
 
 							<div class="uk-margin">
 								<div class="uk-form-label">Vásárlás folytatása gombok <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Egy gombot helyez el a Kosár és/vagy a Pénztár oldalon, amivel folytathatja a látogató a vásárlást. A gomb az üzlet oldalra viszi a látogatót.; pos: right"></span></div>
@@ -108,6 +112,8 @@ function surbma_hc_settings_page() {
 								</div>
 							</div>
 
+							<hr>
+
 							<div class="uk-margin">
 								<div class="uk-form-label">Belépés és regisztráció utáni átirányítás <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Beállítható, hogy a látogatók a belépés és regisztráció után a meghatározott oldalra legyenek automatikusan átirányítva.; pos: right"></span></div>
 								<div class="uk-form-controls">
@@ -121,6 +127,8 @@ function surbma_hc_settings_page() {
 								</div>
 							</div>
 
+							<hr>
+
 							<div class="uk-margin">
 								<div class="uk-form-label">Ingyenes szállítás értesítés <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A Kosár oldalon kijelzi, hogy mennyi vásárlási összeg hiányzik még az ingyenes szállításhoz.; pos: right"></span></div>
 								<div class="uk-form-controls">
@@ -133,6 +141,38 @@ function surbma_hc_settings_page() {
 									</p>
 								</div>
 							</div>
+
+							<hr>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Adószám megjelenítése <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A vásárlásnál nem csak a Cégnevet, hanem Adószámot is meg lehet adni.; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $taxnumberValue = isset( $options['taxnumber'] ) ? $options['taxnumber'] : 0; ?>
+											<input id="surbma_hc_fields[taxnumber]" name="surbma_hc_fields[taxnumber]" type="checkbox" value="1" <?php checked( '1', $taxnumberValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Jogi megfelelés (GDPR, ePrivacy, stb.) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Vásárlásnál meg kell erősítenie a vásárlónak, hogy elfogadja-e az Általános Szerződési Feltételeket és/vagy az Adatvédelmi tájékoztatót.; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $legalcheckoutValue = isset( $options['legalcheckout'] ) ? $options['legalcheckout'] : 0; ?>
+											<input id="surbma_hc_fields[legalcheckout]" name="surbma_hc_fields[legalcheckout]" type="checkbox" value="1" <?php checked( '1', $legalcheckoutValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<hr>
 
 							<div class="uk-margin">
 								<div class="uk-form-label">Fordítási hiányosságok javítása <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ideiglenes fordítási hiányosságok javítása, amíg a hivatalos fordításban esetleg nem jelenik meg vagy nem frissíti a rendszer.; pos: right"></span></div>
@@ -277,6 +317,32 @@ function surbma_hc_settings_page() {
 								</div>
 							</div>
 
+							<h4 class="uk-heading-divider">Jogi megfelelés (GDPR, ePrivacy, stb.)</h4>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[legalcheckouttitle]">Szakasz elnevezése <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ez a cím jelenik meg a checbox-ok fölött. Ha üres, akkor nem jelenik meg.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $legalcheckouttitleValue = isset( $options['legalcheckouttitle'] ) ? $options['legalcheckouttitle'] : 'Vásárlással kapcsolatos megerősítések'; ?>
+									<input id="surbma_hc_fields[legalcheckouttitle]" class="uk-input" type="text" name="surbma_hc_fields[legalcheckouttitle]" value="<?php echo stripslashes( $legalcheckouttitleValue ); ?>" />
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[accepttos]">Általános Szerződési Feltételek elfogadásának a szövege (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $accepttosValue = isset( $options['accepttos'] ) ? $options['accepttos'] : esc_attr( 'Elolvastam és elfogadom az <a href="/aszf/" target="_blank">Általános Szerződési Feltételeket</a>' ); ?>
+									<input id="surbma_hc_fields[accepttos]" class="uk-input" type="text" name="surbma_hc_fields[accepttos]" value="<?php echo esc_attr( stripslashes( $accepttosValue ) ); ?>" />
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[acceptpp]">Adatvédelmi tájékoztató elfogadásának a szövege (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $acceptppValue = isset( $options['acceptpp'] ) ? $options['acceptpp'] : esc_attr( 'Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>' ); ?>
+									<input id="surbma_hc_fields[acceptpp]" class="uk-input" type="text" name="surbma_hc_fields[acceptpp]" value="<?php echo esc_attr( stripslashes( $acceptppValue ) ); ?>" />
+								</div>
+							</div>
+
 						</div>
 						<div class="uk-card-footer uk-background-muted">
 							<p><input type="submit" class="uk-button uk-button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
@@ -312,6 +378,8 @@ function surbma_hc_fields_validate( $input ) {
 	$input['returntoshop'] = isset( $input['returntoshop'] ) && $input['returntoshop'] == 1 ? 1 : 0;
 	$input['loginregistrationredirect'] = isset( $input['loginregistrationredirect'] ) && $input['loginregistrationredirect'] == 1 ? 1 : 0;
 	$input['freeshippingnotice'] = isset( $input['freeshippingnotice'] ) && $input['freeshippingnotice'] == 1 ? 1 : 0;
+	$input['taxnumber'] = isset( $input['taxnumber'] ) && $input['taxnumber'] == 1 ? 1 : 0;
+	$input['legalcheckout'] = isset( $input['legalcheckout'] ) && $input['legalcheckout'] == 1 ? 1 : 0;
 	$input['nocounty'] = isset( $input['nocounty'] ) && $input['nocounty'] == 1 ? 1 : 0;
 
 	// Our select option must actually be in our array of select options
@@ -325,6 +393,11 @@ function surbma_hc_fields_validate( $input ) {
 	$input['loginredirecturl'] = wp_filter_nohtml_kses( $input['loginredirecturl'] );
 	$input['registrationredirecturl'] = wp_filter_nohtml_kses( $input['registrationredirecturl'] );
 	$input['freeshippingnoticemessage'] = wp_filter_nohtml_kses( $input['freeshippingnoticemessage'] );
+	$input['legalcheckouttitle'] = wp_filter_nohtml_kses( $input['legalcheckouttitle'] );
+
+	// Say our text/textarea option must be safe text with the allowed tags for posts
+	$input['accepttos'] = wp_filter_post_kses( $input['accepttos'] );
+	$input['acceptpp'] = wp_filter_post_kses( $input['acceptpp'] );
 
 	return $input;
 }

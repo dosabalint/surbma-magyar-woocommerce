@@ -67,7 +67,7 @@ function surbma_hc_admin_sidebar() {
 			<h4 class="uk-heading-divider">Tervezett funkciók</h4>
 			<ul class="uk-list">
 				<li><span uk-icon="icon: check; ratio: 0.8"></span> Város megjelenítése automatikusan az irányítószám alapján.</li>
-				<li><span uk-icon="icon: check; ratio: 0.8"></span> Adószám mező megjelenítése.</li>
+				<li><span uk-icon="icon: check; ratio: 0.8"></span> Globális adatok, amiket shortcode-dal lehet bárhol megjeleníteni.</li>
 			</ul>
 			<?php /*
 			<h4 class="uk-heading-divider">Szerezd meg a PRO verziót</h4>

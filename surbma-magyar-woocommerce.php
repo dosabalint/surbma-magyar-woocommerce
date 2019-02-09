@@ -5,7 +5,7 @@ Plugin Name: HuCommerce - Magyar WooCommerce kiegészítések
 Plugin URI: https://www.hucommerce.hu/
 Description: Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
 
-Version: 8.0
+Version: 9.0
 
 Author: HuCommerce
 Author URI: https://www.hucommerce.hu/
@@ -34,6 +34,8 @@ $plusminusValue = isset( $options['plusminus'] ) ? $options['plusminus'] : 0;
 $returntoshopValue = isset( $options['returntoshop'] ) ? $options['returntoshop'] : 0;
 $loginregistrationredirectValue = isset( $options['loginregistrationredirect'] ) ? $options['loginregistrationredirect'] : 0;
 $freeshippingnoticeValue = isset( $options['freeshippingnotice'] ) ? $options['freeshippingnotice'] : 0;
+$taxnumberValue = isset( $options['taxnumber'] ) ? $options['taxnumber'] : 0;
+$legalcheckoutValue = isset( $options['legalcheckout'] ) ? $options['legalcheckout'] : 0;
 // $translationsValue = isset( $options['translations'] ) ? $options['translations'] : 1;
 
 // Include files & modules
@@ -48,6 +50,8 @@ if( $plusminusValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/plus-m
 if( $returntoshopValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/return-to-shop.php' );
 if( $loginregistrationredirectValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/login-registration-redirect.php' );
 if( $freeshippingnoticeValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/free-shipping-notice.php' );
+if( $taxnumberValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/tax-number.php' );
+if( $legalcheckoutValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/legal-checkout.php' );
 
 // Add plugin woocommerce templates if exist
 function surbma_hc_locate_template( $template, $template_name, $template_path ) {
