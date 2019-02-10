@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 9.0
+Stable tag: 10.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,7 @@ A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet �
 - Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
 - Belépés és regisztráció utáni átirányítás
 - Ingyenes szállítás értesítés
+- Város automatikus kitöltése az irányítószám alapján
 - Fordítási hiányosságok javítása
 - WPML és Polylang kompatibilitás
 - További funkciók hamarosan...
@@ -87,6 +88,12 @@ Beállítható, hogy a látogatók a belépés és regisztráció után a meghat
 #### Ingyenes szállítás értesítés
 
 A Kosár oldalon kijelzi, hogy mennyi vásárlási összeg hiányzik még az ingyenes szállításhoz. A szöveg módosítható és többnyelvűsíthető.
+
+#### Város automatikus kitöltése az irányítószám alapján
+
+A Pénztár oldalon az irányítószám mező kitöltése után automatikusan megjeleníti a várost. Ha már manuálisan lett módosítva a város, akkor nem módosítja az irányítószám alapján.
+
+Vannak olyan irányítószámok, amikkel nem működik, mert vagy még hiányzik az indexből vagy egy irányítószám több településhez is tartozik. Igyekszem az ilyen hiányosságokat javítani.
 
 #### Fordítási hiányosságok javítása
 
@@ -150,13 +157,19 @@ A *HuCommerce - Magyar WooCommerce kiegészítések* bővítmény beállításai
 
 Először töröld a szerver oldali és a böngésző gyorsítótárát és frissítsd az oldalt! Győződj meg róla, hogy esetleg más bővítmény nem okoz-e konfliktust! Ha a fordítást módosítottad, az is lehet probléma. Illetve a sablonok is tartalmazhatnak olyan egyedi kódokat, amivel ez a funkció felülírható.
 
-Figyelem! A nevek cseréje csak akkor történik meg, ha Magyarország a választott ország.
+Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van állítva a webáruház.
 
 = Mit jelent az, hogy Surbma? =
 
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 10.0 =
+
+- FRISSÍTÉS - 2019-02-10
+- ÚJ - Város automatikus kitöltése az irányítószám alapján.
+- JAVÍTÁS - Kisebb javítások az admin felület megjelenítésén.
 
 = 9.0 =
 

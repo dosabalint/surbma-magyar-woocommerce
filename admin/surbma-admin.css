@@ -28,11 +28,11 @@ body {
 
 @media (min-width: 960px) {
 	.surbma-admin .uk-form-horizontal .uk-form-label {
-		width: 300px;
+		width: 400px;
 	}
 
 	.surbma-admin .uk-form-horizontal .uk-form-controls {
-		margin-left: 315px;
+		margin-left: 415px;
 	}
 }
 

@@ -70,7 +70,7 @@ function surbma_hc_settings_page() {
 						<div id="hc-modules" class="uk-card-body">
 
 							<div class="uk-margin">
-								<div class="uk-form-label">Magyar formátum javítások <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A keresztnév és vezetéknév sorrendjének a megfordítása a Pénztár oldalon akkor, ha a cím Magyarország. Megye mező elrejtése. Az Irányítószám és Város mezők pozícionálása a pénztár oldalon.; pos: right"></span></div>
+								<div class="uk-form-label">Magyar formátum javítások <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A keresztnév és vezetéknév sorrendjének a megfordítása a Pénztár oldalon akkor, ha a webáruház magyar nyelvű. Megye mező elrejtése. Az Irányítószám és Város mezők pozícionálása a pénztár oldalon.; pos: right"></span></div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">
 										<label class="switch">
@@ -160,12 +160,27 @@ function surbma_hc_settings_page() {
 							<hr>
 
 							<div class="uk-margin">
-								<div class="uk-form-label">Jogi megfelelés (GDPR, ePrivacy, stb.) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Vásárlásnál meg kell erősítenie a vásárlónak, hogy elfogadja-e az Általános Szerződési Feltételeket és/vagy az Adatvédelmi tájékoztatót.; pos: right"></span></div>
+								<div class="uk-form-label">Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Vásárlásnál meg kell erősítenie a vásárlónak, hogy elfogadja-e az Általános Szerződési Feltételeket és/vagy az Adatvédelmi tájékoztatót.; pos: right"></span></div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">
 										<label class="switch">
 											<?php $legalcheckoutValue = isset( $options['legalcheckout'] ) ? $options['legalcheckout'] : 0; ?>
 											<input id="surbma_hc_fields[legalcheckout]" name="surbma_hc_fields[legalcheckout]" type="checkbox" value="1" <?php checked( '1', $legalcheckoutValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Város automatikus kitöltése az irányítószám alapján <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A Pénztár oldalon az irányítószám mező kitöltése után automatikusan megjeleníti a várost.; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $autofillcityValue = isset( $options['autofillcity'] ) ? $options['autofillcity'] : 0; ?>
+											<input id="surbma_hc_fields[autofillcity]" name="surbma_hc_fields[autofillcity]" type="checkbox" value="1" <?php checked( '1', $autofillcityValue ); ?> />
 											<span class="slider round"></span>
 										</label>
 									</p>
@@ -317,7 +332,7 @@ function surbma_hc_settings_page() {
 								</div>
 							</div>
 
-							<h4 class="uk-heading-divider">Jogi megfelelés (GDPR, ePrivacy, stb.)</h4>
+							<h4 class="uk-heading-divider">Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.)</h4>
 
 							<div class="uk-margin">
 								<label class="uk-form-label" for="surbma_hc_fields[legalcheckouttitle]">Szakasz elnevezése <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ez a cím jelenik meg a checbox-ok fölött. Ha üres, akkor nem jelenik meg.; pos: right"></span></label>
@@ -331,7 +346,8 @@ function surbma_hc_settings_page() {
 								<label class="uk-form-label" for="surbma_hc_fields[accepttos]">Általános Szerződési Feltételek elfogadásának a szövege (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
 								<div class="uk-form-controls">
 									<?php $accepttosValue = isset( $options['accepttos'] ) ? $options['accepttos'] : esc_attr( 'Elolvastam és elfogadom az <a href="/aszf/" target="_blank">Általános Szerződési Feltételeket</a>' ); ?>
-									<input id="surbma_hc_fields[accepttos]" class="uk-input" type="text" name="surbma_hc_fields[accepttos]" value="<?php echo esc_attr( stripslashes( $accepttosValue ) ); ?>" />
+									<textarea id="surbma_hc_fields[accepttos]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[accepttos]"><?php echo stripslashes( $accepttosValue ); ?></textarea>
+									<p>Megengedett HTML tagok:</p><pre><?php echo allowed_tags(); ?></pre>
 								</div>
 							</div>
 
@@ -339,7 +355,8 @@ function surbma_hc_settings_page() {
 								<label class="uk-form-label" for="surbma_hc_fields[acceptpp]">Adatvédelmi tájékoztató elfogadásának a szövege (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
 								<div class="uk-form-controls">
 									<?php $acceptppValue = isset( $options['acceptpp'] ) ? $options['acceptpp'] : esc_attr( 'Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>' ); ?>
-									<input id="surbma_hc_fields[acceptpp]" class="uk-input" type="text" name="surbma_hc_fields[acceptpp]" value="<?php echo esc_attr( stripslashes( $acceptppValue ) ); ?>" />
+									<textarea id="surbma_hc_fields[acceptpp]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[acceptpp]"><?php echo stripslashes( $acceptppValue ); ?></textarea>
+									<p>Megengedett HTML tagok:</p><pre><?php echo allowed_tags(); ?></pre>
 								</div>
 							</div>
 
@@ -380,6 +397,7 @@ function surbma_hc_fields_validate( $input ) {
 	$input['freeshippingnotice'] = isset( $input['freeshippingnotice'] ) && $input['freeshippingnotice'] == 1 ? 1 : 0;
 	$input['taxnumber'] = isset( $input['taxnumber'] ) && $input['taxnumber'] == 1 ? 1 : 0;
 	$input['legalcheckout'] = isset( $input['legalcheckout'] ) && $input['legalcheckout'] == 1 ? 1 : 0;
+	$input['autofillcity'] = isset( $input['autofillcity'] ) && $input['autofillcity'] == 1 ? 1 : 0;
 	$input['nocounty'] = isset( $input['nocounty'] ) && $input['nocounty'] == 1 ? 1 : 0;
 
 	// Our select option must actually be in our array of select options

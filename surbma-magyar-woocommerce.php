@@ -5,7 +5,7 @@ Plugin Name: HuCommerce - Magyar WooCommerce kiegészítések
 Plugin URI: https://www.hucommerce.hu/
 Description: Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
 
-Version: 9.0
+Version: 10.0
 
 Author: HuCommerce
 Author URI: https://www.hucommerce.hu/
@@ -36,6 +36,7 @@ $loginregistrationredirectValue = isset( $options['loginregistrationredirect'] )
 $freeshippingnoticeValue = isset( $options['freeshippingnotice'] ) ? $options['freeshippingnotice'] : 0;
 $taxnumberValue = isset( $options['taxnumber'] ) ? $options['taxnumber'] : 0;
 $legalcheckoutValue = isset( $options['legalcheckout'] ) ? $options['legalcheckout'] : 0;
+$autofillcityValue = isset( $options['autofillcity'] ) ? $options['autofillcity'] : 0;
 // $translationsValue = isset( $options['translations'] ) ? $options['translations'] : 1;
 
 // Include files & modules
@@ -52,6 +53,7 @@ if( $loginregistrationredirectValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . 
 if( $freeshippingnoticeValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/free-shipping-notice.php' );
 if( $taxnumberValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/tax-number.php' );
 if( $legalcheckoutValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/legal-checkout.php' );
+if( $autofillcityValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/autofill-city.php' );
 
 // Add plugin woocommerce templates if exist
 function surbma_hc_locate_template( $template, $template_name, $template_path ) {
