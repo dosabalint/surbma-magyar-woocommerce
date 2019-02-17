@@ -54,6 +54,8 @@ function surbma_hc_admin_sidebar() {
 			<h3 class="uk-card-title">Információk <a class="uk-float-right uk-margin-small-top" uk-icon="icon: more-vertical" uk-toggle="target: #informations"></a></h3>
 		</div>
 		<div id="informations" class="uk-card-body">
+			<a class="facebook-group" href="https://www.facebook.com/groups/HuCommerce.hu/" target="_blank"><span uk-icon="facebook"></span> Csatlakozz a csoporthoz!</a>
+			<p>Csatlakozz a HuCommerce Facebook csoportjához, ahol lehet kérdezni, ötletelni. Mindenkit szívesen látunk.</p>
 			<h4 class="uk-heading-divider">Bővítmény linkek</h4>
 			<ul class="uk-list">
 				<li><a href="https://wordpress.org/support/plugin/surbma-magyar-woocommerce" target="_blank">Hivatalos támogató fórum</a></li>

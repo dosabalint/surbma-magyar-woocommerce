@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 10.1
+Stable tag: 11.0
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,11 @@ Hasznos javítások a magyar WooCommerce webáruházakhoz.
 
 A WooCommerce a világ és most már Magyarország legnépszerűbb webáruház platformja is. De ez a tény a WooCommerce fejlesztőket nem érdekli annyira, hogy a magyar igényekhez igazítsák a bővítmény bizonyos funkcióit. Szerencsére adnak bőven lehetőséget a módosításokra, de ezekhez az átlag felhasználó nem ért. Ezért hoztam létre ezt a bővítményt, hogy a magyar WooCommerce webáruházak is végre rendben legyenek.
 
-A funkciók folyamatosan bővülnek, de itt a WordPress.org fórumban is lehet új funkciókat kérni.
+A funkciók folyamatosan bővülnek, de mindenki megírhatja a véleményét, ötletét, hogyan tudjuk egyre jobbá tenni ezt a bővítményt.
+
+#### HuCommerce támogatói Facebook csoport
+
+Csatlakozzatok a HuCommerce hivatalos támogatói csoportjához, ahol lehet a bővítménnyel kapcsolatban kérdezni, beszélhgetni, ötletelni. Mindenkit szívesen látunk: [HuCommerce Facebook csoport](https://www.facebook.com/groups/HuCommerce.hu/)
 
 ### A bővítmény funkciói
 
@@ -56,6 +60,8 @@ Lehetőség van az Általános Szerződési Feltételek és az Adatkezelési tá
 A vásárló profil adatainál nem kerül elmentésre az elfogadás, így azt bejelentkezve is minden vásárlás alkalmával el kell fogadnia.
 
 Opcionális a két mező használata, így ha valakinek csak az egyik elfogadtatására és megerősítésére van szüksége, akkor egyik vagy másik kikapcsolható.
+
+A Pénztár oldalon a Megrendelés gomb fölött és/vagy alatt közvetlenül elhelyezhető jogi szöveg, ami esetleg fontos vagy kötelező eleme a vásárlási folyamatnak. Ilyen például a távollévők közötti szerződéshez szükséges tudomásulvétel vagy a "fizetési kötelezettséggel járó megrendelés" kötelező megjelenítése a megrendelés során.
 
 #### Pénztár oldal formázása
 
@@ -165,6 +171,13 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 11.0 =
+
+- FRISSÍTÉS - 2019-02-17
+- ÚJ - Facebook támogatói csoport jelentkezési lehetőség az admin felületről.
+- ÚJ - Jogi szövegek elhelyezése a Pénztár oldalon a Megrendelés gomb fölött és/vagy alatt közvetlenül.
+- MÓDOSÍTÁS - Kisebb változtatások az admin felület megjelenésén.
 
 = 10.1 =
 

@@ -347,7 +347,7 @@ function surbma_hc_settings_page() {
 								<div class="uk-form-controls">
 									<?php $accepttosValue = isset( $options['accepttos'] ) ? $options['accepttos'] : esc_attr( 'Elolvastam és elfogadom az <a href="/aszf/" target="_blank">Általános Szerződési Feltételeket</a>' ); ?>
 									<textarea id="surbma_hc_fields[accepttos]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[accepttos]"><?php echo stripslashes( $accepttosValue ); ?></textarea>
-									<p>Megengedett HTML tagok:</p><pre><?php echo allowed_tags(); ?></pre>
+									<p class="uk-text-meta">HTML használata engedélyezett</p>
 								</div>
 							</div>
 
@@ -356,7 +356,34 @@ function surbma_hc_settings_page() {
 								<div class="uk-form-controls">
 									<?php $acceptppValue = isset( $options['acceptpp'] ) ? $options['acceptpp'] : esc_attr( 'Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>' ); ?>
 									<textarea id="surbma_hc_fields[acceptpp]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[acceptpp]"><?php echo stripslashes( $acceptppValue ); ?></textarea>
-									<p>Megengedett HTML tagok:</p><pre><?php echo allowed_tags(); ?></pre>
+									<p class="uk-text-meta">HTML használata engedélyezett</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[beforeorderbuttonmessage]">Megrendelés gomb fölötti szöveg <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A megadott szöveg a Pénztár oldalon a Megrendelés gomb fölött jelenik meg. Ha üres, akkor nem jelenik meg semmi.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $beforeorderbuttonmessageValue = isset( $options['beforeorderbuttonmessage'] ) ? $options['beforeorderbuttonmessage'] : null; ?>
+									<textarea id="surbma_hc_fields[beforeorderbuttonmessage]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[beforeorderbuttonmessage]"><?php echo stripslashes( $beforeorderbuttonmessageValue ); ?></textarea>
+									<p class="uk-text-meta">HTML használata engedélyezett</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[afterorderbuttonmessage]">Megrendelés gomb alatti szöveg <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A megadott szöveg a Pénztár oldalon a Megrendelés gomb alatt jelenik meg. Ha üres, akkor nem jelenik meg semmi.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $afterorderbuttonmessageValue = isset( $options['afterorderbuttonmessage'] ) ? $options['afterorderbuttonmessage'] : null; ?>
+									<textarea id="surbma_hc_fields[afterorderbuttonmessage]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[afterorderbuttonmessage]"><?php echo stripslashes( $afterorderbuttonmessageValue ); ?></textarea>
+									<p class="uk-text-meta">HTML használata engedélyezett</p>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="uk-margin">
+								<label class="uk-form-label">Megengedett HTML tagok</label>
+								<div class="uk-form-controls">
+									<pre><?php echo allowed_tags(); ?></pre>
 								</div>
 							</div>
 
@@ -416,6 +443,8 @@ function surbma_hc_fields_validate( $input ) {
 	// Say our text/textarea option must be safe text with the allowed tags for posts
 	$input['accepttos'] = wp_filter_post_kses( $input['accepttos'] );
 	$input['acceptpp'] = wp_filter_post_kses( $input['acceptpp'] );
+	$input['beforeorderbuttonmessage'] = wp_filter_post_kses( $input['beforeorderbuttonmessage'] );
+	$input['afterorderbuttonmessage'] = wp_filter_post_kses( $input['afterorderbuttonmessage'] );
 
 	return $input;
 }

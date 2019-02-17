@@ -77,6 +77,11 @@ body {
 	padding: 0 10px;
 }
 
+.surbma-admin .uk-text-meta {
+    font-size: .7rem;
+    margin-top: 5px;
+}
+
 .surbma-admin .disabled,
 .surbma-admin .disabled * {
 	color: #ccc !important;
@@ -189,4 +194,29 @@ body {
 
 .surbma-admin.cookie-page {
 	word-break: break-word;
+}
+
+/* Buttons */
+
+.surbma-admin .facebook-group {
+	background: #3B5998;
+	border: 1px solid #3B5998;
+	border-radius: 3px;
+	color: #fff;
+	display: block;
+	text-align: center;
+	padding: 15px 0 13px;
+	font-size: 16px;
+	position: relative;
+}
+
+.surbma-admin .facebook-group:hover {
+	background: #fff;
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.surbma-admin .facebook-group .uk-icon {
+	position: relative;
+	top: -2px;
 }
