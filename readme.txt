@@ -4,8 +4,8 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 11.0
-Requires PHP: 7.0
+Stable tag: 11.1
+Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,13 +21,13 @@ A funkciók folyamatosan bővülnek, de mindenki megírhatja a véleményét, ö
 
 #### HuCommerce támogatói Facebook csoport
 
-Csatlakozzatok a HuCommerce hivatalos támogatói csoportjához, ahol lehet a bővítménnyel kapcsolatban kérdezni, beszélhgetni, ötletelni. Mindenkit szívesen látunk: [HuCommerce Facebook csoport](https://www.facebook.com/groups/HuCommerce.hu/)
+Csatlakozzatok a HuCommerce hivatalos támogatói Facebook csoportjához, ahol lehet a bővítménnyel kapcsolatban kérdezni, beszélhgetni, ötletelni. Mindenkit szívesen látunk: [HuCommerce Facebook csoport](https://www.facebook.com/groups/HuCommerce.hu/)
 
 ### A bővítmény funkciói
 
 - Vezetéknév és keresztnév rendbetétele
 - Adószám bekérése vásárlásnál
-- Jogi megfelelés (GDPR, ePrivacy, stb.)
+- Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.)
 - Pénztár oldal formázása
 - Megye mező elrejtése
 - Plusz/minusz mennyiségi gombok a termékekhez
@@ -51,9 +51,7 @@ A név sorrendje a megrendelés visszaigazolásánál, a vásárló fiókjában 
 
 A Pénztár oldalon a Cég mező alatt már Adószámot is be lehet kérni. Az adószám a rendelésen kívül az adott felhasználó profil adatainál is elmentésre kerül. Az adószám megjelenik mind a visszaigazoláson, mind a rendelés szerkesztésénél, valamint az értesítő levelekben is.
 
-#### Jogi megfelelés (GDPR, ePrivacy, stb.)
-
-**FIGYELEM!** A webáruház jogi megfelelése az aktuális törvényeknek és adatvédelmi rendeleteknek minden esetben a webáruház tulajdonosának a felelőssége. Ez az opció nem mentesít senkit sem az alól, hogy a megfelelést felülvizsgáltassa szakértővel vagy jogásszal. A fejlesztők nem vállalnak semmilyen felelősséget a webáruház jogi megfeleléséért.
+#### Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.)
 
 Lehetőség van az Általános Szerződési Feltételek és az Adatkezelési tájékoztató aktív cselekvésen alapuló elfogadtatására, azaz ki kell pipálnia a vásárlónak ezek elfogadását, mielőtt a rendelést leadhatná. Az adatok a rendeléseknél kerülnek elmentésre és a rendelés szerkesztése oldalon megjelenik az elfogadott státusz.
 
@@ -62,6 +60,8 @@ A vásárló profil adatainál nem kerül elmentésre az elfogadás, így azt be
 Opcionális a két mező használata, így ha valakinek csak az egyik elfogadtatására és megerősítésére van szüksége, akkor egyik vagy másik kikapcsolható.
 
 A Pénztár oldalon a Megrendelés gomb fölött és/vagy alatt közvetlenül elhelyezhető jogi szöveg, ami esetleg fontos vagy kötelező eleme a vásárlási folyamatnak. Ilyen például a távollévők közötti szerződéshez szükséges tudomásulvétel vagy a "fizetési kötelezettséggel járó megrendelés" kötelező megjelenítése a megrendelés során.
+
+>**FIGYELEM!** A webáruház jogi megfelelése az aktuális törvényeknek és adatvédelmi rendeleteknek minden esetben a webáruház tulajdonosának a felelőssége. Ez az opció nem mentesít senkit sem az alól, hogy a megfelelést felülvizsgáltassa szakértővel vagy jogásszal. A fejlesztők nem vállalnak semmilyen felelősséget a webáruház jogi megfeleléséért.
 
 #### Pénztár oldal formázása
 
@@ -171,6 +171,11 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 11.1 =
+
+- FRISSÍTÉS - 2019-02-27
+- JAVÍTÁS - WPML ellenőrzése csak a front-end felületen.
 
 = 11.0 =
 

@@ -2,11 +2,13 @@
 
 // Fix locale if WPML is active.
 function surbma_hc_fix_locale_language( $locale ) {
-	if( !defined( 'ICL_LANGUAGE_CODE' ) ) {
-		return $locale;
-	} else {
-		$languages = icl_get_languages();
-		return $languages[ICL_LANGUAGE_CODE]['default_locale'];
+	if( !is_admin() ) {
+		if( !defined( 'ICL_LANGUAGE_CODE' ) ) {
+			return $locale;
+		} else {
+			$languages = icl_get_languages();
+			return $languages[ICL_LANGUAGE_CODE]['default_locale'];
+		}
 	}
 }
 add_filter( 'locale', 'surbma_hc_fix_locale_language' );
