@@ -75,8 +75,8 @@ add_filter( 'woocommerce_order_formatted_shipping_address', function( $address )
 
 // Replacement for the new tax_number field.
 add_filter( 'woocommerce_formatted_address_replacements', function( $replacements, $args ) {
-	if( isset( $args['tax_number'] ) )
-		$replacements['{tax_number}'] = $args['tax_number'];
+	$taxnumber = isset( $args['tax_number'] ) ? $args['tax_number'] : null;
+	$replacements['{tax_number}'] = $taxnumber;
 	return $replacements;
 }, 10, 2 );
 
