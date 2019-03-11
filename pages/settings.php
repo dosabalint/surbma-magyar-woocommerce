@@ -335,7 +335,16 @@ function surbma_hc_settings_page() {
 							<h4 class="uk-heading-divider">Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.)</h4>
 
 							<div class="uk-margin">
-								<label class="uk-form-label" for="surbma_hc_fields[legalcheckouttitle]">Szakasz elnevezése <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ez a cím jelenik meg a checbox-ok fölött. Ha üres, akkor nem jelenik meg.; pos: right"></span></label>
+								<label class="uk-form-label" for="surbma_hc_fields[regacceptpp]">Adatvédelmi tájékoztató elfogadásának a szövege a Regisztrációnál (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
+								<div class="uk-form-controls">
+									<?php $regacceptppValue = isset( $options['regacceptpp'] ) ? $options['regacceptpp'] : esc_attr( 'Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>' ); ?>
+									<textarea id="surbma_hc_fields[regacceptpp]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[regacceptpp]"><?php echo stripslashes( $regacceptppValue ); ?></textarea>
+									<p class="uk-text-meta">HTML használata engedélyezett</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<label class="uk-form-label" for="surbma_hc_fields[legalcheckouttitle]">Szakasz elnevezése a Pénztár oldalon <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ez a cím jelenik meg a checbox-ok fölött. Ha üres, akkor nem jelenik meg.; pos: right"></span></label>
 								<div class="uk-form-controls">
 									<?php $legalcheckouttitleValue = isset( $options['legalcheckouttitle'] ) ? $options['legalcheckouttitle'] : 'Vásárlással kapcsolatos megerősítések'; ?>
 									<input id="surbma_hc_fields[legalcheckouttitle]" class="uk-input" type="text" name="surbma_hc_fields[legalcheckouttitle]" value="<?php echo stripslashes( $legalcheckouttitleValue ); ?>" />
@@ -343,7 +352,7 @@ function surbma_hc_settings_page() {
 							</div>
 
 							<div class="uk-margin">
-								<label class="uk-form-label" for="surbma_hc_fields[accepttos]">Általános Szerződési Feltételek elfogadásának a szövege (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
+								<label class="uk-form-label" for="surbma_hc_fields[accepttos]">Általános Szerződési Feltételek elfogadásának a szövege a Pénztár oldalon (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
 								<div class="uk-form-controls">
 									<?php $accepttosValue = isset( $options['accepttos'] ) ? $options['accepttos'] : esc_attr( 'Elolvastam és elfogadom az <a href="/aszf/" target="_blank">Általános Szerződési Feltételeket</a>' ); ?>
 									<textarea id="surbma_hc_fields[accepttos]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[accepttos]"><?php echo stripslashes( $accepttosValue ); ?></textarea>
@@ -352,7 +361,7 @@ function surbma_hc_settings_page() {
 							</div>
 
 							<div class="uk-margin">
-								<label class="uk-form-label" for="surbma_hc_fields[acceptpp]">Adatvédelmi tájékoztató elfogadásának a szövege (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
+								<label class="uk-form-label" for="surbma_hc_fields[acceptpp]">Adatvédelmi tájékoztató elfogadásának a szövege a Pénztár oldalon (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
 								<div class="uk-form-controls">
 									<?php $acceptppValue = isset( $options['acceptpp'] ) ? $options['acceptpp'] : esc_attr( 'Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>' ); ?>
 									<textarea id="surbma_hc_fields[acceptpp]" class="uk-textarea" cols="50" rows="5" name="surbma_hc_fields[acceptpp]"><?php echo stripslashes( $acceptppValue ); ?></textarea>
@@ -441,6 +450,7 @@ function surbma_hc_fields_validate( $input ) {
 	$input['legalcheckouttitle'] = wp_filter_nohtml_kses( $input['legalcheckouttitle'] );
 
 	// Say our text/textarea option must be safe text with the allowed tags for posts
+	$input['regacceptpp'] = wp_filter_post_kses( $input['regacceptpp'] );
 	$input['accepttos'] = wp_filter_post_kses( $input['accepttos'] );
 	$input['acceptpp'] = wp_filter_post_kses( $input['acceptpp'] );
 	$input['beforeorderbuttonmessage'] = wp_filter_post_kses( $input['beforeorderbuttonmessage'] );

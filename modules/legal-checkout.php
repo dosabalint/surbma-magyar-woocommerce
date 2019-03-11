@@ -1,5 +1,30 @@
 <?php
 
+function surbma_hc_legal_registration_fields() {
+	$options = get_option( 'surbma_hc_fields' );
+	$regacceptppValue = isset( $options['regacceptpp'] ) ? stripslashes( $options['regacceptpp'] ) : 'Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>';
+
+	if( $regacceptppValue != '' ) {
+		woocommerce_form_field( 'reg_accept_pp', array(
+			'type'          => 'checkbox',
+			'class'         => array('woocommerce-form-row woocommerce-form-row--wide form-row-wide privacy'),
+			'label'         => $regacceptppValue,
+			'required'      => true
+		) );
+	}
+}
+// A 20-asnál az adatkezelési tájékoztató szöveg fölé kerül a checkbox
+add_action( 'woocommerce_register_form', 'surbma_hc_legal_registration_fields', 21 );
+
+function surbma_hc_legal_registration_fields_validation( $errors, $username, $email ) {
+	$options = get_option( 'surbma_hc_fields' );
+
+	if ( !is_checkout() && isset( $options['regacceptpp'] ) && $options['regacceptpp'] != '' && !$_POST['reg_accept_pp'] )
+		$errors->add( 'reg_accept_pp_error', '<strong>Adatkezelési Tájékoztató</strong> elfogadása kötelező.' );
+	return $errors;
+}
+add_filter( 'woocommerce_registration_errors', 'surbma_hc_legal_registration_fields_validation', 10, 3 );
+
 function surbma_hc_legal_checkout_fields( $checkout ) {
 	$options = get_option( 'surbma_hc_fields' );
 	$legalcheckouttitleValue = isset( $options['legalcheckouttitle'] ) ? $options['legalcheckouttitle'] : 'Vásárláshoz szükséges jogi megerősítések';
