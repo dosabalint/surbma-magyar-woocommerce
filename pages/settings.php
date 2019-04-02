@@ -335,6 +335,19 @@ function surbma_hc_settings_page() {
 							<h4 class="uk-heading-divider">Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.)</h4>
 
 							<div class="uk-margin">
+								<div class="uk-form-label">IP cím mentése regisztrációkor <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha szeretnéd elmenteni a vásárló IP címét, amikor regisztrál a weboldalon, kapcsold be ezt az opciót!; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $regipValue = isset( $options['regip'] ) ? $options['regip'] : 0; ?>
+											<input id="surbma_hc_fields[regip]" name="surbma_hc_fields[regip]" type="checkbox" value="1" <?php checked( '1', $regipValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
 								<label class="uk-form-label" for="surbma_hc_fields[regacceptpp]">Adatvédelmi tájékoztató elfogadásának a szövege a Regisztrációnál (akár linkkel) <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Ha üres a mező, akkor ez a checkbox nem jelenik meg.; pos: right"></span></label>
 								<div class="uk-form-controls">
 									<?php $regacceptppValue = isset( $options['regacceptpp'] ) ? $options['regacceptpp'] : esc_attr( 'Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>' ); ?>
@@ -435,6 +448,7 @@ function surbma_hc_fields_validate( $input ) {
 	$input['legalcheckout'] = isset( $input['legalcheckout'] ) && $input['legalcheckout'] == 1 ? 1 : 0;
 	$input['autofillcity'] = isset( $input['autofillcity'] ) && $input['autofillcity'] == 1 ? 1 : 0;
 	$input['nocounty'] = isset( $input['nocounty'] ) && $input['nocounty'] == 1 ? 1 : 0;
+	$input['regip'] = isset( $input['regip'] ) && $input['regip'] == 1 ? 1 : 0;
 
 	// Our select option must actually be in our array of select options
 	if ( !array_key_exists( $input['returntoshopcartposition'], $returntoshop_cart_position_options ) )

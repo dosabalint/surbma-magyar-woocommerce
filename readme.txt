@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.1
-Stable tag: 12.0
+Stable tag: 13.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -53,15 +53,13 @@ A Pénztár oldalon a Cég mező alatt már Adószámot is be lehet kérni. Az a
 
 #### Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.)
 
-Lehetőség van az Általános Szerződési Feltételek és az Adatkezelési tájékoztató aktív cselekvésen alapuló elfogadtatására, azaz ki kell pipálnia a vásárlónak ezek elfogadását, mielőtt a rendelést leadhatná. Az adatok a rendeléseknél kerülnek elmentésre és a rendelés szerkesztése oldalon megjelenik az elfogadott státusz.
-
-A vásárló profil adatainál nem kerül elmentésre az elfogadás, így azt bejelentkezve is minden vásárlás alkalmával el kell fogadnia.
+Lehetőség van az Általános Szerződési Feltételek és az Adatkezelési tájékoztató aktív cselekvésen alapuló elfogadtatására, azaz ki kell pipálnia a vásárlónak ezek elfogadását, mielőtt a rendelést leadhatná. Az adatok a rendeléseknél kerülnek elmentésre és a rendelés szerkesztése oldalon megjelenik az elfogadott státusz. Ebben az esetben a vásárló profil adatainál nem kerül elmentésre az elfogadás, így azt bejelentkezve is minden vásárlás alkalmával el kell fogadnia.
 
 Opcionális a két mező használata, így ha valakinek csak az egyik elfogadtatására és megerősítésére van szüksége, akkor egyik vagy másik kikapcsolható.
 
 A Pénztár oldalon a Megrendelés gomb fölött és/vagy alatt közvetlenül elhelyezhető jogi szöveg, ami esetleg fontos vagy kötelező eleme a vásárlási folyamatnak. Ilyen például a távollévők közötti szerződéshez szükséges tudomásulvétel vagy a "fizetési kötelezettséggel járó megrendelés" kötelező megjelenítése a megrendelés során.
 
-A regisztrációs űrlapnál is kérhető az Adatkezelési Tájékoztató kötelező elfogadtatása. Ez az elfogadás nem kerül rögzítésre a felhasználó profil adatainál.
+A regisztrációs űrlapnál is kérhető az Adatkezelési Tájékoztató kötelező elfogadtatása. Ez az adat már elmentésre kerül a felhasználó profil adatainál. Külön beállítható, hogy a felhasználó IP címét is elmentse a rendszer. A regisztrációs adatokat (elfogadás ténye, regisztráció dátuma, IP cím) mind az admin felületen, mind pedig a felhasználó fiókadatainál megjeleníti, de ezek a mezők nem módosíthatók sem a felhasználók, sem az adminisztrátorok részéről.
 
 >**FIGYELEM!** A webáruház jogi megfelelése az aktuális törvényeknek és adatvédelmi rendeleteknek minden esetben a webáruház tulajdonosának a felelőssége. Ez az opció nem mentesít senkit sem az alól, hogy a megfelelést felülvizsgáltassa szakértővel vagy jogásszal. A fejlesztők nem vállalnak semmilyen felelősséget a webáruház jogi megfeleléséért.
 
@@ -173,6 +171,13 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 13.0 =
+
+- FRISSÍTÉS - 2019-04-02
+- ÚJ - Adatkezelési tájékoztató elfogadásának rögzítése a regisztrációs folyamatban.
+- ÚJ - IP cím opcionális rögzítése a regisztrációs folyamatban.
+- ÚJ - Regisztrációs adatok megjelenítése mind az admin felületen, mind a fiókadatok oldalon.
 
 = 12.0 =
 

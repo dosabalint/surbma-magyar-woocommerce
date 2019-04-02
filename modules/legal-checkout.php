@@ -13,7 +13,7 @@ function surbma_hc_legal_registration_fields() {
 		) );
 	}
 }
-// A 20-asnál az adatkezelési tájékoztató szöveg fölé kerül a checkbox
+// A 20-asnál az adatkezelési tájékoztató szöveg fölé kerül a checkbox.
 add_action( 'woocommerce_register_form', 'surbma_hc_legal_registration_fields', 21 );
 
 function surbma_hc_legal_registration_fields_validation( $errors, $username, $email ) {
@@ -24,6 +24,106 @@ function surbma_hc_legal_registration_fields_validation( $errors, $username, $em
 	return $errors;
 }
 add_filter( 'woocommerce_registration_errors', 'surbma_hc_legal_registration_fields_validation', 10, 3 );
+
+// Extra user metas to save after registration.
+function surbma_hc_legal_registration_fields_update_user_meta( $user_id ) {
+	$options = get_option( 'surbma_hc_fields' );
+
+	if( !empty( $_POST['reg_accept_pp'] ) )
+		update_user_meta( $user_id, 'reg_accept_pp', 1 );
+
+	$regipValue = isset( $options['regip'] ) ? $options['regip'] : 0;
+	if( $regipValue == 1 ) {
+		// Get real visitor IP behind CloudFlare network
+		if( isset( $_SERVER["HTTP_CF_CONNECTING_IP"] ) ) {
+			$_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+			$_SERVER['HTTP_CLIENT_IP'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+		}
+		$client = @$_SERVER['HTTP_CLIENT_IP'];
+		$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+		$remote = $_SERVER['REMOTE_ADDR'];
+
+		if( filter_var( $client, FILTER_VALIDATE_IP ) ) {
+			$ip = $client;
+		} elseif( filter_var($forward, FILTER_VALIDATE_IP)) {
+			$ip = $forward;
+		} else {
+			$ip = $remote;
+		}
+		update_user_meta( $user_id, 'reg_ip', $ip );
+	}
+}
+add_action( 'user_register', 'surbma_hc_legal_registration_fields_update_user_meta', 10, 1 );
+
+// Let's show the registration extra user meta values in admin.
+function surbma_hc_admin_reg_user_profile_fields( $profileuser ) {
+	$regacceptpp = get_the_author_meta( 'reg_accept_pp', $profileuser->ID ) == 1 ? 'Elfogadva' : 'Nincs elfogadva';
+	$regdate = date( "r", strtotime( $profileuser->user_registered ) ) != '' ? date( "r", strtotime( $profileuser->user_registered ) ) : 'Nincs dátum eltárolva';
+	$regip = get_the_author_meta( 'reg_ip', $profileuser->ID ) != '' ? get_the_author_meta( 'reg_ip', $profileuser->ID ) : 'Nincs IP cím eltárolva';
+?>
+	<h2>Regisztrációs adatok</h2>
+	<table class="form-table">
+		<tr>
+			<th>
+				<label for="reg_accept_pp">Adatkezelési tájékoztató</label>
+			</th>
+			<td>
+				<input type="text" name="reg_accept_pp" id="reg_accept_pp" value="<?php echo esc_attr( $regacceptpp ); ?>" class="regular-text" readonly />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<label for="reg_date">Regisztráció időpontja</label>
+			</th>
+			<td>
+				<input type="text" name="reg_date" id="reg_date" value="<?php echo esc_attr( $regdate ); ?>" class="regular-text" readonly />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<label for="reg_ip">Regisztrációs IP cím</label>
+			</th>
+			<td>
+				<input type="text" name="reg_ip" id="reg_ip" value="<?php echo esc_attr( $regip ); ?>" class="regular-text" readonly />
+			</td>
+		</tr>
+	</table>
+<?php
+}
+add_action( 'show_user_profile', 'surbma_hc_admin_reg_user_profile_fields', 20, 1 );
+add_action( 'edit_user_profile', 'surbma_hc_admin_reg_user_profile_fields', 20, 1 );
+
+// Let's show the registration extra user meta values on front-end account page.
+function surbma_hc_woocommerce_reg_user_profile_fields() {
+	$user_id = get_current_user_id();
+	$user = get_userdata( $user_id );
+
+	if ( !$user )
+		return;
+
+	$regacceptpp = get_user_meta( $user_id, 'reg_accept_pp', true ) == 1 ? 'Elfogadva' : 'Nincs elfogadva';
+	$regdate = date( "r", strtotime( $user->user_registered ) ) != '' ? date( "r", strtotime( $user->user_registered ) ) : 'Nincs dátum eltárolva';
+	$regip = get_user_meta( $user_id, 'reg_ip', true ) != '' ? get_user_meta( $user_id, 'reg_ip', true ) : 'Nincs IP cím eltárolva';
+?>
+	<fieldset class="hc-reg-fields">
+		<legend>Regisztrációs adatok</legend>
+		<p>Ezek az információk tájékoztató jellegűek, módosítani nem lehet őket.</p>
+		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+			<label for="reg_accept_pp">Adatkezelési tájékoztató:</label>
+			<input type="text" name="reg_accept_pp" value="<?php echo esc_attr( $regacceptpp ); ?>" class="input-text" readonly />
+		</p>
+		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+			<label for="reg_date">Regisztráció időpontja:</label>
+			<input type="text" name="reg_date" value="<?php echo esc_attr( $regdate ); ?>" class="input-text" readonly />
+		</p>
+		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+			<label for="reg_ip">Regisztrációs IP cím:</label>
+			<input type="text" name="reg_ip" value="<?php echo esc_attr( $regip ); ?>" class="input-text" readonly />
+		</p>
+	</fieldset>
+<?php
+}
+add_action( 'woocommerce_edit_account_form', 'surbma_hc_woocommerce_reg_user_profile_fields', 10 );
 
 function surbma_hc_legal_checkout_fields( $checkout ) {
 	$options = get_option( 'surbma_hc_fields' );
