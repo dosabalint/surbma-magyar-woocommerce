@@ -5,7 +5,7 @@ Plugin Name: HuCommerce | Magyar WooCommerce kiegészítések
 Plugin URI: https://www.hucommerce.hu/
 Description: Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
 
-Version: 13.0
+Version: 14.0
 
 Author: HuCommerce
 Author URI: https://www.hucommerce.hu/
@@ -23,9 +23,47 @@ define( 'SURBMA_HC_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) )
 define( 'SURBMA_HC_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'SURBMA_HC_PLUGIN_FILE', __FILE__ );
 
-// Check if free or premium version is used
+// Freemius SDK wrap to prevent conflicts with premium version.
+if ( function_exists( 'hucommerce_fs' ) ) {
+
+	// Check if premium version is used.
+	if( hucommerce_fs()->is__premium_only() ) {
+		define( 'SURBMA_HC_PLUGIN_VERSION', 'premium' );
+	}
+
+	// Set license.
+	if( hucommerce_fs()->can_use_premium_code() ) {
+		define( 'SURBMA_HC_PLUGIN_LICENSE', 'valid' );
+	} elseif( defined( 'SURBMA_HC_PLUGIN_VERSION' ) && SURBMA_HC_PLUGIN_VERSION == 'premium' ) {
+		define( 'SURBMA_HC_PLUGIN_LICENSE', 'expired' );
+	}
+
+}
+
+// Set plugin veryion to free if premium version is not active.
 if( !defined( 'SURBMA_HC_PLUGIN_VERSION' ) ) {
 	define( 'SURBMA_HC_PLUGIN_VERSION', 'free' );
+}
+
+// Set plugin license to free if premium version is not active.
+if( !defined( 'SURBMA_HC_PLUGIN_LICENSE' ) ) {
+	define( 'SURBMA_HC_PLUGIN_LICENSE', 'free' );
+}
+
+// CPS SDK
+if ( !function_exists( 'cps' ) ) {
+	function cps() {
+		// Include CPS SDK.
+		require_once dirname( __FILE__ ) . '/cps/start.php';
+	}
+
+	// Init CPS.
+	cps();
+}
+
+// Include files.
+if ( is_admin() ) {
+	include_once( SURBMA_HC_PLUGIN_DIR . '/lib/admin.php' );
 }
 
 $options = get_option( 'surbma_hc_fields' );
@@ -39,11 +77,7 @@ $legalcheckoutValue = isset( $options['legalcheckout'] ) ? $options['legalchecko
 $autofillcityValue = isset( $options['autofillcity'] ) ? $options['autofillcity'] : 0;
 // $translationsValue = isset( $options['translations'] ) ? $options['translations'] : 1;
 
-// Include files & modules
-if ( is_admin() ) {
-	include_once( SURBMA_HC_PLUGIN_DIR . '/lib/admin.php' );
-}
-else {
+if ( !is_admin() ) {
 	// if( $translationsValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/translations.php' );
 }
 if( $huformatfixValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/hu-format-fix.php' );

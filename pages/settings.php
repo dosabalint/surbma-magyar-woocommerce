@@ -1,5 +1,7 @@
 <?php
 
+add_action( 'admin_enqueue_scripts', 'cps_admin_scripts', 9999 );
+
 function surbma_hc_fields_init() {
 	register_setting(
 		'surbma_hc_options',
