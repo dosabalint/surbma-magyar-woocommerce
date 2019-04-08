@@ -2,7 +2,7 @@
 
 include_once( SURBMA_HC_PLUGIN_DIR . '/pages/settings.php');
 
-/* Admin options menu */
+// Admin options menu
 function surbma_hc_add_menus() {
 	global $surbma_hc_settings_page;
 	$surbma_hc_settings_page = add_submenu_page(
@@ -16,10 +16,19 @@ function surbma_hc_add_menus() {
 }
 add_action( 'admin_menu', 'surbma_hc_add_menus', 999 );
 
+// Custom styles and scripts for admin pages
+function surbma_hc_init( $hook ) {
+	global $surbma_hc_settings_page;
+	if ( $hook == $surbma_hc_settings_page ) {
+		add_action( 'admin_enqueue_scripts', 'cps_admin_scripts', 9999 );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'surbma_hc_init' );
+
 function surbma_hc_admin_header() {
 	$plugin_data = get_plugin_data( SURBMA_HC_PLUGIN_FILE );
 	$plugin_name = $plugin_data['Name'];
-	?><nav class="uk-navbar-container uk-margin" id="surbma-header" uk-navbar>
+	?><nav class="uk-navbar-container uk-margin" id="cps-header" uk-navbar>
 		<div class="uk-navbar-left">
 			<div class="uk-navbar-item uk-logo">
 				<div><span uk-icon="icon: settings; ratio: 2"></span> <?php echo $plugin_name ?></div>

@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.1
-Stable tag: 14.0
+Stable tag: 14.1
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -115,11 +115,12 @@ A szöveges mezők kompatibilisek a WPML, Polylang bővítményekkel, így azok 
 #### Szeretnél résztvenni vagy segíteni a bővítmény fejlesztésében?
 
 Megtalálod a teljes forráskódot a GitHub-on:
-[https://github.com/cherrypicksolutions/surbma-magyar-woocommerce](https://github.com/cherrypicksolutions/surbma-magyar-woocommerce)
+[https://github.com/CherryPickSolutions/surbma-magyar-woocommerce](https://github.com/CherryPickSolutions/surbma-magyar-woocommerce)
 
-#### További bővítményeket és projekteket is találsz a GitHub oldalamon:
+#### További bővítményeket és projekteket is találsz a GitHub oldalainkon:
 
-[https://github.com/Surbma](https://github.com/Surbma)
+- [Surbma GitHub](https://github.com/Surbma)
+- [Cherry Pick Solutions GitHub](https://github.com/CherryPickSolutions)
 
 Nyugodtan segíthetsz a bővítmények, sablonok és egyéb projektek fejlesztésében.
 
@@ -171,6 +172,11 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 14.1 =
+
+- FRISSÍTÉS - 2019-04-08
+- JAVÍTÁS - Admin stílusok betöltése csak a szükséges oldalakon.
 
 = 14.0 =
 

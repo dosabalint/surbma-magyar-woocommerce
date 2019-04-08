@@ -1,7 +1,5 @@
 <?php
 
-add_action( 'admin_enqueue_scripts', 'cps_admin_scripts', 9999 );
-
 function surbma_hc_fields_init() {
 	register_setting(
 		'surbma_hc_options',
@@ -52,7 +50,7 @@ function surbma_hc_settings_page() {
 	$freeNotification = '<p class="uk-text-meta uk-text-center">Ezek a modulok a bővítmény PRO kiegészítőjével érhetők el, amelyet külön kell megvásárolni a bővítményhez.</p>';
 
 ?>
-<div class="surbma-admin surbma-settings-page">
+<div class="cps-admin surbma-hc-settings-page">
 	<?php surbma_hc_admin_header(); ?>
 	<div class="wrap">
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
