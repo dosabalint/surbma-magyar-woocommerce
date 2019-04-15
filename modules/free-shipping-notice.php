@@ -35,8 +35,8 @@ function surbma_hc_free_shipping_cart_notice() {
 		// If Subtotal < Min Amount Echo Notice and add "Continue Shopping" button
 		if ( $current < $min_amount ) {
 			$message = $freeshippingnoticemessageValue . ': ' . wc_price( $min_amount - $current );
-			$returnurl = apply_filters( 'woocommerce_continue_shopping_redirect', wc_get_raw_referer() ? wp_validate_redirect( wc_get_raw_referer(), false ) : wc_get_page_permalink( 'shop' ) );
-			$notice = sprintf( '%s <a href="%s" class="button wc-forward">%s</a>', $message, esc_url( $returnurl ), esc_html__( 'Return to shop', 'woocommerce' ) );
+			$returnurl = esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) );
+			$notice = sprintf( '%s <a href="%s" class="button wc-forward">%s</a>', $message, $returnurl, esc_html__( 'Return to shop', 'woocommerce' ) );
 			wc_print_notice( $notice, 'notice' );
 		}
 	}
