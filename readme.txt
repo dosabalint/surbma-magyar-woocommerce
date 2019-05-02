@@ -173,6 +173,11 @@ A vezetéknevem visszafelé. ;)
 
 == Changelog ==
 
+= 14.4 =
+
+- FRISSÍTÉS - 2019-05-02
+- JAVÍTÁS - Változó alapértelmezett értékének beállítása. (Köszönet: Szépe Viktor - @szepeviktor)
+
 = 14.3 =
 
 - FRISSÍTÉS - 2019-04-22
