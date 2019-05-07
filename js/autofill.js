@@ -10,19 +10,12 @@ jQuery(document).ready(function($){
 			cityFieldTouched = true;
 		});
 
-		$postcodeField.on('change keyup', function(){
+		$postcodeField.on('input change focusout keyup', function(){
 			var postcode = parseInt($postcodeField.val());
-			var cityIndex=-1;
-			var city = '';
-			if (!isNaN(postcode)) { 
-				cityIndex = surbma_hc_postcodes.indexOf(postcode);
-				if (cityIndex>=0) {
-					city=surbma_hc_cities[cityIndex];
-				}
-				if (1000<=postcode && postcode<=9999 && city.length>0) {
-					$cityField.val(city);
-					cityFieldTouched = false;
-				}
+			var cityIndex = surbma_hc_postcodes.indexOf(postcode);
+			var city = surbma_hc_cities[cityIndex];
+			if($postcodeField.val().length == 4 && cityIndex > -1 && ($cityField.val() == '' || !cityFieldTouched) && surbma_hc_postcodes[cityIndex+1] != postcode){
+				$cityField.val( city );
 			}
 		});
 	}
