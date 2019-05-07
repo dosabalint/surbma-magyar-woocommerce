@@ -5,7 +5,7 @@ Plugin Name: HuCommerce | Magyar WooCommerce kiegészítések
 Plugin URI: https://www.hucommerce.hu/
 Description: Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
 
-Version: 14.4
+Version: 15.0
 
 Author: HuCommerce
 Author URI: https://www.hucommerce.hu/
@@ -69,6 +69,7 @@ if ( is_admin() ) {
 $options = get_option( 'surbma_hc_fields' );
 $huformatfixValue = isset( $options['huformatfix'] ) ? $options['huformatfix'] : 1;
 $plusminusValue = isset( $options['plusminus'] ) ? $options['plusminus'] : 0;
+$updatecartValue = isset( $options['updatecart'] ) ? $options['updatecart'] : 0;
 $returntoshopValue = isset( $options['returntoshop'] ) ? $options['returntoshop'] : 0;
 $loginregistrationredirectValue = isset( $options['loginregistrationredirect'] ) ? $options['loginregistrationredirect'] : 0;
 $freeshippingnoticeValue = isset( $options['freeshippingnotice'] ) ? $options['freeshippingnotice'] : 0;
@@ -82,6 +83,7 @@ if ( !is_admin() ) {
 }
 if( $huformatfixValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/hu-format-fix.php' );
 if( $plusminusValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/plus-minus-buttons.php' );
+if( $updatecartValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/update-cart.php' );
 if( $returntoshopValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/return-to-shop.php' );
 if( $loginregistrationredirectValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/login-registration-redirect.php' );
 if( $freeshippingnoticeValue == 1 ) include_once( SURBMA_HC_PLUGIN_DIR . '/modules/free-shipping-notice.php' );
