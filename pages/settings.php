@@ -455,6 +455,7 @@ function surbma_hc_fields_validate( $input ) {
 	// Checkbox validation.
 	$input['huformatfix'] = isset( $input['huformatfix'] ) && $input['huformatfix'] == 1 ? 1 : 0;
 	$input['plusminus'] = isset( $input['plusminus'] ) && $input['plusminus'] == 1 ? 1 : 0;
+	$input['updatecart'] = isset( $input['updatecart'] ) && $input['updatecart'] == 1 ? 1 : 0;
 	$input['translations'] = isset( $input['translations'] ) && $input['translations'] == 1 ? 1 : 0;
 	$input['returntoshop'] = isset( $input['returntoshop'] ) && $input['returntoshop'] == 1 ? 1 : 0;
 	$input['loginregistrationredirect'] = isset( $input['loginregistrationredirect'] ) && $input['loginregistrationredirect'] == 1 ? 1 : 0;
