@@ -182,6 +182,7 @@ A vezetéknevem visszafelé. ;)
 
 - FRISSÍTÉS - 2019-05-07
 - ÚJ - Automatikus frissítés a Kosár oldalon.
+- JAVÍTÁS - Irányítószámok kiegészítése a budapesti kerületekkel.
 
 = 14.4 =
 
