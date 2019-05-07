@@ -100,6 +100,21 @@ function surbma_hc_settings_page() {
 							<hr>
 
 							<div class="uk-margin">
+								<div class="uk-form-label">Kosár automatikus frissítése darabszám módosítás után <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A kosár oldalon, ha megváltozik a termék mennyisége, akkor automatikusan frissíti a kosarat. Nincs szükség a kosár frissítése gomb megnyomására.; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $updatecartValue = isset( $options['updatecart'] ) ? $options['updatecart'] : 0; ?>
+											<input id="surbma_hc_fields[updatecart]" name="surbma_hc_fields[updatecart]" type="checkbox" value="1" <?php checked( '1', $updatecartValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="uk-margin">
 								<div class="uk-form-label">Vásárlás folytatása gombok <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Egy gombot helyez el a Kosár és/vagy a Pénztár oldalon, amivel folytathatja a látogató a vásárlást. A gomb az üzlet oldalra viszi a látogatót.; pos: right"></span></div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">

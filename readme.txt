@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.1
-Stable tag: 14.3
+Stable tag: 15.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -31,6 +31,7 @@ Csatlakozzatok a HuCommerce hivatalos támogatói Facebook csoportjához, ahol l
 - Pénztár oldal formázása
 - Megye mező elrejtése
 - Plusz/minusz mennyiségi gombok a termékekhez
+- Automatikus frissítés a Kosár oldalon
 - Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
 - Belépés és regisztráció utáni átirányítás
 - Ingyenes szállítás értesítés
@@ -81,6 +82,10 @@ Jelenleg ezeket a sablonokat támogatja alapból a bővítmény:
 
 - Storefront
 - Divi
+
+#### Automatikus frissítés a Kosár oldalon
+
+A Kosár oldalon a termékek mennyiségének a módosításakor nincs szükség a "Kosár frissítése" gomb megnyomására a darabszám módosítása után, mert így automatikusan frissül a Kosár tartalma.
 
 #### Vásárlás folytatása gomb megjelenítése a Kosár és/vagy a Pénztár oldalakon
 
@@ -172,6 +177,11 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 15.0 =
+
+- FRISSÍTÉS - 2019-05-07
+- ÚJ - Automatikus frissítés a Kosár oldalon.
 
 = 14.4 =
 
