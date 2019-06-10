@@ -56,13 +56,18 @@ function surbma_hc_admin_footer() {
 
 function surbma_hc_admin_sidebar() {
 	$options = get_option( 'surbma_hc_fields' );
+	$home_url = get_option( 'home' );
+	$current_user = wp_get_current_user();
+
 	?><div uk-sticky="offset: 42; bottom: #bottom">
 	<div class="uk-card uk-card-small uk-card-default uk-card-hover">
 		<div class="uk-card-header uk-background-muted">
 			<h3 class="uk-card-title">Információk <a class="uk-float-right uk-margin-small-top" uk-icon="icon: more-vertical" uk-toggle="target: #informations"></a></h3>
 		</div>
 		<div id="informations" class="uk-card-body">
-			<a class="facebook-group" href="https://www.facebook.com/groups/HuCommerce.hu/" target="_blank"><span uk-icon="facebook"></span> Csatlakozz a csoporthoz!</a>
+			<p>Iratkozz fel a HuCommerce hírlevélre, amiben a legújabb funkciókról, akciókról és különleges ajánlatainkról írunk.</p>
+			<p><a class="cps-button cps-newsletter" href="https://hucommerce.us20.list-manage.com/subscribe?u=8e6a039140be449ecebeb5264&id=2f5c70bc50&EMAIL=<?php echo urlencode( $current_user->user_email ); ?>&FNAME=<?php echo urlencode( $current_user->user_firstname ); ?>&LNAME=<?php echo urlencode( $current_user->user_lastname ); ?>&URL=<?php echo urlencode( $home_url ); ?>" target="_blank"><span uk-icon="mail"></span> Hírlevél feliratkozás</a></p>
+			<p><a class="cps-button cps-facebook" href="https://www.facebook.com/groups/HuCommerce.hu/" target="_blank"><span uk-icon="facebook"></span> Csatlakozz a csoporthoz!</a></p>
 			<p>Csatlakozz a HuCommerce Facebook csoportjához, ahol lehet kérdezni, ötletelni. Mindenkit szívesen látunk.</p>
 			<h4 class="uk-heading-divider">Bővítmény linkek</h4>
 			<ul class="uk-list">

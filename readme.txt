@@ -1,10 +1,10 @@
 === HuCommerce | Magyar WooCommerce kiegészítések ===
-Contributors: Surbma, CherryPickStudios
+Contributors: Surbma, CherryPickStudios, xnagyg
 Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.1
-Stable tag: 15.1
+Stable tag: 16.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -178,6 +178,11 @@ A vezetéknevem visszafelé. ;)
 
 == Changelog ==
 
+= 16.0 =
+
+- FRISSÍTÉS - 2019-06-11
+- ÚJ - HuCommerce hírlevél feliratkozási lehetőség a HuCommerce admin oldaláról.
+
 = 15.1 =
 
 - FRISSÍTÉS - 2019-05-07
@@ -186,8 +191,8 @@ A vezetéknevem visszafelé. ;)
 = 15.0 =
 
 - FRISSÍTÉS - 2019-05-07
-- ÚJ - Automatikus frissítés a Kosár oldalon.
-- JAVÍTÁS - Irányítószámok kiegészítése a budapesti kerületekkel.
+- ÚJ - Automatikus frissítés a Kosár oldalon. (Köszönet: Nagy Gábor - @xnagyg)
+- JAVÍTÁS - Irányítószámok kiegészítése a budapesti kerületekkel. (Köszönet: Nagy Gábor - @xnagyg)
 
 = 14.4 =
 

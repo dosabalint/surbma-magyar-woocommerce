@@ -198,9 +198,7 @@ body {
 
 /* Buttons */
 
-.cps-admin .facebook-group {
-	background: #3B5998;
-	border: 1px solid #3B5998;
+.cps-admin .cps-button {
 	border-radius: 3px;
 	color: #fff;
 	display: block;
@@ -210,13 +208,30 @@ body {
 	position: relative;
 }
 
-.cps-admin .facebook-group:hover {
+.cps-admin .cps-button:hover {
 	background: #fff;
-	color: #3B5998;
 	text-decoration: none;
 }
 
-.cps-admin .facebook-group .uk-icon {
+.cps-admin .cps-button .uk-icon {
 	position: relative;
 	top: -2px;
+}
+
+.cps-admin .cps-newsletter {
+	background: #f0506e;
+	border: 1px solid #f0506e;
+}
+
+.cps-admin .cps-newsletter:hover {
+	color: #f0506e;
+}
+
+.cps-admin .cps-facebook {
+	background: #3B5998;
+	border: 1px solid #3B5998;
+}
+
+.cps-admin .cps-facebook:hover {
+	color: #3B5998;
 }
