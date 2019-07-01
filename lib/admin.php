@@ -107,3 +107,38 @@ function surbma_hc_admin_sidebar() {
 </div>
 <?php
 }
+
+// https://github.com/collizo4sky/persist-admin-notices-dismissal
+require  SURBMA_HC_PLUGIN_DIR . '/cps/pand/persist-admin-notices-dismissal.php';
+add_action( 'admin_init', array( 'PAnD', 'init' ) );
+
+/*
+// Admin notice classes:
+// notice-success
+// notice-success notice-alt
+// notice-info
+// notice-warning
+// notice-error
+// Without a class, there is no colored left border.
+*/
+
+// Welcome notice
+function surbma_hc_admin_notice__welcome() {
+	if ( ! PAnD::is_admin_notice_active( 'surbma-hc-notice-welcome-forever' ) ) return;
+
+	$home_url = get_option( 'home' );
+	$current_user = wp_get_current_user();
+	?>
+	<div data-dismissible="surbma-hc-notice-welcome-forever" class="notice notice-info is-dismissible">
+		<div style="padding: 20px;">
+			<img src="<?php echo SURBMA_HC_PLUGIN_URL; ?>/images/hucommerce-logo.png" alt="HuCommerce">
+			<p><strong>Köszönjük, hogy telepítetted a HuCommerce bővítményt!</strong></p>
+			<p>Első lépésként aktiváld a szükséges modulokat és nézd meg az egyes modulok egyedi beállításait!
+			<br>A HuCommerce beállításait a <a href="<?php admin_url(); ?>admin.php?page=surbma-hucommerce-menu">WooCommerce -> HuCommerce</a> menüpont alatt találod.</p>
+			<p><strong>FIGYELEM!</strong> Ez az értesítés a lezárást követően nem jelenik meg újra. Kérünk, hogy csatlakozz a Facebook csoportunkhoz és iratkozz fel a HuCommerce hírlevelünkre!</p>
+			<p><a href="https://hucommerce.us20.list-manage.com/subscribe?u=8e6a039140be449ecebeb5264&id=2f5c70bc50&EMAIL=<?php echo urlencode( $current_user->user_email ); ?>&FNAME=<?php echo urlencode( $current_user->user_firstname ); ?>&LNAME=<?php echo urlencode( $current_user->user_lastname ); ?>&URL=<?php echo urlencode( $home_url ); ?>" target="_blank" class="button button-secondary"><span class="dashicons dashicons-email" style="position: relative;top: 3px;left: -3px;"></span> Hírlevél feliratkozás</a> <a href="https://www.facebook.com/groups/HuCommerce.hu/" target="_blank" class="button button-primary"><span class="dashicons dashicons-facebook-alt" style="position: relative;top: 3px;left: -3px;"></span> Facebook csoport</a></p>
+		</div>
+	</div>
+	<?php
+}
+add_action( 'admin_notices', 'surbma_hc_admin_notice__welcome' );
