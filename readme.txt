@@ -3,8 +3,8 @@ Contributors: Surbma, CherryPickStudios, xnagyg
 Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
-Tested up to: 5.1
-Stable tag: 16.0
+Tested up to: 5.2
+Stable tag: 17.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -177,6 +177,25 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 17.0 =
+
+Kiadás dátuma: 2019-07-01
+
+Ez a frissítés javítja a WPML bővítmény kompatibilitást és gyorsabb is a betöltés WPML használata mellett. A magyar formátum javítások logikája is megváltozott, mert most bizonyos mezők akkor módosulnak, ha magyar nyelven nézi a látogató, nem pedig akkor, ha Magyarország a számlázási cím. A Divi és Storefront sablonok esetén kisebb fordítással kapcsolatos javításokat is tartalmaz. Admin felületen megjelenik egy üdvözlés, ami lezárás után nem jelenik meg újra.
+
+JAVÍTÁSOK
+
+- WPML kompatibilitás és gyorsítás.
+
+MÓDOSÍTÁSOK
+
+- Pénztár mezők feltételei módosultak a nyelvre a számlázási cím helyett.
+
+ÚJDONSÁGOK
+
+- Admin üdvözlés a bővítmény első bekapcsolása után vagy a mostani frissítés után.
+- A Divi és Storefront sablonok esetén javítja a kosár ikon melletti szöveget, hogy "elem" helyett "termék" jelenjen meg a megfelelő többesszám kezeléssel.
 
 = 16.0 =
 

@@ -1,54 +1,77 @@
 <?php
 
+/* TODO
+/*
+/* Ezt még tesztelnem kell, hogy egyáltalán szükség van-e erre a javításra. Most úgy tűnik, hogy nem kell.
+/*
+*/
 // Fix locale if WPML is active.
 function surbma_hc_fix_locale_language( $locale ) {
 	if( !is_admin() && defined( 'ICL_LANGUAGE_CODE' ) ) {
-		$languages = icl_get_languages();
-		return $languages[ICL_LANGUAGE_CODE]['default_locale'];
-	} else {
-		return $locale;
+		$languages = icl_get_languages( 'skip_missing=0' );
+		$locale = $languages[ICL_LANGUAGE_CODE]['default_locale'];
+	}
+	return $locale;
+}
+// add_filter( 'locale', 'surbma_hc_fix_locale_language' );
+
+// Activated only for debug! Displays WPML variables and values.
+function surbma_hc_wpml_debug() {
+	echo 'ICL_LANGUAGE_CODE: ' . ICL_LANGUAGE_CODE;
+	echo '<br>';
+	echo 'get_locale: ' . get_locale();
+	echo '<br>';
+	echo 'icl_get_languages array:';
+	echo '<pre>';
+	print_r( icl_get_languages() );
+	echo '</pre>';
+	$languages = icl_get_languages( 'skip_missing=0' );
+	echo 'Default locale language code: ' . $languages[ICL_LANGUAGE_CODE]['default_locale'];
+	echo '<br>';
+	echo 'Default locale language codes:';
+	echo '<br>';
+	foreach( $languages as $l ) {
+		echo $l['default_locale'];
+		echo '<br>';
 	}
 }
-add_filter( 'locale', 'surbma_hc_fix_locale_language' );
+// add_action( 'wp_footer', 'surbma_hc_wpml_debug' );
 
-// Custom checkout fields
-function surbma_hc_filter_woocommerce_default_address_fields( $fields ) {
-	$fields['last_name']['autofocus'] = false;
-	return $fields;
-}
-add_filter( 'woocommerce_default_address_fields', 'surbma_hc_filter_woocommerce_default_address_fields' );
-
-/* TODO
-/*
-/* Ezt is érdemes lenne lecserélni úgy, hogy minden locale esetén legyen meg a csere, ha magyar nyelven nézik az oldalt.
-/*
-*/
-// Reorder the checkout fields
-function surbma_hc_filter_woocommerce_get_country_locale( $locale ) {
-	$locale['HU']['last_name']['priority'] = 10;
-	$locale['HU']['last_name']['class'] = array( 'form-row-first' );
-	$locale['HU']['last_name']['autofocus'] = true;
-
-	$locale['HU']['first_name']['priority'] = 20;
-	$locale['HU']['first_name']['class'] = array( 'form-row-last' );
-	$locale['HU']['first_name']['autofocus'] = false;
-
-	$locale['HU']['postcode']['priority'] = 42;
-	$locale['HU']['postcode']['class'] = array( 'form-row-first' );
-
-	$locale['HU']['city']['priority'] = 44;
-	$locale['HU']['city']['class'] = array( 'form-row-last' );
-
+// Customize the checkout fields if country is Hungary
+function surbma_hc_filter_get_country_locale( $locale ) {
 	$options = get_option( 'surbma_hc_fields' );
-	$nocountyValue = isset( $options['nocounty'] ) ? $options['nocounty'] : 1;
 
+	$nocountyValue = isset( $options['nocounty'] ) ? $options['nocounty'] : 1;
 	if ( $nocountyValue == 1 ) {
 		$locale['HU']['state']['required'] = false;
 	}
 
 	return $locale;
 }
-add_filter( 'woocommerce_get_country_locale', 'surbma_hc_filter_woocommerce_get_country_locale' );
+add_filter( 'woocommerce_get_country_locale', 'surbma_hc_filter_get_country_locale' );
+
+// Customize the checkout default address fields
+function surbma_hc_filter_default_address_fields( $address_fields ) {
+	// Modifications only if language is Hungarian
+	if( get_locale() == 'hu_HU' || get_locale() == 'hu' ) {
+		$address_fields['last_name']['priority'] = 10;
+		$address_fields['last_name']['class'] = array( 'form-row-first' );
+		$address_fields['last_name']['autofocus'] = true;
+
+		$address_fields['first_name']['priority'] = 20;
+		$address_fields['first_name']['class'] = array( 'form-row-last' );
+		$address_fields['first_name']['autofocus'] = false;
+	}
+
+	$address_fields['postcode']['priority'] = 42;
+	$address_fields['postcode']['class'] = array( 'form-row-first' );
+
+	$address_fields['city']['priority'] = 44;
+	$address_fields['city']['class'] = array( 'form-row-last' );
+
+	return $address_fields;
+}
+add_filter( 'woocommerce_default_address_fields' , 'surbma_hc_filter_default_address_fields' );
 
 // Default state reset function
 function surbma_hc_default_checkout_state() {
