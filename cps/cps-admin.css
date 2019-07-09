@@ -22,8 +22,16 @@ body {
 	color: #fff;
 }
 
-.cps-admin .uk-navbar-container .uk-navbar-nav>li>a {
+.cps-admin .uk-navbar-container .uk-navbar-nav > li {
+	margin: 0;
+}
+
+.cps-admin .uk-navbar-container .uk-navbar-nav > li > a {
 	color: rgba(255, 255, 255, 0.8);
+}
+
+.cps-admin .uk-navbar-container .uk-navbar-nav > li > a:hover {
+	color: #fff;
 }
 
 @media (min-width: 960px) {
@@ -198,40 +206,21 @@ body {
 
 /* Buttons */
 
-.cps-admin .cps-button {
-	border-radius: 3px;
-	color: #fff;
-	display: block;
-	text-align: center;
-	padding: 15px 0 13px;
-	font-size: 16px;
-	position: relative;
-}
-
-.cps-admin .cps-button:hover {
-	background: #fff;
-	text-decoration: none;
-}
-
-.cps-admin .cps-button .uk-icon {
+.cps-admin .uk-button .uk-icon {
 	position: relative;
 	top: -2px;
 }
 
-.cps-admin .cps-newsletter {
-	background: #f0506e;
-	border: 1px solid #f0506e;
+.cps-admin .uk-button,
+.cps-admin .uk-button .uk-button-large {
+	padding: 0 20px;
 }
 
-.cps-admin .cps-newsletter:hover {
-	color: #f0506e;
-}
-
-.cps-admin .cps-facebook {
+.cps-admin .facebook-button {
 	background: #3B5998;
-	border: 1px solid #3B5998;
+	position: relative;
 }
 
-.cps-admin .cps-facebook:hover {
-	color: #3B5998;
+.cps-admin .facebook-button:hover {
+	opacity: .8;
 }
