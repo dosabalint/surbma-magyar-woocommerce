@@ -37,19 +37,6 @@ function surbma_hc_wpml_debug() {
 }
 // add_action( 'wp_footer', 'surbma_hc_wpml_debug' );
 
-// Customize the checkout fields if country is Hungary
-function surbma_hc_filter_get_country_locale( $locale ) {
-	$options = get_option( 'surbma_hc_fields' );
-
-	$nocountyValue = isset( $options['nocounty'] ) ? $options['nocounty'] : 1;
-	if ( $nocountyValue == 1 ) {
-		$locale['HU']['state']['required'] = false;
-	}
-
-	return $locale;
-}
-add_filter( 'woocommerce_get_country_locale', 'surbma_hc_filter_get_country_locale' );
-
 // Customize the checkout default address fields
 function surbma_hc_filter_default_address_fields( $address_fields ) {
 	// Modifications only if language is Hungarian
@@ -63,15 +50,24 @@ function surbma_hc_filter_default_address_fields( $address_fields ) {
 		$address_fields['first_name']['autofocus'] = false;
 	}
 
-	$address_fields['postcode']['priority'] = 42;
-	$address_fields['postcode']['class'] = array( 'form-row-first' );
-
-	$address_fields['city']['priority'] = 44;
-	$address_fields['city']['class'] = array( 'form-row-last' );
-
 	return $address_fields;
 }
 add_filter( 'woocommerce_default_address_fields' , 'surbma_hc_filter_default_address_fields' );
+
+/* ****************************************************** */
+
+// Customize the checkout fields if country is Hungary
+function surbma_hc_filter_get_country_locale( $locale ) {
+	$options = get_option( 'surbma_hc_fields' );
+
+	$nocountyValue = isset( $options['nocounty'] ) ? $options['nocounty'] : 1;
+	if ( $nocountyValue == 1 ) {
+		$locale['HU']['state']['required'] = false;
+	}
+
+	return $locale;
+}
+add_filter( 'woocommerce_get_country_locale', 'surbma_hc_filter_get_country_locale' );
 
 // Default state reset function
 function surbma_hc_default_checkout_state() {
@@ -94,6 +90,8 @@ function surbma_hc_remove_hu_states( $states ) {
 	return $states;
 }
 add_filter( 'woocommerce_states', 'surbma_hc_remove_hu_states' );
+
+/* ****************************************************** */
 
 // Fixed Hungarian address format
 function surbma_hc_address_format( $format ) {

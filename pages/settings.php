@@ -51,7 +51,7 @@ function surbma_hc_settings_page() {
 
 ?>
 <div class="cps-admin surbma-hc-settings-page">
-	<?php surbma_hc_admin_header(); ?>
+	<?php cps_admin_header(); ?>
 	<div class="wrap">
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 			<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
@@ -70,12 +70,27 @@ function surbma_hc_settings_page() {
 						<div id="hc-modules" class="uk-card-body">
 
 							<div class="uk-margin">
-								<div class="uk-form-label">Magyar formátum javítások <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A keresztnév és vezetéknév sorrendjének a megfordítása a Pénztár oldalon akkor, ha a webáruház magyar nyelvű. Megye mező elrejtése. Az Irányítószám és Város mezők pozícionálása a pénztár oldalon.; pos: right"></span></div>
+								<div class="uk-form-label">Magyar formátum javítások <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: A keresztnév és vezetéknév sorrendjének a megfordítása a Pénztár oldalon akkor, ha a webáruház magyar nyelvű. Megye mező elrejtése ha a cím Magyarország.; pos: right"></span></div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">
 										<label class="switch">
 											<?php $huformatfixValue = isset( $options['huformatfix'] ) ? $options['huformatfix'] : 1; ?>
 											<input id="surbma_hc_fields[huformatfix]" name="surbma_hc_fields[huformatfix]" type="checkbox" value="1" <?php checked( '1', $huformatfixValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<hr>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Pénztár oldal <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Pénztár oldali mezők és egyéb funkciók módosításai.; pos: right"></span></div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $moduleCheckoutValue = isset( $options['module-checkout'] ) ? $options['module-checkout'] : 0; ?>
+											<input id="module-checkout" name="surbma_hc_fields[module-checkout]" type="checkbox" value="1" <?php checked( '1', $moduleCheckoutValue ); ?> />
 											<span class="slider round"></span>
 										</label>
 									</p>
@@ -251,12 +266,66 @@ function surbma_hc_settings_page() {
 							<h4 class="uk-heading-divider">Magyar formátum javítások</h4>
 
 							<div class="uk-margin">
-								<div class="uk-form-label">Megye mező elrejtése <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés.; pos: right"></span></div>
+								<div class="uk-form-label">Megye mező elrejtése magyar cím esetén <span uk-icon="icon: info; ratio: 1" uk-tooltip="title: Mert ezt nálunk nem szokás használni, így csak plusz felesleges lépés.; pos: right"></span></div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">
 										<label class="switch">
 											<?php $nocountyValue = isset( $options['nocounty'] ) ? $options['nocounty'] : 1; ?>
 											<input id="surbma_hc_fields[nocounty]" name="surbma_hc_fields[nocounty]" type="checkbox" value="1" <?php checked( '1', $nocountyValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<h4 class="uk-heading-divider">Pénztár oldal</h4>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Ország mező elrejtése</div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0; ?>
+											<input id="nocountry" name="surbma_hc_fields[nocountry]" type="checkbox" value="1" <?php checked( '1', $nocountryValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Rendelés jegyzetek mező elrejtése</div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $noordercommentsValue = isset( $options['noordercomments'] ) ? $options['noordercomments'] : 0; ?>
+											<input id="noordercomments" name="surbma_hc_fields[noordercomments]" type="checkbox" value="1" <?php checked( '1', $noordercommentsValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Irányítószám és Város mezők egymás mellé rendezése</div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $postcodecitypairValue = isset( $options['postcodecitypair'] ) ? $options['postcodecitypair'] : 0; ?>
+											<input id="postcodecitypair" name="surbma_hc_fields[postcodecitypair]" type="checkbox" value="1" <?php checked( '1', $postcodecitypairValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Telefonszám és Email cím mezők egymás mellé rendezése</div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $phoneemailpairValue = isset( $options['phoneemailpair'] ) ? $options['phoneemailpair'] : 0; ?>
+											<input id="phoneemailpair" name="surbma_hc_fields[phoneemailpair]" type="checkbox" value="1" <?php checked( '1', $phoneemailpairValue ); ?> />
 											<span class="slider round"></span>
 										</label>
 									</p>
@@ -438,7 +507,7 @@ function surbma_hc_settings_page() {
 		</div>
 		<div class="uk-margin-bottom" id="bottom"></div>
 	</div>
-	<?php surbma_hc_admin_footer(); ?>
+	<?php cps_admin_footer(); ?>
 </div>
 <?php
 }
@@ -454,6 +523,7 @@ function surbma_hc_fields_validate( $input ) {
 
 	// Checkbox validation.
 	$input['huformatfix'] = isset( $input['huformatfix'] ) && $input['huformatfix'] == 1 ? 1 : 0;
+	$input['module-checkout'] = isset( $input['module-checkout'] ) && $input['module-checkout'] == 1 ? 1 : 0;
 	$input['plusminus'] = isset( $input['plusminus'] ) && $input['plusminus'] == 1 ? 1 : 0;
 	$input['updatecart'] = isset( $input['updatecart'] ) && $input['updatecart'] == 1 ? 1 : 0;
 	$input['translations'] = isset( $input['translations'] ) && $input['translations'] == 1 ? 1 : 0;
@@ -464,6 +534,10 @@ function surbma_hc_fields_validate( $input ) {
 	$input['legalcheckout'] = isset( $input['legalcheckout'] ) && $input['legalcheckout'] == 1 ? 1 : 0;
 	$input['autofillcity'] = isset( $input['autofillcity'] ) && $input['autofillcity'] == 1 ? 1 : 0;
 	$input['nocounty'] = isset( $input['nocounty'] ) && $input['nocounty'] == 1 ? 1 : 0;
+	$input['nocountry'] = isset( $input['nocountry'] ) && $input['nocountry'] == 1 ? 1 : 0;
+	$input['noordercomments'] = isset( $input['noordercomments'] ) && $input['noordercomments'] == 1 ? 1 : 0;
+	$input['postcodecitypair'] = isset( $input['postcodecitypair'] ) && $input['postcodecitypair'] == 1 ? 1 : 0;
+	$input['phoneemailpair'] = isset( $input['phoneemailpair'] ) && $input['phoneemailpair'] == 1 ? 1 : 0;
 	$input['regip'] = isset( $input['regip'] ) && $input['regip'] == 1 ? 1 : 0;
 
 	// Our select option must actually be in our array of select options

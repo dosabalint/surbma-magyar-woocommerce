@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.2
-Stable tag: 17.0
+Stable tag: 18.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,7 +66,9 @@ A regisztrációs űrlapnál is kérhető az Adatkezelési Tájékoztató kötel
 
 #### Pénztár oldal formázása
 
-Az Irányítószám és Város mezők nagy monitoron egymás mellé kerültek és az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+Az Irányítószám és Város mezőket, valamint a Telefonszám és Email cím mezőket nagy monitoron be lehet állítani, hogy egymás mellé kerüljenek. Az Irányítószám és Város mezők az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+
+Az Ország és a Rendelés jegyzetek mezőket akár ki is lehet kapcsolni, ha ezek a mezők nem relevánsak a te webáruházadnál.
 
 #### Megye mező elrejtése
 
@@ -177,6 +179,21 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 18.0 =
+
+Kiadás dátuma: 2019-07-09
+
+A mostani verzióban külön modul lett hozzáadva a Pénztár oldali módosításokhoz. Itt lehet vezérelni, hogy az Irányítószám és Város, valamint a Telefonszám és Email mezők egymás mellé kerüljenek, illetve az Ország és Rendelés jegyzetek mezőket ki is lehet kapcsolni.
+
+ŰJDONSÁGOK
+
+- Pénztár oldal modul.
+
+EGYÉB
+
+- CPS SDK frissítése a 3.0 verzióra.
+- Admin oldal módosítások a CPS SDK 3.0 alapján.
 
 = 17.0 =
 

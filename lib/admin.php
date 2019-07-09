@@ -25,34 +25,45 @@ function surbma_hc_init( $hook ) {
 }
 add_action( 'admin_enqueue_scripts', 'surbma_hc_init' );
 
-function surbma_hc_admin_header() {
-	$plugin_data = get_plugin_data( SURBMA_HC_PLUGIN_FILE );
-	$plugin_name = $plugin_data['Name'];
-	?><nav class="uk-navbar-container uk-margin" id="cps-header" uk-navbar>
-		<div class="uk-navbar-left">
-			<div class="uk-navbar-item uk-logo">
-				<div><span uk-icon="icon: settings; ratio: 2"></span> <?php echo $plugin_name ?></div>
-			</div>
-		</div>
-	</nav><?php
+function surbma_hc_admin_header_title( $url ) {
+	return 'HuCommerce | Beállítások';
 }
+add_filter( 'cps_admin_header_title', 'surbma_hc_admin_header_title' );
 
-function surbma_hc_admin_footer() {
-	$plugin_data = get_plugin_data( SURBMA_HC_PLUGIN_FILE );
-	$plugin_version = $plugin_data['Version'];
-	$plugin_name = $plugin_data['Name'];
-	$plugin_authorURI = $plugin_data['AuthorURI'];
-	$plugin_pluginURI = $plugin_data['PluginURI'];
-	?><div class="uk-section uk-section-small">
-		<div class="uk-text-center">
-			<p>
-				<strong><a class="uk-link-reset" href="<?php echo $plugin_pluginURI; ?>" target="_blank"><?php echo $plugin_name; ?></a></strong><br>
-				<a href="<?php echo $plugin_authorURI; ?>" target="_blank">Made with &hearts; by Surbma</a><br>
-				v.<?php echo $plugin_version; ?>
-			</p>
-		</div>
-	</div><?php
+function surbma_hc_admin_header_facebook_url( $url ) {
+	return 'https://www.facebook.com/groups/HuCommerce.hu/';
 }
+add_filter( 'cps_admin_header_facebook_url', 'surbma_hc_admin_header_facebook_url' );
+
+function surbma_hc_admin_header_facebook_title( $fbtitle ) {
+	return 'Csatlakozz a HuCommerce Facebook csoportjához, ahol lehet kérdezni, ötletelni. Mindenkit szívesen látunk.';
+}
+add_filter( 'cps_admin_header_facebook_title', 'surbma_hc_admin_header_facebook_title' );
+
+function surbma_hc_admin_header_facebook_button_text( $fbbuttontext ) {
+	return 'Csatlakozz a csoporthoz!';
+}
+add_filter( 'cps_admin_header_facebook_button_text', 'surbma_hc_admin_header_facebook_button_text' );
+
+function surbma_hc_admin_header_email( $email ) {
+	return 'hello@hucommerce.hu';
+}
+add_filter( 'cps_admin_header_email', 'surbma_hc_admin_header_email' );
+
+function surbma_hc_admin_header_email_title( $emailtitle ) {
+	return 'HuCommerce email ügyfélszolgálat';
+}
+add_filter( 'cps_admin_header_email_title', 'surbma_hc_admin_header_email_title' );
+
+function surbma_hc_admin_header_website( $website ) {
+	return 'https://www.hucommerce.hu';
+}
+add_filter( 'cps_admin_header_website', 'surbma_hc_admin_header_website' );
+
+function surbma_hc_admin_header_website_title( $websitetitle ) {
+	return 'HuCommerce hivatalos weboldal';
+}
+add_filter( 'cps_admin_header_website_title', 'surbma_hc_admin_header_website_title' );
 
 function surbma_hc_admin_sidebar() {
 	$options = get_option( 'surbma_hc_fields' );
@@ -66,9 +77,7 @@ function surbma_hc_admin_sidebar() {
 		</div>
 		<div id="informations" class="uk-card-body">
 			<p>Iratkozz fel a HuCommerce hírlevélre, amiben a legújabb funkciókról, akciókról és különleges ajánlatainkról írunk.</p>
-			<p><a class="cps-button cps-newsletter" href="https://hucommerce.us20.list-manage.com/subscribe?u=8e6a039140be449ecebeb5264&id=2f5c70bc50&EMAIL=<?php echo urlencode( $current_user->user_email ); ?>&FNAME=<?php echo urlencode( $current_user->user_firstname ); ?>&LNAME=<?php echo urlencode( $current_user->user_lastname ); ?>&URL=<?php echo urlencode( $home_url ); ?>" target="_blank"><span uk-icon="mail"></span> Hírlevél feliratkozás</a></p>
-			<p><a class="cps-button cps-facebook" href="https://www.facebook.com/groups/HuCommerce.hu/" target="_blank"><span uk-icon="facebook"></span> Csatlakozz a csoporthoz!</a></p>
-			<p>Csatlakozz a HuCommerce Facebook csoportjához, ahol lehet kérdezni, ötletelni. Mindenkit szívesen látunk.</p>
+			<p><a class="uk-button uk-button-danger uk-button-large uk-width-1-1" href="https://hucommerce.us20.list-manage.com/subscribe?u=8e6a039140be449ecebeb5264&id=2f5c70bc50&EMAIL=<?php echo urlencode( $current_user->user_email ); ?>&FNAME=<?php echo urlencode( $current_user->user_firstname ); ?>&LNAME=<?php echo urlencode( $current_user->user_lastname ); ?>&URL=<?php echo urlencode( $home_url ); ?>" target="_blank"><span uk-icon="mail"></span> Hírlevél feliratkozás</a></p>
 			<h4 class="uk-heading-divider">Bővítmény linkek</h4>
 			<ul class="uk-list">
 				<li><a href="https://wordpress.org/support/plugin/surbma-magyar-woocommerce" target="_blank">Hivatalos támogató fórum</a></li>
@@ -107,10 +116,6 @@ function surbma_hc_admin_sidebar() {
 </div>
 <?php
 }
-
-// https://github.com/collizo4sky/persist-admin-notices-dismissal
-require  SURBMA_HC_PLUGIN_DIR . '/cps/pand/persist-admin-notices-dismissal.php';
-add_action( 'admin_init', array( 'PAnD', 'init' ) );
 
 /*
 // Admin notice classes:
