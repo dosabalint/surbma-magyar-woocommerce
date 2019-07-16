@@ -37,6 +37,20 @@ function surbma_hc_wpml_debug() {
 }
 // add_action( 'wp_footer', 'surbma_hc_wpml_debug' );
 
+// CSS fixes for themes
+function surbma_hc_themes_css_fixes() {
+?>
+<style id="hucommerce-theme-fix">
+<?php if ( is_checkout() && wp_basename( get_bloginfo( 'template_directory' ) ) == 'Avada' ) { ?>
+	/* Avada CSS FIX */
+	form.checkout .form-row-first {float: left !important;width: 48%;}
+	form.checkout .form-row-last {float: right !important;width: 48%;}
+<?php } ?>
+</style>
+<?php
+}
+add_action( 'wp_head', 'surbma_hc_themes_css_fixes', 999 );
+
 // Customize the checkout default address fields
 function surbma_hc_filter_default_address_fields( $address_fields ) {
 	// Modifications only if language is Hungarian
