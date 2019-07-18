@@ -5,7 +5,7 @@ Plugin Name: HuCommerce | Magyar WooCommerce kiegészítések
 Plugin URI: https://www.hucommerce.hu/
 Description: Hasznos javítások a magyar nyelvű WooCommerce webáruházakhoz.
 
-Version: 18.2
+Version: 18.3
 
 Author: HuCommerce
 Author URI: https://www.hucommerce.hu/
@@ -16,7 +16,7 @@ WC requires at least: 3.4
 WC tested up to: 3.6
 */
 
-// Prevent direct access to the plugin
+// Prevent direct access
 defined( 'ABSPATH' ) || exit;
 
 define( 'SURBMA_HC_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -50,12 +50,17 @@ if( !defined( 'SURBMA_HC_PLUGIN_LICENSE' ) ) {
 	define( 'SURBMA_HC_PLUGIN_LICENSE', 'free' );
 }
 
-// Start HuCommerce
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-	require_once SURBMA_HC_PLUGIN_DIR . '/lib/start.php';
-} else {
-	add_action( 'admin_notices', 'surbma_hc_admin_notice__no_woocommerce' );
+// Check WooCommerce.
+function surbma_hc_check_woocommerce() {
+	if ( class_exists( 'WooCommerce' ) ) {
+		// Start HuCommerce.
+		require_once SURBMA_HC_PLUGIN_DIR . '/lib/start.php';
+	} else {
+		// Notify user, that WooCommerce is not active.
+		add_action( 'admin_notices', 'surbma_hc_admin_notice__no_woocommerce' );
+	}
 }
+add_action( 'plugins_loaded', 'surbma_hc_check_woocommerce' );
 
 function surbma_hc_admin_notice__no_woocommerce() {
 	?>
