@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.2
-Stable tag: 18.1
+Stable tag: 18.2
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,16 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 18.2 =
+
+Kiadás dátuma: 2019-07-18
+
+Betettem egy ellenőrzést, hogy a WooCommerce bővítmény aktív-e. Ha nem, akkor a kódok nem futnak le, csak egy figyelmeztetés jelenik meg az admin felületen.
+
+JAVÍTÁSOK
+
+- WooCommerce bővítmény ellenőrzése, hogy be van-e kapcsolva.
 
 = 18.1 =
 
