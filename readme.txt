@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.2
-Stable tag: 18.3
+Stable tag: 18.4
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,22 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 18.4 =
+
+Kiadás dátuma: 2019-07-25
+
+Semmi funkcionális változtatás most, csak egy kis rendrakás. Kompatibilitás javítása a többi Cherry Pick Studios bővítménnyel.
+
+JAVÍTÁSOK
+
+- Az új CPS SDK kompatibilitás javítása.
+- Admin header filterek csak a HuCommerce admin oldalán futnak le.
+
+EGYÉB
+
+- CPS SDK frissítése az 5.2 verzióra.
+- Új assets mappa, hogy logikusabb legyen a mappa struktúra.
 
 = 18.3 =
 

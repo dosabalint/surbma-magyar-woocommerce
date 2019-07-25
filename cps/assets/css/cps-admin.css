@@ -2,7 +2,7 @@ body {
 	height: auto;
 }
 
-.notice+.cps-admin {
+.notice + .cps-admin {
 	margin-top: 10px;
 }
 
@@ -12,14 +12,35 @@ body {
 }
 
 .cps-admin #cps-header {
-	background: url("background-texture.jpg"), linear-gradient(to left, #28a5f5, #1e87f0) !important;
-	background-blend-mode: overlay;
-	margin: 0 0 0 -20px;
+	background: #fff;
+	margin: 0 0 20px -20px;
 	padding: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.cps-admin .uk-navbar-container .uk-logo img {
+	width: 50px;
+	margin-right: 5px;
+	float: left;
+}
+
+.cps-admin .uk-navbar-container .uk-logo div {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.cps-admin .uk-navbar-container .uk-logo div span {
+	display: block;
+	font-size: 10px;
+	text-transform: none;
+	font-weight: normal;
 }
 
 .cps-admin .uk-navbar-container .uk-navbar-item {
-	color: #fff;
+	color: #000;
 }
 
 .cps-admin .uk-navbar-container .uk-navbar-nav > li {
@@ -27,21 +48,11 @@ body {
 }
 
 .cps-admin .uk-navbar-container .uk-navbar-nav > li > a {
-	color: rgba(255, 255, 255, 0.8);
+	color: #000;
 }
 
 .cps-admin .uk-navbar-container .uk-navbar-nav > li > a:hover {
-	color: #fff;
-}
-
-@media (min-width: 960px) {
-	.cps-admin .uk-form-horizontal .uk-form-label {
-		width: 400px;
-	}
-
-	.cps-admin .uk-form-horizontal .uk-form-controls {
-		margin-left: 415px;
-	}
+	color: #06c;
 }
 
 .cps-admin input[type=text].uk-input,
@@ -86,8 +97,8 @@ body {
 }
 
 .cps-admin .uk-text-meta {
-    font-size: .7rem;
-    margin-top: 5px;
+	font-size: .7rem;
+	margin-top: 5px;
 }
 
 .cps-admin .disabled,
@@ -99,7 +110,8 @@ body {
 .cps-admin .disabled .uk-form-label,
 .cps-admin .disabled .slider,
 .cps-admin .disabled input,
-.cps-admin .disabled select {
+.cps-admin .disabled select,
+.cps-admin .disabled button {
 	cursor: not-allowed;
 }
 
@@ -205,11 +217,6 @@ body {
 }
 
 /* Buttons */
-
-.cps-admin .uk-button .uk-icon {
-	position: relative;
-	top: -2px;
-}
 
 .cps-admin .uk-button,
 .cps-admin .uk-button .uk-button-large {

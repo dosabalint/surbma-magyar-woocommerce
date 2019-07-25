@@ -18,52 +18,46 @@ add_action( 'admin_menu', 'surbma_hc_add_menus', 999 );
 
 // Custom styles and scripts for admin pages
 function surbma_hc_init( $hook ) {
+	wp_register_style( 'surbma-hc-admin', SURBMA_HC_PLUGIN_URL . '/assets/css/admin.css', false, '18.4' );
 	global $surbma_hc_settings_page;
 	if ( $hook == $surbma_hc_settings_page ) {
 		add_action( 'admin_enqueue_scripts', 'cps_admin_scripts', 9999 );
+        wp_enqueue_style( 'surbma-hc-admin' );
 	}
 }
 add_action( 'admin_enqueue_scripts', 'surbma_hc_init' );
 
 function surbma_hc_admin_header_title( $url ) {
-	return 'HuCommerce | Beállítások';
+	return 'HuCommerce | Magyar WooCommerce kiegészítések <span>by HuCommerce</span>';
 }
-add_filter( 'cps_admin_header_title', 'surbma_hc_admin_header_title' );
 
 function surbma_hc_admin_header_facebook_url( $url ) {
 	return 'https://www.facebook.com/groups/HuCommerce.hu/';
 }
-add_filter( 'cps_admin_header_facebook_url', 'surbma_hc_admin_header_facebook_url' );
 
 function surbma_hc_admin_header_facebook_title( $fbtitle ) {
 	return 'Csatlakozz a HuCommerce Facebook csoportjához, ahol lehet kérdezni, ötletelni. Mindenkit szívesen látunk.';
 }
-add_filter( 'cps_admin_header_facebook_title', 'surbma_hc_admin_header_facebook_title' );
 
 function surbma_hc_admin_header_facebook_button_text( $fbbuttontext ) {
 	return 'Csatlakozz a csoporthoz!';
 }
-add_filter( 'cps_admin_header_facebook_button_text', 'surbma_hc_admin_header_facebook_button_text' );
 
 function surbma_hc_admin_header_email( $email ) {
 	return 'hello@hucommerce.hu';
 }
-add_filter( 'cps_admin_header_email', 'surbma_hc_admin_header_email' );
 
 function surbma_hc_admin_header_email_title( $emailtitle ) {
 	return 'HuCommerce email ügyfélszolgálat';
 }
-add_filter( 'cps_admin_header_email_title', 'surbma_hc_admin_header_email_title' );
 
 function surbma_hc_admin_header_website( $website ) {
 	return 'https://www.hucommerce.hu';
 }
-add_filter( 'cps_admin_header_website', 'surbma_hc_admin_header_website' );
 
 function surbma_hc_admin_header_website_title( $websitetitle ) {
 	return 'HuCommerce hivatalos weboldal';
 }
-add_filter( 'cps_admin_header_website_title', 'surbma_hc_admin_header_website_title' );
 
 function surbma_hc_admin_sidebar() {
 	$options = get_option( 'surbma_hc_fields' );
