@@ -44,6 +44,15 @@ $returntoshop_checkout_position_options = array(
 );
 
 function surbma_hc_settings_page() {
+	// add_filter( 'cps_admin_header_title', 'surbma_hc_admin_header_title' );
+	add_filter( 'cps_admin_header_facebook_url', 'surbma_hc_admin_header_facebook_url' );
+	add_filter( 'cps_admin_header_facebook_title', 'surbma_hc_admin_header_facebook_title' );
+	add_filter( 'cps_admin_header_facebook_button_text', 'surbma_hc_admin_header_facebook_button_text' );
+	add_filter( 'cps_admin_header_email', 'surbma_hc_admin_header_email' );
+	add_filter( 'cps_admin_header_email_title', 'surbma_hc_admin_header_email_title' );
+	add_filter( 'cps_admin_header_website', 'surbma_hc_admin_header_website' );
+	add_filter( 'cps_admin_header_website_title', 'surbma_hc_admin_header_website_title' );
+
 	global $returntoshop_cart_position_options;
 	global $returntoshop_checkout_position_options;
 
@@ -51,7 +60,7 @@ function surbma_hc_settings_page() {
 
 ?>
 <div class="cps-admin surbma-hc-settings-page">
-	<?php cps_admin_header(); ?>
+	<?php cps_admin_header( SURBMA_HC_PLUGIN_FILE ); ?>
 	<div class="wrap">
 		<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) { ?>
 			<div class="updated notice is-dismissible"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
@@ -507,7 +516,7 @@ function surbma_hc_settings_page() {
 		</div>
 		<div class="uk-margin-bottom" id="bottom"></div>
 	</div>
-	<?php cps_admin_footer(); ?>
+	<?php cps_admin_footer( SURBMA_HC_PLUGIN_FILE ); ?>
 </div>
 <?php
 }
