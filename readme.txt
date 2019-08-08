@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.2
-Stable tag: 18.4
+Stable tag: 18.5
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,23 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 18.5 =
+
+Kiadás dátuma: 2019-08-08
+
+Ebben a kiadásban a HuCommerce menüpont átkerült a CPS Plugins főmenüpont alá, illetve néhány apró javítás és fejlesztés található. A frissítése biztonságos éles oldalakon is.
+
+JAVÍTÁSOK
+
+- A Plusz/minusz mennyiségi gombok új HTML kódot kaptak, hogy bizonyos bővítményekkel ne legyen konfliktusban a megjelenésük.
+- A Product quantity inputs template frissítve lett a 3.6.0 verzióra.
+- A Fiók oldalon javítva lett az új logika szerint a nevek megjelenítése, így ott is akkor cserélődik meg a keresztnév és vezetéknév sorrendje, ha magyar nyelven nézi a látogató a weboldalt.
+
+EGYÉB
+
+- CPS SDK frissítése az 5.3 verzióra.
+- A HuCommerce menüpont átkerült a CPS Plugins menüpont alá.
 
 = 18.4 =
 

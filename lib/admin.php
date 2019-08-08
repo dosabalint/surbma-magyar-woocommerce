@@ -6,7 +6,7 @@ include_once( SURBMA_HC_PLUGIN_DIR . '/pages/settings.php');
 function surbma_hc_add_menus() {
 	global $surbma_hc_settings_page;
 	$surbma_hc_settings_page = add_submenu_page(
-		'woocommerce',
+		'cps-plugins-menu',
 		'HuCommerce',
 		'HuCommerce',
 		'manage_options',
@@ -130,7 +130,7 @@ function surbma_hc_admin_notice__welcome() {
 	?>
 	<div data-dismissible="surbma-hc-notice-welcome-forever" class="notice notice-info is-dismissible">
 		<div style="padding: 20px;">
-			<img src="<?php echo SURBMA_HC_PLUGIN_URL; ?>/images/hucommerce-logo.png" alt="HuCommerce">
+			<img src="<?php echo SURBMA_HC_PLUGIN_URL; ?>/assets/images/hucommerce-logo.png" alt="HuCommerce">
 			<p><strong>Köszönjük, hogy telepítetted a HuCommerce bővítményt!</strong></p>
 			<p>Első lépésként aktiváld a szükséges modulokat és nézd meg az egyes modulok egyedi beállításait!
 			<br>A HuCommerce beállításait a <a href="<?php admin_url(); ?>admin.php?page=surbma-hucommerce-menu">WooCommerce -> HuCommerce</a> menüpont alatt találod.</p>

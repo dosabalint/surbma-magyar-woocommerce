@@ -1,7 +1,7 @@
 <?php
 
 // CPS SDK Version.
-$this_sdk_version = '5.2';
+$this_sdk_version = '5.3';
 
 define( 'CPS_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'CPS_URL', plugins_url( '', __FILE__ ) );
@@ -58,7 +58,8 @@ function cps_admin_header( $plugin_file = '' ) {
 			</ul>
 			<div class="uk-navbar-item"></div>
 		</div>
-	</nav><?php
+	</nav>
+	<div id="cps-admin-notification-placeholder" class="wrap"><h1></h1></div><?php
 }
 
 function cps_admin_footer( $plugin_file = '' ) {

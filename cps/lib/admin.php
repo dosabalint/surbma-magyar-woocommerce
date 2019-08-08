@@ -12,7 +12,8 @@ function cps_add_menus() {
 		'read',
 		'cps-plugins-menu',
 		'cps_plugins_page',
-		CPS_URL . '/assets/images/cps-logo.svg'
+		CPS_URL . '/assets/images/cps-logo.svg',
+		99
 	);
 	$cps_plugins_page = add_submenu_page(
 		'cps-plugins-menu',
