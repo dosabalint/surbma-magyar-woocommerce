@@ -23,15 +23,13 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
-	<?php $billingcountry = WC()->customer->get_billing_country(); ?>
-
 	<!-- EXTRA CODE START -->
 	<?php
 		$options = get_option( 'surbma_hc_fields' );
 		$huformatfixValue = isset( $options['huformatfix'] ) ? $options['huformatfix'] : 1;
 	?>
 
-	<?php if( $billingcountry == 'HU' && $huformatfixValue == 1 ) { ?>
+	<?php if( ( get_locale() == 'hu_HU' || get_locale() == 'hu' ) && $huformatfixValue == 1 ) { ?>
 	<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
 		<label for="account_last_name"><?php esc_html_e( 'Last name', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_last_name" id="account_last_name" autocomplete="family-name" value="<?php echo esc_attr( $user->last_name ); ?>" />
