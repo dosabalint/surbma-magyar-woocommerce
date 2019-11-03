@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.2
-Stable tag: 18.6
+Stable tag: 18.7
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,16 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 18.7 =
+
+Kiadás dátuma: 2019-11-03
+
+Mostantól megjelenít egy figyelmeztető szöveget az Adószám megjelenítése opciónál, ha a Viszt Péter által írt Szamlazz.hu vagy Billingo bővítményeknél is be van kapcsolva az adószám mező. Ebben az esetben két adószám mező jelenik meg, így az egyik bővítménynél ki kell ezt az opciót kapcsolni.
+
+EGYÉB
+
+- Kompatibilitás javítása a Viszt Péter által írt Szamlazz.hu és Billingo bővítményekhez.
 
 = 18.6 =
 
