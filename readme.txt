@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 4.9
 Tested up to: 5.2
-Stable tag: 18.5
+Stable tag: 18.6
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -143,7 +143,7 @@ Nézd meg a weboldalunkat: [HuCommerce.hu](https://www.hucommerce.hu/)
 1. A "Bővítmények -> Új hozzáadása" menüpont alatt keress rá a *HuCommerce | Magyar WooCommerce kiegészítések* bővítményre.
 2. A bővítmény dobozában kattints a "Telepítés most" gombra.
 3. Telepítés után ugyanebben a dobozban kattints a "Bekapcsol" gombra, hogy aktiváld a *HuCommerce | Magyar WooCommerce kiegészítések* bővítményt.
-4. A "WooCommerce -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
+4. A "CPS Plugins -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
 5. Ennyi az egész. :)
 
 ### Manuális telepítés az admin felületen
@@ -151,7 +151,7 @@ Nézd meg a weboldalunkat: [HuCommerce.hu](https://www.hucommerce.hu/)
 1. Töltsd le a bővítményt: [HuCommerce | Magyar WooCommerce kiegészítések](https://downloads.wordpress.org/plugin/surbma-magyar-woocommerce.zip)
 2. Töltsd fel a `surbma-magyar-woocommerce.zip` fájlt a "Bővítmények -> Új hozzáadása" menüpont alatt a "Bővítmény feltöltése" gombra kattintva.
 3. Aktiváld a *HuCommerce | Magyar WooCommerce kiegészítések* bővítményt a feltöltés után.
-4. A "WooCommerce -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
+4. A "CPS Plugins -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
 5. Ennyi az egész. :)
 
 ### Manuális telepítés FTP használatával
@@ -160,14 +160,14 @@ Nézd meg a weboldalunkat: [HuCommerce.hu](https://www.hucommerce.hu/)
 2. Tömörítsd ki a zip fájlt a számítógépeden.
 3. Töltsd fel a `surbma-magyar-woocommerce` mappát a `/wp-content/plugins/` mappába.
 4. Aktiváld a *HuCommerce | Magyar WooCommerce kiegészítések* bővítményt a "Bővítmények" menüpont alatt a WordPress admin felületen.
-5. A "WooCommerce -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
+5. A "CPS Plugins -> HuCommerce" menüpont alatt állítsd be, hogy melyik modult szeretnéd használni.
 6. Ennyi az egész. :)
 
 == Frequently Asked Questions ==
 
 = Hol találom a bővítmény beállításait? =
 
-A *HuCommerce | Magyar WooCommerce kiegészítések* bővítmény beállításait a "WooCommerce -> HuCommerce" menüpont alatt éred el.
+A *HuCommerce | Magyar WooCommerce kiegészítések* bővítmény beállításait a "CPS Plugins -> HuCommerce" menüpont alatt éred el.
 
 = Nem cserélődtek meg a nevek a Pénztár oldalon. =
 
@@ -180,6 +180,17 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 18.6 =
+
+Kiadás dátuma: 2019-11-03
+
+Ez a frissítés az irányítószám adatbázis frissítését tartalmazza. Így most már Budapest és a nagyvárosok is szerepelnek az adatbázisban.
+
+JAVÍTÁSOK
+
+- Irányítószámok frissítése.
+- Apró javítás a leírásban, hogy az admin menüpontot helyesen írja le.
 
 = 18.5 =
 
