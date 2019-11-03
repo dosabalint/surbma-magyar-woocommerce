@@ -58,6 +58,9 @@ function surbma_hc_settings_page() {
 
 	$freeNotification = '<p class="uk-text-meta uk-text-center">Ezek a modulok a bővítmény PRO kiegészítőjével érhetők el, amelyet külön kell megvásárolni a bővítményhez.</p>';
 
+	$szamlazzhu_options = get_option( 'woocommerce_wc_szamlazz_settings' );
+	$billingo_options = get_option( 'woocommerce_wc_billingo_plus_settings' );
+
 ?>
 <div class="cps-admin surbma-hc-settings-page">
 	<?php cps_admin_header( SURBMA_HC_PLUGIN_FILE ); ?>
@@ -193,6 +196,12 @@ function surbma_hc_settings_page() {
 											<span class="slider round"></span>
 										</label>
 									</p>
+									<?php if( $szamlazzhu_options['vat_number_form'] == 'yes' ) { ?>
+										<p class="uk-text-meta uk-text-right uk-text-warning"><span uk-icon="warning"></span> Az adószám mezőt a Szamlazz.hu bővítmény már megjeleníti a pénztár oldalon.</p>
+									<?php } ?>
+									<?php if( $billingo_options['vat_number_form'] == 'yes' ) { ?>
+										<p class="uk-text-meta uk-text-right uk-text-warning"><span uk-icon="warning"></span> Az adószám mezőt a Billingo bővítmény már megjeleníti a pénztár oldalon.</p>
+									<?php } ?>
 								</div>
 							</div>
 
