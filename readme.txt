@@ -2,9 +2,9 @@
 Contributors: Surbma, CherryPickStudios, xnagyg
 Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
-Requires at least: 4.9
-Tested up to: 5.2
-Stable tag: 18.7
+Requires at least: 5.1
+Tested up to: 5.3
+Stable tag: 19.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,26 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 19.0 =
+
+Kiadás dátuma: 2020-02-11
+
+Az irányítószám automatikus kitöltése most már a szállítási címnél is működik. A bővítmény elő lett készítve a fordíthatóságra. Viszont emiatt mindent át kell majd írni angolra, aztán lefordítani angolra. Ez biztos hosszabb folyamat lesz, de megéri. :)
+
+ÚJDONSÁGOK
+
+- A bővítmény fordíthatóságának előkészítése.
+
+MÓDOSÍTÁSOK
+
+- Autofill beállítása a szállítási címhez.
+
+EGYÉB
+
+- Kompatibilitás ellenőrzése a WordPress 5.3 főverzióval.
+- Kompatibilitás ellenőrzése a WooCommerce 3.9 főverzióval.
+- Új frissítési mód bevezetése, hogy automatikusan feltöltse a wp.org repo-ba.
 
 = 18.7 =
 

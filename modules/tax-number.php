@@ -11,7 +11,7 @@
 // Add new Tax number field.
 add_filter( 'woocommerce_billing_fields', function( $fields ) {
 	$fields['billing_tax_number'] = array(
-		'label' 		=> 'Adószám',
+		'label' 		=> __( 'Tax number', 'cps-hucommerce' ),
 		'required' 		=> false,
 		'class' 		=> array( 'form-row-wide' ),
 		'priority' 		=> 32,
@@ -50,14 +50,14 @@ add_filter( 'woocommerce_localisation_address_formats', function( $formats ) {
 // Replacement value for My Account page.
 add_filter( 'woocommerce_my_account_my_address_formatted_address', function( $address, $customer_id, $address_type ) {
 	$taxnumber = get_user_meta( $customer_id, 'billing_tax_number', true );
-	$address['tax_number'] = $address_type == 'billing' && $taxnumber != '' ? 'Adószám: ' . $taxnumber : null;
+	$address['tax_number'] = $address_type == 'billing' && $taxnumber != '' ? __( 'Tax number', 'cps-hucommerce' ) . ': ' . $taxnumber : null;
 	return $address;
 }, 10, 3 );
 
 // Replacement value for Billing address on Thank you page.
 add_filter( 'woocommerce_order_formatted_billing_address', function( $address, $wc_order ) {
 	$taxnumber = $wc_order->get_meta( '_billing_tax_number' );
-	$address['tax_number'] = $taxnumber != '' ? 'Adószám: ' . $taxnumber : null;
+	$address['tax_number'] = $taxnumber != '' ? __( 'Tax number', 'cps-hucommerce' ) . ': ' . $taxnumber : null;
 	return $address;
 }, 10, 2 );
 
@@ -69,7 +69,7 @@ add_filter( 'woocommerce_order_formatted_shipping_address', function( $address )
 
 // Replacement value for Billing & Shipping address on Thank you page.
 // add_filter( 'woocommerce_get_order_address', function( $address, $type, $order ) {
-// 	$address['tax_number'] = 'Adószám: ' . $order->get_meta( '_billing_tax_number' );
+// 	$address['tax_number'] = __( 'Tax number', 'cps-hucommerce' ) . ': ' . $order->get_meta( '_billing_tax_number' );
 // 	return $address;
 // }, 10, 3 );
 
@@ -83,7 +83,7 @@ add_filter( 'woocommerce_formatted_address_replacements', function( $replacement
 // Adding Tax number to user profile.
 add_filter( 'woocommerce_customer_meta_fields', function( $profileFieldArray ) {
 	$fieldData = array(
-		'label'			=> 'Adószám',
+		'label'			=> __( 'Tax number', 'cps-hucommerce' ),
 		'description'   => ''
 	);
 	$profileFieldArray['billing']['fields']['billing_tax_number'] = $fieldData;
