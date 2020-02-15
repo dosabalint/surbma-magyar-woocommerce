@@ -54,7 +54,7 @@ function surbma_hc_plus_minus_scripts() {
 	<?php
 	}
 }
-add_action( 'wp_footer', 'surbma_hc_plus_minus_scripts' );
+add_action( 'wp_footer', 'surbma_hc_plus_minus_scripts', 999 );
 
 function surbma_hc_plus_minus_button_styles() {
 	if ( is_product() || is_cart() ) { ?>

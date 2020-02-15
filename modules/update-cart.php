@@ -11,4 +11,4 @@ function surbma_hc_cart_update_qty_script() {
 </script>
 <?php }
 }
-add_action( 'wp_footer', 'surbma_hc_cart_update_qty_script' );
+add_action( 'wp_footer', 'surbma_hc_cart_update_qty_script', 999 );

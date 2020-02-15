@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.1
 Tested up to: 5.3
-Stable tag: 19.0
+Stable tag: 19.1
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -181,11 +181,26 @@ A vezetéknevem visszafelé. ;)
 
 == Changelog ==
 
+= 19.1 =
+
+Kiadás dátuma: 2020-02-15
+
+Fontos javítások a fordítási lehetőségekkel kapcsolatban.
+
+JAVÍTÁSOK
+
+- A text domain módosítása a bővítmény slug-jára, mert csak azzal működik együtt a wp.org.
+- Két modul javascript hivatkozásának a későbbi meghívása, hogy lehetőleg ne legyen konfliktusban más optimalizáló bővítményekkel.
+
+EGYÉB
+
+- Ideiglenesen a bővítmény fordítását mellékeltem, amíg a hivatalos forrásból nem lesz elérhető.
+
 = 19.0 =
 
 Kiadás dátuma: 2020-02-11
 
-Az irányítószám automatikus kitöltése most már a szállítási címnél is működik. A bővítmény elő lett készítve a fordíthatóságra. Viszont emiatt mindent át kell majd írni angolra, aztán lefordítani angolra. Ez biztos hosszabb folyamat lesz, de megéri. :)
+Az irányítószám automatikus kitöltése most már a szállítási címnél is működik. A bővítmény elő lett készítve a fordíthatóságra. Viszont emiatt mindent át kell majd írni angolra, aztán lefordítani magyarra. Ez biztos hosszabb folyamat lesz, de megéri. :)
 
 ÚJDONSÁGOK
 
