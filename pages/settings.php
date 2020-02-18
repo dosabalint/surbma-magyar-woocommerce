@@ -299,6 +299,19 @@ function surbma_hc_settings_page() {
 							<h4 class="uk-heading-divider">Pénztár oldal</h4>
 
 							<div class="uk-margin">
+								<div class="uk-form-label">Céges számlázási adatok feltételes megjelenítése</div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0; ?>
+											<input id="billingcompanycheck" name="surbma_hc_fields[billingcompanycheck]" type="checkbox" value="1" <?php checked( '1', $billingcompanycheckValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
 								<div class="uk-form-label">Ország mező elrejtése</div>
 								<div class="uk-form-controls">
 									<p class="switch-wrap">
@@ -318,6 +331,19 @@ function surbma_hc_settings_page() {
 										<label class="switch">
 											<?php $noordercommentsValue = isset( $options['noordercomments'] ) ? $options['noordercomments'] : 0; ?>
 											<input id="noordercomments" name="surbma_hc_fields[noordercomments]" type="checkbox" value="1" <?php checked( '1', $noordercommentsValue ); ?> />
+											<span class="slider round"></span>
+										</label>
+									</p>
+								</div>
+							</div>
+
+							<div class="uk-margin">
+								<div class="uk-form-label">Cégnév és Adószám mezők egymás mellé rendezése</div>
+								<div class="uk-form-controls">
+									<p class="switch-wrap">
+										<label class="switch">
+											<?php $companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0; ?>
+											<input id="companytaxnumberpair" name="surbma_hc_fields[companytaxnumberpair]" type="checkbox" value="1" <?php checked( '1', $companytaxnumberpairValue ); ?> />
 											<span class="slider round"></span>
 										</label>
 									</p>
@@ -554,6 +580,8 @@ function surbma_hc_fields_validate( $input ) {
 	$input['nocounty'] = isset( $input['nocounty'] ) && $input['nocounty'] == 1 ? 1 : 0;
 	$input['nocountry'] = isset( $input['nocountry'] ) && $input['nocountry'] == 1 ? 1 : 0;
 	$input['noordercomments'] = isset( $input['noordercomments'] ) && $input['noordercomments'] == 1 ? 1 : 0;
+	$input['billingcompanycheck'] = isset( $input['billingcompanycheck'] ) && $input['billingcompanycheck'] == 1 ? 1 : 0;
+	$input['companytaxnumberpair'] = isset( $input['companytaxnumberpair'] ) && $input['companytaxnumberpair'] == 1 ? 1 : 0;
 	$input['postcodecitypair'] = isset( $input['postcodecitypair'] ) && $input['postcodecitypair'] == 1 ? 1 : 0;
 	$input['phoneemailpair'] = isset( $input['phoneemailpair'] ) && $input['phoneemailpair'] == 1 ? 1 : 0;
 	$input['regip'] = isset( $input['regip'] ) && $input['regip'] == 1 ? 1 : 0;

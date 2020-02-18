@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.1
 Tested up to: 5.3
-Stable tag: 19.1
+Stable tag: 20.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,23 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 20.0 =
+
+Kiadás dátuma: 2020-02-18
+
+A legújabb főverzió igazán nagy és régóta várt újításokat tartalmaz. Mostantól megjeleníthető egy "Céges számlázás" checkbox, ami elrejti vagy megjeleníti a céges számlázási adatokat (Cégnév, Adószám). Illetve egy régi "hibát" is javítottam: az Ország mező elrejtése esetén a megrendelés során alapértelmezettként a Bolt beállított országa lesz az aktuális Ország. Így nem lesz konfliktusban a szállítási és fizetési modulokkal.
+
+ÚJDONSÁGOK
+
+- Céges számlázási adatok feltételes megjelenítése. Aktív állapotban a céges adatok kitöltése kötelező.
+- Cégnév és Adószám mezők egymás mellé rendezése.
+
+JAVÍTÁSOK
+
+- Ha az "Ország mező elrejtése" opció aktív, akkor az ország mező csak rejtve van, nem törölve és alapértelmezettként megkapja a Bolt beállított országának az értékét.
+- JS fájlok kiegészítése verziószámmal és a kód átmozgatása a footer-be.
+- Kisebb kód igazítások.
 
 = 19.1 =
 

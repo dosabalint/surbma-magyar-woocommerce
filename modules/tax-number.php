@@ -1,24 +1,17 @@
 <?php
 
-/* TODO
-/*
-/* Meg kell oldani, hogy kötelező legyen, ha a Cég mező ki van töltve. Eleve csak akkor kéne megjelennie.
-/*
-/* Itt van egy jó kis példa:
-/* https://stackoverflow.com/questions/41727080/custom-checkout-fields-hiding-showing-fields-with-a-selector
-/*
-*/
-// Add new Tax number field.
-add_filter( 'woocommerce_billing_fields', function( $fields ) {
+// Add new Company check and Tax number fields.
+function surbma_hc_tax_number_custom_billing_fields( $fields ) {
 	$fields['billing_tax_number'] = array(
 		'label' 		=> __( 'Tax number', 'surbma-magyar-woocommerce' ),
 		'required' 		=> false,
 		'class' 		=> array( 'form-row-wide' ),
 		'priority' 		=> 32,
 		'clear' 		=> true
-	 );
-	 return $fields;
-} );
+	);
+	return $fields;
+}
+add_filter( 'woocommerce_billing_fields', 'surbma_hc_tax_number_custom_billing_fields' );
 
 // add_action( 'woocommerce_checkout_process', function() {
 // 	if ( !$_POST['billing_tax_number'] )
