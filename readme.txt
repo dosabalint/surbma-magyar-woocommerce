@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.1
 Tested up to: 5.3
-Stable tag: 20.0
+Stable tag: 21.0
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,7 +50,7 @@ A név sorrendje a megrendelés visszaigazolásánál, a vásárló fiókjában 
 
 #### Adószám bekérése vásárlásnál
 
-A Pénztár oldalon a Cég mező alatt már Adószámot is be lehet kérni. Az adószám a rendelésen kívül az adott felhasználó profil adatainál is elmentésre kerül. Az adószám megjelenik mind a visszaigazoláson, mind a rendelés szerkesztésénél, valamint az értesítő levelekben is.
+A Pénztár oldalon a Cégnév mező alatt már Adószámot is be lehet kérni. Az Adószám mező csak akkor jelenik meg, ha a Cégnév mezőbe lett írva. Az adószám ebben az esetben kötelező mező. Az adószám a rendelésen kívül az adott felhasználó profil adatainál is elmentésre kerül. Az adószám megjelenik mind a visszaigazoláson, mind a rendelés szerkesztésénél, valamint az értesítő levelekben is.
 
 #### Jogi megfelelés (Fogyasztóvédelem, GDPR, ePrivacy, stb.)
 
@@ -66,9 +66,11 @@ A regisztrációs űrlapnál is kérhető az Adatkezelési Tájékoztató kötel
 
 #### Pénztár oldal formázása
 
-Az Irányítószám és Város mezőket, valamint a Telefonszám és Email cím mezőket nagy monitoron be lehet állítani, hogy egymás mellé kerüljenek. Az Irányítószám és Város mezők az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+Céges számlázási adatok feltételes megjelenítése. Ebben az esetben egy checkbox jelenik meg és ha a látogató bepipálja, akkor jelennek csak meg a céges számlázás mezői, mint például a Cégnév és Adószám.
 
-Az Ország és a Rendelés jegyzetek mezőket akár ki is lehet kapcsolni, ha ezek a mezők nem relevánsak a te webáruházadnál.
+A Cégnév és Adószám, az Irányítószám és Város, valamint a Telefonszám és Email cím mezőket nagy monitoron be lehet állítani, hogy egymás mellé kerüljenek. Az Irányítószám és Város mezők az Ország mező alatt jelennek meg közvetlenül, hogy logikusabb legyen a megjelenési sorrend.
+
+Az Ország és a Rendelés jegyzetek mezőket akár ki is lehet kapcsolni, ha ezek a mezők nem relevánsak a te webáruházadnál. Ha az Ország mezőt elrejted, akkor a Bolt beállításainál kiválasztott ország lesz alapértelmezettként beállítva megrendelésnél.
 
 #### Megye mező elrejtése
 
@@ -180,6 +182,20 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 21.0 =
+
+Kiadás dátuma: 2020-02-18
+
+Az előző verzióból kimaradt egy fontos fejlesztés, amit most bepótoltam. Ha nem feltételesen jelennek meg a céges számlázási mezők, akkor is csak a Cégnév látszik alapból és az Adószám csak akkor, ha kitölti a Cégnevet. Az Adószám innentől kezdve kötelező mező lett.
+
+ÚJDONSÁGOK
+
+- Adószám kötelező lett, illetve a Cégnév kitöltésétől függően jelenik meg alapból.
+
+JAVÍTÁSOK
+
+- Kisebb javítás a leírásban.
 
 = 20.0 =
 

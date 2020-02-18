@@ -1,10 +1,19 @@
 <?php
 
+function surbma_hc_tax_number_scripts() {
+	$options = get_option( 'surbma_hc_fields' );
+	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
+	if( is_checkout() && $billingcompanycheckValue == 0 ) {
+		wp_enqueue_script( 'surbma_hc_tax_number', SURBMA_HC_PLUGIN_URL . '/assets/js/taxnumber.js', array( 'jquery' ), SURBMA_HC_PLUGIN_VERSION_NUMBER, true );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'surbma_hc_tax_number_scripts' );
+
 // Add new Company check and Tax number fields.
 function surbma_hc_tax_number_custom_billing_fields( $fields ) {
 	$fields['billing_tax_number'] = array(
 		'label' 		=> __( 'Tax number', 'surbma-magyar-woocommerce' ),
-		'required' 		=> false,
+		'required' 		=> true,
 		'class' 		=> array( 'form-row-wide' ),
 		'priority' 		=> 32,
 		'clear' 		=> true
