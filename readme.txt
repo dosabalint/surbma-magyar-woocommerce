@@ -183,9 +183,19 @@ A vezetéknevem visszafelé. ;)
 
 == Changelog ==
 
+= 21.2 =
+
+Kiadás dátuma: 2020-02-19
+
+JAVÍTÁSOK
+
+- A Céges számlázás mezőnél a "Nem kötelező" szöveg törlése.
+- Felesleges JS kódok törlése.
+- Nyelvi mappa törlése, mivel már elérhető a hivatalos forrásból.
+
 = 21.1 =
 
-Kiadás dátuma: 2020-02-18
+Kiadás dátuma: 2020-02-19
 
 JAVÍTÁSOK
 
