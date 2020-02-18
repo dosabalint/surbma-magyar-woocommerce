@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.1
 Tested up to: 5.3
-Stable tag: 21.0
+Stable tag: 21.1
 Requires PHP: 5.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -182,6 +182,14 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 21.1 =
+
+Kiadás dátuma: 2020-02-18
+
+JAVÍTÁSOK
+
+- Az Adószám mező külön kötelezővé tétele már felesleges, mert alapból is kötelező.
 
 = 21.0 =
 

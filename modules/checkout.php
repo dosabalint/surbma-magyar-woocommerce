@@ -94,7 +94,6 @@ function surbma_hc_checkout_filter_checkout_fields( $fields ) {
 	if( $billingcompanycheckValue == 1 ) {
 		// Billing company must be required
 		$fields['billing']['billing_company']['required'] = true;
-		$fields['billing']['billing_tax_number']['required'] = true;
 	}
 
 	$phoneemailpairValue = isset( $options['phoneemailpair'] ) ? $options['phoneemailpair'] : 0;
