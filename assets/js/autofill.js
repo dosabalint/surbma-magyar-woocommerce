@@ -18,6 +18,7 @@ jQuery(document).ready(function($){
 				var cityBilling = surbma_hc_cities[cityIndexBilling];
 				if($postcodeFieldBilling.val().length == 4 && cityIndexBilling > -1 && ($cityFieldBilling.val() == '' || !cityFieldBillingTouched) && surbma_hc_postcodes[cityIndexBilling+1] != postcodeBilling){
 					$cityFieldBilling.val( cityBilling );
+					$('body').trigger('update_checkout');
 				}
 			});
 		}
@@ -38,6 +39,7 @@ jQuery(document).ready(function($){
 				var cityShipping = surbma_hc_cities[cityIndexShipping];
 				if($postcodeFieldShipping.val().length == 4 && cityIndexShipping > -1 && ($cityFieldShipping.val() == '' || !cityFieldShippingTouched) && surbma_hc_postcodes[cityIndexShipping+1] != postcodeShipping){
 					$cityFieldShipping.val( cityShipping );
+					$('body').trigger('update_checkout');
 				}
 			});
 		}
