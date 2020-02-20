@@ -18,6 +18,12 @@ jQuery(document).ready(function($){
 				var cityBilling = surbma_hc_cities[cityIndexBilling];
 				if($postcodeFieldBilling.val().length == 4 && cityIndexBilling > -1 && ($cityFieldBilling.val() == '' || !cityFieldBillingTouched) && surbma_hc_postcodes[cityIndexBilling+1] != postcodeBilling){
 					$cityFieldBilling.val( cityBilling );
+					if($cityFieldBilling.val() != '' && $("#billing_city_field").hasClass("woocommerce-invalid woocommerce-invalid-required-field")){
+						$("#billing_city_field").removeClass("woocommerce-invalid woocommerce-invalid-required-field");
+					}
+					if($cityFieldBilling.val() != ''){
+						$("#billing_city_field").addClass("woocommerce-validated");
+					}
 					$('body').trigger('update_checkout');
 				}
 			});
