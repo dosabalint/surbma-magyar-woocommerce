@@ -1,16 +1,18 @@
 <?php
 
-function surbma_hc_tax_number_scripts() {
+add_action( 'wp_enqueue_scripts', function() {
 	$options = get_option( 'surbma_hc_fields' );
 	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
-	if( is_checkout() && $billingcompanycheckValue == 0 ) {
+	$companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0;
+	if( is_checkout() && $billingcompanycheckValue == 0 && $companytaxnumberpairValue == 0 ) {
 		wp_enqueue_script( 'surbma_hc_tax_number', SURBMA_HC_PLUGIN_URL . '/assets/js/taxnumber.js', array( 'jquery' ), SURBMA_HC_PLUGIN_VERSION_NUMBER, true );
 	}
-}
-add_action( 'wp_enqueue_scripts', 'surbma_hc_tax_number_scripts' );
+} );
 
 // Add new Company check and Tax number fields.
-function surbma_hc_tax_number_custom_billing_fields( $fields ) {
+add_filter( 'woocommerce_billing_fields', function( $fields ) {
+	$options = get_option( 'cps_bwc_fields' );
+	$companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0;
 	$fields['billing_tax_number'] = array(
 		'label' 		=> __( 'Tax number', 'surbma-magyar-woocommerce' ),
 		'required' 		=> true,
@@ -18,9 +20,10 @@ function surbma_hc_tax_number_custom_billing_fields( $fields ) {
 		'priority' 		=> 32,
 		'clear' 		=> true
 	);
+	if( $companytaxnumberpairValue == 1 )
+		$fields['billing_tax_number']['required'] = false;
 	return $fields;
-}
-add_filter( 'woocommerce_billing_fields', 'surbma_hc_tax_number_custom_billing_fields' );
+} );
 
 // add_action( 'woocommerce_checkout_process', function() {
 // 	if ( !$_POST['billing_tax_number'] )

@@ -92,19 +92,19 @@ function surbma_hc_admin_sidebar() {
 			<h4 class="uk-heading-divider">Szerezd meg a PRO verziót</h4>
 			<p>Aktiváld a HuCommerce bővítmény összes lehetőségét! A PRO verzió megvásárlásával további fantasztikus funkciókat és integrációkat kapsz.</p>
 			<div class="uk-alert-success" style="display: none;" uk-alert>
-				<?php _e( '<p>Use this special <strong>BEFOREGDPR</strong> coupon to get 50% OFF your first purchase, which is available till <strong>May 26, 2018</strong>. Hurry, GDPR is coming!</p>', 'surbma-gdpr-proof-google-analytics' ); ?>
+				<?php _e( '<p>Use this special <strong>BEFOREGDPR</strong> coupon to get 50% OFF your first purchase, which is available till <strong>May 26, 2018</strong>. Hurry, GDPR is coming!</p>', 'surbma-magyar-woocommerce' ); ?>
 			</div>
 			<p><a class="uk-button uk-button-default uk-width-1-1" href="#">Vedd meg a PRO verziót!</a></p>
 			<div class="uk-alert-primary" style="display: none;" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
-				<h3><?php _e( 'Affiliate Program', 'surbma-gdpr-proof-google-analytics' ); ?></h3>
-				<p><?php _e( 'Do you like this plugin? Let\'s make some money by referring new customers and get 20% commission, for the lifetime of the new customers! Good deal, hah?', 'surbma-gdpr-proof-google-analytics' ); ?></p>
-				<p><a class="uk-button uk-button-primary uk-width-1-1" href="<?php echo esc_url( get_admin_url() ); ?>admin.php?page=surbma-gpga-menu-affiliation"><?php _e( 'Be an Affiliate!', 'surbma-gdpr-proof-google-analytics' ); ?></a></p>
+				<h3><?php _e( 'Affiliate Program', 'surbma-magyar-woocommerce' ); ?></h3>
+				<p><?php _e( 'Do you like this plugin? Let\'s make some money by referring new customers and get 20% commission, for the lifetime of the new customers! Good deal, hah?', 'surbma-magyar-woocommerce' ); ?></p>
+				<p><a class="uk-button uk-button-primary uk-width-1-1" href="<?php echo esc_url( get_admin_url() ); ?>admin.php?page=surbma-gpga-menu-affiliation"><?php _e( 'Be an Affiliate!', 'surbma-magyar-woocommerce' ); ?></a></p>
 			</div>
 			*/ ?>
 		</div>
 		<div class="uk-card-footer uk-background-muted">
-			<p class="uk-text-right"><?php _e( 'License: GPLv2', 'surbma-gdpr-proof-cookies' ); ?></p>
+			<p class="uk-text-right"><?php _e( 'License: GPLv2', 'surbma-magyar-woocommerce' ); ?></p>
 		</div>
 	</div>
 </div>

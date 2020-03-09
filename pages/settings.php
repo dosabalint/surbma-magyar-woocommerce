@@ -1,15 +1,17 @@
 <?php
 
-function surbma_hc_fields_init() {
+add_action( 'admin_init', function() {
 	register_setting(
 		'surbma_hc_options',
 		'surbma_hc_fields',
 		'surbma_hc_fields_validate'
 	);
-}
-add_action( 'admin_init', 'surbma_hc_fields_init' );
+} );
 
-$returntoshop_cart_position_options = array(
+global $returntoshopcartposition_options;
+global $returntoshopcheckoutposition_options;
+
+$returntoshopcartposition_options = array(
 	'beforecarttable' => array(
 		'value' => 'beforecarttable',
 		'label' => 'Termék táblázat előtt (üzenettel)'
@@ -28,7 +30,7 @@ $returntoshop_cart_position_options = array(
 	)
 );
 
-$returntoshop_checkout_position_options = array(
+$returntoshopcheckoutposition_options = array(
 	'nocheckout' => array(
 		'value' => 'nocheckout',
 		'label' => 'A Pénztár oldalon ne jelenjen meg'
@@ -53,8 +55,8 @@ function surbma_hc_settings_page() {
 	add_filter( 'cps_admin_header_website', 'surbma_hc_admin_header_website' );
 	add_filter( 'cps_admin_header_website_title', 'surbma_hc_admin_header_website_title' );
 
-	global $returntoshop_cart_position_options;
-	global $returntoshop_checkout_position_options;
+	global $returntoshopcartposition_options;
+	global $returntoshopcheckoutposition_options;
 
 	$freeNotification = '<p class="uk-text-meta uk-text-center">Ezek a modulok a bővítmény PRO kiegészítőjével érhetők el, amelyet külön kell megvásárolni a bővítményhez.</p>';
 
@@ -388,7 +390,7 @@ function surbma_hc_settings_page() {
 											$p = '';
 											$r = '';
 
-											foreach ( $returntoshop_cart_position_options as $option ) {
+											foreach ( $returntoshopcartposition_options as $option ) {
 												$label = $option['label'];
 												if ( $selected == $option['value'] ) // Make default first in list
 													$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
@@ -411,7 +413,7 @@ function surbma_hc_settings_page() {
 											$p = '';
 											$r = '';
 
-											foreach ( $returntoshop_checkout_position_options as $option ) {
+											foreach ( $returntoshopcheckoutposition_options as $option ) {
 												$label = $option['label'];
 												if ( $selected == $option['value'] ) // Make default first in list
 													$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
@@ -560,8 +562,8 @@ function surbma_hc_settings_page() {
  * Sanitize and validate input. Accepts an array, return a sanitized array.
  */
 function surbma_hc_fields_validate( $input ) {
-	global $returntoshop_cart_position_options;
-	global $returntoshop_checkout_position_options;
+	global $returntoshopcartposition_options;
+	global $returntoshopcheckoutposition_options;
 
 	$options = get_option( 'surbma_hc_fields' );
 
@@ -587,9 +589,9 @@ function surbma_hc_fields_validate( $input ) {
 	$input['regip'] = isset( $input['regip'] ) && $input['regip'] == 1 ? 1 : 0;
 
 	// Our select option must actually be in our array of select options
-	if ( !array_key_exists( $input['returntoshopcartposition'], $returntoshop_cart_position_options ) )
+	if ( !array_key_exists( $input['returntoshopcartposition'], $returntoshopcartposition_options ) )
 		$input['returntoshopcartposition'] = 'cartactions';
-	if ( !array_key_exists( $input['returntoshopcheckoutposition'], $returntoshop_checkout_position_options ) )
+	if ( !array_key_exists( $input['returntoshopcheckoutposition'], $returntoshopcheckoutposition_options ) )
 		$input['returntoshopcheckoutposition'] = 'nocheckout';
 
 	// Say our text option must be safe text with no HTML tags
