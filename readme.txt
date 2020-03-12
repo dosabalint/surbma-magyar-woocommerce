@@ -4,8 +4,8 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.1
 Tested up to: 5.3
-Stable tag: 21.6
-Requires PHP: 5.6
+Stable tag: 22.0
+Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -182,6 +182,23 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 22.0 =
+
+Kiadás dátuma: 2020-03-12
+
+FONTOS! Csak akkor frissíts erre a verzióra, ha a WooCommerce is frissítve lett legalább a 4.0 verzióra!
+
+MÓDOSÍTÁSOK
+
+- A quantity-input.php template fájl törölve lett, mivel a WooCommerce 4.0 verzióban új hook-ok lettek hozzáadva.
+- A plusz/minusz gombok az új hook-okkal lettek hozzáadva. Csak a WooCommerce 4.0 verziótól működik!
+
+EGYÉB
+
+- Kód optimalizálás.
+- Kompatibilitás ellenőrzése a WooCommerce 4.0 verzióval.
+- A minimum PHP követelmény módosítása 7.0 verzióra.
 
 = 21.6 =
 

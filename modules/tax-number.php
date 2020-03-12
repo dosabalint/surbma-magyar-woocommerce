@@ -31,8 +31,8 @@ add_filter( 'woocommerce_billing_fields', function( $fields ) {
 // } );
 
 add_action( 'woocommerce_checkout_update_user_meta', function( $customer_id ) {
-	$billing_tax_number = !empty( $_POST['billing_tax_number'] ) ? $_POST['billing_tax_number'] : '';
-	update_user_meta( $customer_id, 'billing_tax_number', sanitize_text_field( $_POST['billing_tax_number'] ) );
+	$billing_tax_number = !empty( $_POST['billing_tax_number'] ) ? sanitize_text_field( $_POST['billing_tax_number'] ) : '';
+	update_user_meta( $customer_id, 'billing_tax_number', $billing_tax_number );
 } );
 
 // Add extra user meta to edit order page.

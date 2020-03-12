@@ -1,8 +1,16 @@
 <?php
 
+add_action( 'woocommerce_before_quantity_input_field', function() {
+	echo '<button type="button" class="qty-button minus">-</button>';
+} );
+
+add_action( 'woocommerce_after_quantity_input_field', function() {
+	echo '<button type="button" class="qty-button plus">+</button>';
+} );
+
 // Code reference: https://stackoverflow.com/questions/52367826/custom-plus-and-minus-quantity-buttons-in-woocommerce-3
 
-function surbma_hc_plus_minus_scripts() {
+add_action( 'wp_footer', function() {
 	if ( is_product() || is_cart() ) {
 	?>
 	<script type="text/javascript">
@@ -53,16 +61,15 @@ function surbma_hc_plus_minus_scripts() {
 	</script>
 	<?php
 	}
-}
-add_action( 'wp_footer', 'surbma_hc_plus_minus_scripts', 999 );
+} );
 
-function surbma_hc_plus_minus_button_styles() {
+add_action( 'wp_head', function() {
 	if ( is_product() || is_cart() ) { ?>
-<style id="hucommerce-style">
+<style id="plus-minus-buttons-style">
 	.quantity input::-webkit-outer-spin-button,
-	.quantity input::-webkit-inner-spin-button {display: none;margin: 0;}
-	.quantity input.qty {appearance: textfield;-webkit-appearance: none;-moz-appearance: textfield;}
-	.quantity .qty-button {cursor: pointer;}
+	.quantity input::-webkit-inner-spin-button {-webkit-appearance: none !important;margin: 0; !important}
+	.quantity input {appearance: textfield !important;-moz-appearance: textfield !important;}
+	.quantity .qty-button {cursor: pointer !important;}
 <?php if ( wp_basename( get_bloginfo( 'template_directory' ) ) == 'storefront' ) { ?>
 	table.cart td.product-quantity .qty {padding: .6180469716em;}
 	table.cart .product-quantity .minus, table.cart .product-quantity .plus {display: inline-block;}
@@ -74,5 +81,4 @@ function surbma_hc_plus_minus_button_styles() {
 <?php } ?>
 </style>
 	<?php }
-}
-add_action( 'wp_head', 'surbma_hc_plus_minus_button_styles', 999 );
+} );
