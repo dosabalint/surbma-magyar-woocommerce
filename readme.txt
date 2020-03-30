@@ -2,9 +2,9 @@
 Contributors: Surbma, CherryPickStudios, xnagyg
 Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
-Requires at least: 5.1
-Tested up to: 5.3
-Stable tag: 22.0
+Requires at least: 5.2
+Tested up to: 5.4
+Stable tag: 22.1
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -182,6 +182,22 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 22.1 =
+
+Kiadás dátuma: 2020-03-30
+
+Kicsi, de fontos javításokat tartalmazó frissítés. Mindenképpen ajánlott a frissítés, de minimum a WooCommerce 4.x főverzió esetén!
+
+JAVÍTÁSOK
+
+- Ország elrejtése esetén fontos javítás, hogy ne módosítsa a többi mezőt.
+- Mezők sorrendjének a javítása, hogy minden ország esetén rendben legyen a megjelenés.
+
+EGYÉB
+
+- Kompatibilitás ellenőrzése a WordPress 5.4 főverzióval.
+- CPS SDK frissítése az 5.10 verzióra.
 
 = 22.0 =
 

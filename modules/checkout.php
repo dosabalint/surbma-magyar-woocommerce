@@ -32,7 +32,7 @@ function surbma_hc_checkout_custom_billing_fields( $fields ) {
 add_filter( 'woocommerce_billing_fields', 'surbma_hc_checkout_custom_billing_fields' );
 
 // Pre-populate billing_country field, if it's hidden
-function surbma_hc_checkout_field_values( $input, $key ) {
+function surbma_hc_checkout_default_billing_country( $value ) {
 	$options = get_option( 'surbma_hc_fields' );
 	$nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0;
 	if( $nocountryValue == 1 ) {
@@ -42,24 +42,23 @@ function surbma_hc_checkout_field_values( $input, $key ) {
 		$split_country = explode( ":", $store_raw_country );
 		// Country and state separated:
 		$store_country = $split_country[0];
-		// $store_state   = $split_country[1];
+		// $store_state = $split_country[1];
 
-		switch ($key) :
-			case 'billing_country':
-				return $store_country;
-			break;
-		endswitch;
+		$value = $store_country;
 	}
+	return $value;
 }
-add_filter( 'woocommerce_checkout_get_value', 'surbma_hc_checkout_field_values', 10, 2 );
+add_filter( 'default_checkout_billing_country', 'surbma_hc_checkout_default_billing_country' );
 
 // Customize the checkout default address fields
 function surbma_hc_checkout_filter_default_address_fields( $address_fields ) {
 	$options = get_option( 'surbma_hc_fields' );
 
 	// Put Postcode and City fields before Address fields
-	$address_fields['postcode']['priority'] = 42;
-	$address_fields['city']['priority'] = 44;
+	$address_fields['postcode']['priority'] = 69;
+	// $address_fields['city']['priority'] = 60;
+	$address_fields['address_1']['priority'] = 95;
+	$address_fields['address_2']['priority'] = 96;
 
 	$postcodecitypairValue = isset( $options['postcodecitypair'] ) ? $options['postcodecitypair'] : 0;
 	if ( $postcodecitypairValue == 1 ) {
