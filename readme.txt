@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.2
 Tested up to: 5.4
-Stable tag: 22.1
+Stable tag: 23.0
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -182,6 +182,23 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 23.0 =
+
+Kiadás dátuma: 2020-04-13
+
+Új funkció nincs a frissítéssel, de a Pénztár oldalon jelentős módosítások történtek, ami növeli a kompatibilitást más bővítményekkel, igazodik a WooCommerce és a HuCommerce különböző variációjú beállításaihoz és optimalizálja a kódokat, csökkenti a lekérések számát. Frissítése biztonségos.
+
+MÓDOSÍTÁSOK
+
+- Az Adószám mező kezelésének a teljeskörű újragondolása. Elvileg most már kompatibilis minden beállítási variációval és helyesen kezeli a feltételes kötelező jellegét.
+- Az adószám mező kezeléséhez szükséges javascript kód inline beillesztése, amivel csökkent a lekérések száma, valamint a beállításoktól függően jelennek csak meg a kódok.
+- A Pénztár oldal kódjainak jelentős optimalizálása a különböző beállításokkal való kompatibilitás érdekében.
+- A Pénztár oldal kezeléséhez szükséges javascript kód inline beillesztése, amivel csökkent a lekérések száma, valamint a beállításoktól függően jelennek csak meg a kódok.
+
+JAVÍTÁSOK
+
+- További ellenőrzések a Pénztár mezők módosításainál, hogy kompatibilis legyen más bővítményekkel, amik szintén módosítják a Pénztár mezőket. (Köszönet: Viszt Péter - @passatgt)
 
 = 22.1 =
 

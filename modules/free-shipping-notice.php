@@ -42,6 +42,11 @@ function surbma_hc_free_shipping_cart_notice() {
 		$returnurl = esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) );
 		$notice = sprintf( '%s <a href="%s" class="button wc-forward">%s</a>', $message, $returnurl, esc_html__( 'Return to shop', 'woocommerce' ) );
 		wc_print_notice( $notice, 'notice' );
+		// TODO: Valamit kell ezzel kezdeni, hogy az ajánlott termék hozzáadásnál ne duplikálja az üzenetet.
+		// wc_clear_notices();
+		// wc_add_notice( $notice, 'notice' );
+		// wc_print_notices();
+		// woocommerce_output_all_notices();
 	}
 }
 add_action( 'woocommerce_before_cart', 'surbma_hc_free_shipping_cart_notice' );

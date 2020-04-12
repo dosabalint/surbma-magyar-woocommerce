@@ -1,23 +1,10 @@
 <?php
 
-function surbma_hc_checkout_scripts() {
-	$options = get_option( 'surbma_hc_fields' );
-	$nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0;
-	if( is_checkout() && $nocountryValue == 1 ) {
-		wp_enqueue_script( 'surbma_hc_checkout_nocountry', SURBMA_HC_PLUGIN_URL . '/assets/js/nocountry.js', array( 'jquery' ), SURBMA_HC_PLUGIN_VERSION_NUMBER, true );
-	}
-	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
-	if( is_checkout() && $billingcompanycheckValue == 1 ) {
-		wp_enqueue_script( 'surbma_hc_checkout_billingcompanycheck', SURBMA_HC_PLUGIN_URL . '/assets/js/billingcompanycheck.js', array( 'jquery' ), SURBMA_HC_PLUGIN_VERSION_NUMBER, true );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'surbma_hc_checkout_scripts' );
-
-// Add new Billing Company check field.
+// Add new fields
 function surbma_hc_checkout_custom_billing_fields( $fields ) {
 	$options = get_option( 'surbma_hc_fields' );
 	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
-	if( $billingcompanycheckValue == 1 ) {
+	if( get_option( 'woocommerce_checkout_company_field' ) != 'required' && $billingcompanycheckValue == 1 ) {
 		$fields['billing_company_check'] = array(
 			'type' 			=> 'checkbox',
 			'label' 		=> __( 'Company billing', 'surbma-magyar-woocommerce' ),
@@ -30,6 +17,15 @@ function surbma_hc_checkout_custom_billing_fields( $fields ) {
 	return $fields;
 }
 add_filter( 'woocommerce_billing_fields', 'surbma_hc_checkout_custom_billing_fields' );
+
+add_action( 'woocommerce_checkout_process', function() {
+	if ( get_option( 'woocommerce_checkout_company_field' ) != 'required' && $_POST['billing_company_check'] == 1 && !$_POST['billing_company'] ) {
+		$field_label = __( 'Company name', 'woocommerce' );
+		$field_label = sprintf( _x( 'Billing %s', 'checkout-validation', 'woocommerce' ), $field_label );
+		$noticeError = sprintf( __( '%s is a required field.', 'woocommerce' ), '<strong>' . esc_html( $field_label ) . '</strong>' );
+		wc_add_notice( $noticeError, 'error' );
+	}
+} );
 
 // Pre-populate billing_country field, if it's hidden
 function surbma_hc_checkout_default_billing_country( $value ) {
@@ -66,15 +62,6 @@ function surbma_hc_checkout_filter_default_address_fields( $address_fields ) {
 		$address_fields['city']['class'] = array( 'form-row-last' );
 	}
 
-	// Remove Billing country field
-	/* This function is removed, because country field is hidden with JS & CSS
-	$nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0;
-	if ( $nocountryValue == 1 ) {
-		$address_fields['country']['required'] = false;
-		unset( $address_fields['country'] );
-	}
-	*/
-
 	return $address_fields;
 }
 add_filter( 'woocommerce_default_address_fields' , 'surbma_hc_checkout_filter_default_address_fields' );
@@ -84,28 +71,78 @@ function surbma_hc_checkout_filter_checkout_fields( $fields ) {
 	$options = get_option( 'surbma_hc_fields' );
 
 	$companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0;
-	if ( $companytaxnumberpairValue == 1 ) {
+	if ( isset( $fields['billing']['billing_company'] ) && isset( $fields['billing']['billing_tax_number'] ) && $companytaxnumberpairValue == 1 ) {
 		$fields['billing']['billing_company']['class'] = array( 'form-row-first' );
 		$fields['billing']['billing_tax_number']['class'] = array( 'form-row-last' );
 	}
 
-	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
-	if( $billingcompanycheckValue == 1 ) {
-		// Billing company must be required
-		$fields['billing']['billing_company']['required'] = true;
-	}
-
 	$phoneemailpairValue = isset( $options['phoneemailpair'] ) ? $options['phoneemailpair'] : 0;
-	if ( $phoneemailpairValue == 1 ) {
+	if ( isset( $fields['billing']['billing_phone'] ) && isset( $fields['billing']['billing_email'] ) && $phoneemailpairValue == 1 ) {
 		$fields['billing']['billing_phone']['class'] = array( 'form-row-first' );
 		$fields['billing']['billing_email']['class'] = array( 'form-row-last' );
 	}
 
 	$noordercommentsValue = isset( $options['noordercomments'] ) ? $options['noordercomments'] : 0;
-	if ( $noordercommentsValue == 1 ) {
+	if ( isset( $fields['order']['order_comments'] ) && $noordercommentsValue == 1 ) {
 		unset( $fields['order']['order_comments'] );
 	}
 
 	return $fields;
 }
-add_filter( 'woocommerce_checkout_fields' , 'surbma_hc_checkout_filter_checkout_fields' );
+add_filter( 'woocommerce_checkout_fields' , 'surbma_hc_checkout_filter_checkout_fields', 9999 );
+
+add_action( 'wp_footer', function() {
+	if( is_checkout() ) {
+		$options = get_option( 'surbma_hc_fields' );
+		$nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0;
+		$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
+		$companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0;
+?>
+<script>
+jQuery(document).ready(function($){
+	<?php if( $nocountryValue == 1 ) { ?>
+		$("#billing_country_field").hide();
+	<?php } ?>
+
+	<?php if( $billingcompanycheckValue == 1 ) { ?>
+		$('#billing_company_check_field label span').hide();
+
+		<?php if( get_option( 'woocommerce_checkout_company_field' ) != 'required' ) { ?>
+			// Add required sign and remove the "not required" text from billing_company_field
+			$("#billing_company_field").children('label').append( ' <abbr class="required" title="required">*</abbr>' );
+			$("#billing_company_field label span").hide();
+			$("#billing_company_field").addClass('validate-required');
+		<?php } ?>
+
+		if($('#billing_company_check').prop('checked') == false){
+			$('#billing_company_field').hide();
+			$('#billing_tax_number_field').hide();
+		}
+
+		$('#billing_company_check').click(function(){
+			if($(this).prop('checked') == true){
+				$('#billing_company_field').show();
+				$('#billing_tax_number_field').show();
+			}
+			else if($(this).prop('checked') == false){
+				// Hiding the company related fields
+				$('#billing_company_field').hide();
+				$('#billing_tax_number_field').hide();
+
+				// Empty the company related field values, because we don't want to save company details
+				$('#billing_company').val('');
+				$('#billing_tax_number').val('');
+
+				// Reset classes, as they are empty again
+				$("#billing_company_field").removeClass('woocommerce-validated');
+				$("#billing_tax_number_field").removeClass('woocommerce-validated');
+				$("#billing_company_field").removeClass('woocommerce-invalid woocommerce-invalid-required-field');
+				$("#billing_tax_number_field").removeClass('woocommerce-invalid woocommerce-invalid-required-field');
+			}
+		});
+	<?php } ?>
+});
+</script>
+<?php
+	}
+} );
