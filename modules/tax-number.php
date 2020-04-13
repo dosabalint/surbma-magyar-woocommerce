@@ -113,6 +113,11 @@ jQuery(document).ready(function($){
 		$("#billing_tax_number_field").addClass('validate-required');
 	<?php } ?>
 
+	// Fix for previous version, that saved '- N/A -'' value if billing_tax_number was empty
+	if( $('#billing_tax_number').val() == '- N/A -' ){
+		$('#billing_tax_number').val('');
+	}
+
 	// Check Company field value
 	$('#billing_company').keyup(function() {
 		if( $(this).val().length == 0 ) {

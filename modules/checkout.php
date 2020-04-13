@@ -104,6 +104,11 @@ jQuery(document).ready(function($){
 		$("#billing_country_field").hide();
 	<?php } ?>
 
+	// Fix for previous version, that saved '- N/A -'' value if billing_company was empty
+	if( $('#billing_company').val() == '- N/A -' ){
+		$('#billing_company').val('');
+	}
+
 	<?php if( $billingcompanycheckValue == 1 ) { ?>
 		$('#billing_company_check_field label span').hide();
 
