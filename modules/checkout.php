@@ -91,14 +91,14 @@ function surbma_hc_checkout_filter_checkout_fields( $fields ) {
 }
 add_filter( 'woocommerce_checkout_fields' , 'surbma_hc_checkout_filter_checkout_fields', 9999 );
 
-add_action( 'wp_footer', function() {
+add_action( 'wp_enqueue_scripts', function() {
 	if( is_checkout() ) {
 		$options = get_option( 'surbma_hc_fields' );
 		$nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0;
 		$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
 		$companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0;
+		ob_start();
 ?>
-<script>
 jQuery(document).ready(function($){
 	<?php if( $nocountryValue == 1 ) { ?>
 		$("#billing_country_field").hide();
@@ -147,7 +147,10 @@ jQuery(document).ready(function($){
 		});
 	<?php } ?>
 });
-</script>
 <?php
+		$script = ob_get_contents();
+		ob_end_clean();
+
+		wp_add_inline_script( 'cps-jquery-fix', $script );
 	}
 } );

@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.2
 Tested up to: 5.4
-Stable tag: 23.1
+Stable tag: 23.2
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -182,6 +182,20 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 23.2 =
+
+Kiadás dátuma: 2020-04-25
+
+Apró javítás az inline script-ek kezelésével kapcsolatban. A frissítés biztonságos.
+
+JAVÍTÁSOK
+
+- Inline script-ek betöltése a jQuery után. (Köszönet: Dovalovszki Tamás - @dovi42)
+
+EGYÉB
+
+- CPS SDK frissítése a 6.0 verzióra.
 
 = 23.1 =
 
