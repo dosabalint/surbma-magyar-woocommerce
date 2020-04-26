@@ -128,8 +128,14 @@ jQuery(document).ready(function($){
 			if($(this).prop('checked') == true){
 				$('#billing_company_field').show();
 				$('#billing_tax_number_field').show();
+				// Add saved values back
+				$('#billing_company').val(localStorage.getItem('billing_company'));
+				$('#billing_tax_number').val(localStorage.getItem('billing_tax_number'));
 			}
 			else if($(this).prop('checked') == false){
+				// Save already entered value, if customer wants to enable company fields again
+				localStorage.setItem('billing_company', $('#billing_company').val());
+				localStorage.setItem('billing_tax_number', $('#billing_tax_number').val());
 				// Hiding the company related fields
 				$('#billing_company_field').hide();
 				$('#billing_tax_number_field').hide();

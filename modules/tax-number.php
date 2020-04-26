@@ -86,15 +86,14 @@ add_filter( 'woocommerce_customer_meta_fields', function( $profileFieldArray ) {
 	return $profileFieldArray;
 } );
 
-add_action( 'wp_footer', function() {
+add_action( 'wp_enqueue_scripts', function() {
 	if( is_checkout() ) {
 		$options = get_option( 'surbma_hc_fields' );
 		$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
 		$companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0;
+		ob_start();
 ?>
-<script>
 jQuery(document).ready(function($){
-
 	// Add required sign and remove the "not required" text from billing_tax_number_field
 	$("#billing_tax_number_field").children('label').append( ' <abbr class="required" title="required">*</abbr>' );
 	$("#billing_tax_number_field label span").hide();
@@ -106,7 +105,7 @@ jQuery(document).ready(function($){
 		$("#billing_tax_number_field label span").show();
 	<?php } ?>
 
-	<?php if( get_option( 'woocommerce_checkout_company_field' ) == 'requireds' ) { ?>
+	<?php if( get_option( 'woocommerce_checkout_company_field' ) == 'required' ) { ?>
 		// Add required sign and remove the "not required" text from billing_tax_number_field
 		$("#billing_tax_number_field label span").hide();
 		$("#billing_tax_number_field").children('label').children('abbr').show();
@@ -148,10 +147,12 @@ jQuery(document).ready(function($){
 			<?php } ?>
 		}
 	}).keyup();
-
 });
-</script>
 <?php
+		$script = ob_get_contents();
+		ob_end_clean();
+
+		wp_add_inline_script( 'cps-jquery-fix', $script );
 	}
 } );
 
