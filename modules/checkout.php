@@ -4,7 +4,7 @@
 function surbma_hc_checkout_custom_billing_fields( $fields ) {
 	$options = get_option( 'surbma_hc_fields' );
 	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
-	if( get_option( 'woocommerce_checkout_company_field' ) != 'required' && $billingcompanycheckValue == 1 ) {
+	if( get_option( 'woocommerce_checkout_company_field' ) == 'optional' && $billingcompanycheckValue == 1 ) {
 		$fields['billing_company_check'] = array(
 			'type' 			=> 'checkbox',
 			'label' 		=> __( 'Company billing', 'surbma-magyar-woocommerce' ),
@@ -19,7 +19,7 @@ function surbma_hc_checkout_custom_billing_fields( $fields ) {
 add_filter( 'woocommerce_billing_fields', 'surbma_hc_checkout_custom_billing_fields' );
 
 add_action( 'woocommerce_checkout_process', function() {
-	if ( get_option( 'woocommerce_checkout_company_field' ) != 'required' && $_POST['billing_company_check'] == 1 && !$_POST['billing_company'] ) {
+	if ( get_option( 'woocommerce_checkout_company_field' ) == 'optional' && $_POST['billing_company_check'] == 1 && !$_POST['billing_company'] ) {
 		$field_label = __( 'Company name', 'woocommerce' );
 		$field_label = sprintf( _x( 'Billing %s', 'checkout-validation', 'woocommerce' ), $field_label );
 		$noticeError = sprintf( __( '%s is a required field.', 'woocommerce' ), '<strong>' . esc_html( $field_label ) . '</strong>' );
@@ -109,15 +109,16 @@ jQuery(document).ready(function($){
 		$('#billing_company').val('');
 	}
 
-	<?php if( $billingcompanycheckValue == 1 ) { ?>
+	<?php if( get_option( 'woocommerce_checkout_company_field' ) == 'optional' && $billingcompanycheckValue == 1 ) { ?>
 		$('#billing_company_check_field label span').hide();
 
-		<?php if( get_option( 'woocommerce_checkout_company_field' ) != 'required' ) { ?>
-			// Add required sign and remove the "not required" text from billing_company_field
-			$("#billing_company_field").children('label').append( ' <abbr class="required" title="required">*</abbr>' );
-			$("#billing_company_field label span").hide();
+		// Add required sign and remove the "not required" text from billing_company_field
+		$("#billing_company_field").children('label').append( ' <abbr class="required" title="required">*</abbr>' );
+		$("#billing_company_field label span").hide();
+
+		if($('#billing_company_check').prop('checked') == true){
 			$("#billing_company_field").addClass('validate-required');
-		<?php } ?>
+		}
 
 		if($('#billing_company_check').prop('checked') == false){
 			$('#billing_company_field').hide();
@@ -126,6 +127,7 @@ jQuery(document).ready(function($){
 
 		$('#billing_company_check').click(function(){
 			if($(this).prop('checked') == true){
+				$("#billing_company_field").addClass('validate-required');
 				$('#billing_company_field').show();
 				$('#billing_tax_number_field').show();
 				// Add saved values back
@@ -139,6 +141,8 @@ jQuery(document).ready(function($){
 				// Hiding the company related fields
 				$('#billing_company_field').hide();
 				$('#billing_tax_number_field').hide();
+
+				$("#billing_company_field").removeClass('validate-required');
 
 				// Empty the company related field values, because we don't want to save company details
 				$('#billing_company').val('');

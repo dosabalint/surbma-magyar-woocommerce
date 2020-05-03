@@ -1,10 +1,10 @@
 === HuCommerce | Magyar WooCommerce kiegészítések ===
-Contributors: Surbma, CherryPickStudios, xnagyg
+Contributors: CherryPickStudios, Surbma, xnagyg
 Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.2
 Tested up to: 5.4
-Stable tag: 23.3
+Stable tag: 23.4
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -130,7 +130,7 @@ Megtalálod a teljes forráskódot a GitHub-on:
 #### További bővítményeket és projekteket is találsz a GitHub oldalainkon:
 
 - [Surbma GitHub](https://github.com/Surbma)
-- [Cherry Pick Studios GitHub](https://github.com/CherryPickStudios)
+- [CherryPick Studios GitHub](https://github.com/CherryPickStudios)
 
 Nyugodtan segíthetsz a bővítmények, sablonok és egyéb projektek fejlesztésében.
 
@@ -182,6 +182,14 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 23.4 =
+
+Kiadás dátuma: 2020-05-03
+
+JAVÍTÁSOK
+
+- Kisebb javítások a Pénztár oldal JavaScript kódjaiban.
 
 = 23.3 =
 
@@ -440,7 +448,7 @@ EGYÉB
 
 Kiadás dátuma: 2019-07-25
 
-Semmi funkcionális változtatás most, csak egy kis rendrakás. Kompatibilitás javítása a többi Cherry Pick Studios bővítménnyel.
+Semmi funkcionális változtatás most, csak egy kis rendrakás. Kompatibilitás javítása a többi CherryPick Studios bővítménnyel.
 
 JAVÍTÁSOK
 
@@ -556,7 +564,7 @@ MÓDOSÍTÁSOK
 - FRISSÍTÉS - 2019-04-07
 - ÚJ - CPS SDK az egységes kinézethez és funkcionalitáshoz a többi bővítmény esetén is.
 - CPS SDK 1.0
-- MÓDOSÍTÁS - Leírásokban és a bővítmény jellemzőinél Cherry Pick Solutions megemlítése.
+- MÓDOSÍTÁS - Leírásokban és a bővítmény jellemzőinél CherryPick Solutions megemlítése.
 - MÓDOSÍTÁS - Prémium verzió kezelésének előkészítése.
 
 = 13.0 =

@@ -100,7 +100,7 @@ jQuery(document).ready(function($){
 
 	$("#billing_tax_number_field").addClass('validate-required');
 
-	<?php if( $billingcompanycheckValue == 0 && $companytaxnumberpairValue == 1 && get_option( 'woocommerce_checkout_company_field' ) != 'required' ) { ?>
+	<?php if( $billingcompanycheckValue == 0 && $companytaxnumberpairValue == 1 && get_option( 'woocommerce_checkout_company_field' ) == 'optional' ) { ?>
 		$("#billing_tax_number_field").children('label').children('abbr').hide();
 		$("#billing_tax_number_field label span").show();
 	<?php } ?>
@@ -129,7 +129,7 @@ jQuery(document).ready(function($){
 				$("#billing_tax_number_field").removeClass('woocommerce-validated');
 				$("#billing_tax_number_field").removeClass('woocommerce-invalid woocommerce-invalid-required-field');
 			<?php } ?>
-			<?php if( $billingcompanycheckValue == 0 && $companytaxnumberpairValue == 1 && get_option( 'woocommerce_checkout_company_field' ) != 'required' ) { ?>
+			<?php if( $billingcompanycheckValue == 0 && $companytaxnumberpairValue == 1 && get_option( 'woocommerce_checkout_company_field' ) == 'optional' ) { ?>
 				$("#billing_tax_number_field").removeClass('validate-required');
 				// $("#billing_tax_number_field").removeClass('woocommerce-invalid woocommerce-invalid-required-field');
 				$("#billing_tax_number_field label span").show();
