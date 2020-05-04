@@ -118,6 +118,7 @@ jQuery(document).ready(function($){
 
 		if($('#billing_company_check').prop('checked') == true){
 			$("#billing_company_field").addClass('validate-required');
+			$("#billing_tax_number_field").addClass('validate-required');
 		}
 
 		if($('#billing_company_check').prop('checked') == false){
@@ -128,8 +129,11 @@ jQuery(document).ready(function($){
 		$('#billing_company_check').click(function(){
 			if($(this).prop('checked') == true){
 				$("#billing_company_field").addClass('validate-required');
+				$("#billing_tax_number_field").addClass('validate-required');
+
 				$('#billing_company_field').show();
 				$('#billing_tax_number_field').show();
+
 				// Add saved values back
 				$('#billing_company').val(localStorage.getItem('billing_company'));
 				$('#billing_tax_number').val(localStorage.getItem('billing_tax_number'));
@@ -138,20 +142,21 @@ jQuery(document).ready(function($){
 				// Save already entered value, if customer wants to enable company fields again
 				localStorage.setItem('billing_company', $('#billing_company').val());
 				localStorage.setItem('billing_tax_number', $('#billing_tax_number').val());
+
 				// Hiding the company related fields
 				$('#billing_company_field').hide();
 				$('#billing_tax_number_field').hide();
-
-				$("#billing_company_field").removeClass('validate-required');
 
 				// Empty the company related field values, because we don't want to save company details
 				$('#billing_company').val('');
 				$('#billing_tax_number').val('');
 
 				// Reset classes, as they are empty again
+				$("#billing_company_field").removeClass('validate-required');
 				$("#billing_company_field").removeClass('woocommerce-validated');
-				$("#billing_tax_number_field").removeClass('woocommerce-validated');
 				$("#billing_company_field").removeClass('woocommerce-invalid woocommerce-invalid-required-field');
+				$("#billing_tax_number_field").removeClass('validate-required');
+				$("#billing_tax_number_field").removeClass('woocommerce-validated');
 				$("#billing_tax_number_field").removeClass('woocommerce-invalid woocommerce-invalid-required-field');
 			}
 		});
