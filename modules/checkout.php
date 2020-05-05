@@ -109,11 +109,16 @@ jQuery(document).ready(function($){
 		$('#billing_company').val('');
 	}
 
+	<?php if( $billingcompanycheckValue == 1 ) { ?>
+		$("#billing_company_field label span").remove();
+		$("#billing_tax_number_field label span").remove();
+	<?php } ?>
+
 	<?php if( get_option( 'woocommerce_checkout_company_field' ) == 'optional' && $billingcompanycheckValue == 1 ) { ?>
 		$('#billing_company_check_field label span').hide();
 
 		// Add required sign and remove the "not required" text from billing_company_field
-		$("#billing_company_field").children('label').append( ' <abbr class="required" title="required">*</abbr>' );
+		$("#billing_company_field label").append( ' <abbr class="required" title="required">*</abbr>' );
 		$("#billing_company_field label span").hide();
 
 		if($('#billing_company_check').prop('checked') == true){

@@ -97,19 +97,19 @@ add_action( 'wp_enqueue_scripts', function() {
 ?>
 jQuery(document).ready(function($){
 	// Add required sign and remove the "not required" text from billing_tax_number_field
-	$("#billing_tax_number_field").children('label').append( ' <abbr class="required" title="required">*</abbr>' );
+	$("#billing_tax_number_field label").append( ' <abbr class="required" title="required">*</abbr>' );
 	$("#billing_tax_number_field label span").hide();
 
 	<?php if( $billingcompanycheckValue == 0 && $companytaxnumberpairValue == 1 && get_option( 'woocommerce_checkout_company_field' ) == 'optional' ) { ?>
-		$("#billing_tax_number_field").children('label').children('abbr').hide();
+		$("#billing_tax_number_field label abbr").hide();
 		$("#billing_tax_number_field label span").show();
 	<?php } ?>
 
 	<?php if( get_option( 'woocommerce_checkout_company_field' ) == 'required' ) { ?>
 		// Add required sign and remove the "not required" text from billing_tax_number_field
 		$("#billing_tax_number_field").addClass('validate-required');
+		$("#billing_tax_number_field label abbr").show();
 		$("#billing_tax_number_field label span").hide();
-		$("#billing_tax_number_field").children('label').children('abbr').show();
 	<?php } ?>
 
 	// Fix for previous version, that saved '- N/A -'' value if billing_tax_number was empty
@@ -135,8 +135,8 @@ jQuery(document).ready(function($){
 			<?php } ?>
 			<?php if( $companytaxnumberpairValue == 1 ) { ?>
 				// $("#billing_tax_number_field").removeClass('woocommerce-invalid woocommerce-invalid-required-field');
+				$("#billing_tax_number_field label abbr").hide();
 				$("#billing_tax_number_field label span").show();
-				$("#billing_tax_number_field").children('label').children('abbr').hide();
 			<?php } ?>
 		} else {
 			<?php if( $companytaxnumberpairValue == 0 ) { ?>
@@ -144,8 +144,8 @@ jQuery(document).ready(function($){
 			<?php } ?>
 				// Add required sign and remove the "not required" text from billing_tax_number_field
 				$("#billing_tax_number_field").addClass('validate-required');
+				$("#billing_tax_number_field label abbr").show();
 				$("#billing_tax_number_field label span").hide();
-				$("#billing_tax_number_field").children('label').children('abbr').show();
 		}
 	}).keyup();
 	<?php } ?>
