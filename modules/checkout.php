@@ -4,7 +4,8 @@
 function surbma_hc_checkout_custom_billing_fields( $fields ) {
 	$options = get_option( 'surbma_hc_fields' );
 	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
-	if( get_option( 'woocommerce_checkout_company_field' ) == 'optional' && $billingcompanycheckValue == 1 ) {
+	$woocommercecheckoutcompanyfieldValue = get_option( 'woocommerce_checkout_company_field' ) != false ? get_option( 'woocommerce_checkout_company_field' ) : 'optional';
+	if( $woocommercecheckoutcompanyfieldValue == 'optional' && $billingcompanycheckValue == 1 ) {
 		$fields['billing_company_check'] = array(
 			'type' 			=> 'checkbox',
 			'label' 		=> __( 'Company billing', 'surbma-magyar-woocommerce' ),
@@ -19,7 +20,8 @@ function surbma_hc_checkout_custom_billing_fields( $fields ) {
 add_filter( 'woocommerce_billing_fields', 'surbma_hc_checkout_custom_billing_fields' );
 
 add_action( 'woocommerce_checkout_process', function() {
-	if ( get_option( 'woocommerce_checkout_company_field' ) == 'optional' && $_POST['billing_company_check'] == 1 && !$_POST['billing_company'] ) {
+	$woocommercecheckoutcompanyfieldValue = get_option( 'woocommerce_checkout_company_field' ) != false ? get_option( 'woocommerce_checkout_company_field' ) : 'optional';
+	if ( $woocommercecheckoutcompanyfieldValue == 'optional' && $_POST['billing_company_check'] == 1 && !$_POST['billing_company'] ) {
 		$field_label = __( 'Company name', 'woocommerce' );
 		$field_label = sprintf( _x( 'Billing %s', 'checkout-validation', 'woocommerce' ), $field_label );
 		$noticeError = sprintf( __( '%s is a required field.', 'woocommerce' ), '<strong>' . esc_html( $field_label ) . '</strong>' );
@@ -93,6 +95,7 @@ add_filter( 'woocommerce_checkout_fields' , 'surbma_hc_checkout_filter_checkout_
 
 add_action( 'wp_enqueue_scripts', function() {
 	if( is_checkout() ) {
+		$woocommercecheckoutcompanyfieldValue = get_option( 'woocommerce_checkout_company_field' ) != false ? get_option( 'woocommerce_checkout_company_field' ) : 'optional';
 		$options = get_option( 'surbma_hc_fields' );
 		$nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0;
 		$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
@@ -114,7 +117,7 @@ jQuery(document).ready(function($){
 		$("#billing_tax_number_field label span").remove();
 	<?php } ?>
 
-	<?php if( get_option( 'woocommerce_checkout_company_field' ) == 'optional' && $billingcompanycheckValue == 1 ) { ?>
+	<?php if( $woocommercecheckoutcompanyfieldValue == 'optional' && $billingcompanycheckValue == 1 ) { ?>
 		$('#billing_company_check_field label span').hide();
 
 		// Add required sign and remove the "not required" text from billing_company_field

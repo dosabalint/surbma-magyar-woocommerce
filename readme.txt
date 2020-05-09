@@ -4,7 +4,7 @@ Donate link: https://www.hucommerce.hu/
 Tags: woocommerce, magyar, magyarország, webáruház, hungarian, hungary
 Requires at least: 5.2
 Tested up to: 5.4
-Stable tag: 23.6
+Stable tag: 23.7
 Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -182,6 +182,20 @@ Figyelem! A nevek cseréje csak akkor történik meg, ha magyar nyelvre van áll
 A vezetéknevem visszafelé. ;)
 
 == Changelog ==
+
+= 23.7 =
+
+Kiadás dátuma: 2020-05-09
+
+A WooCommerce 4.1 verzióban kijött WooCommerce beállítások kezelésének a hibáját javítja ez a verzió. Frissítése biztonságos.
+
+EGYÉB
+
+- Kompatibilitás ellenőrzése a WooCommerce 4.1 verzióval.
+
+JAVÍTÁSOK
+
+- A Pénztár oldalon a WooCommerce beállítások alternatív ellenőrzése.
 
 = 23.6 =
 
