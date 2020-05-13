@@ -1,7 +1,7 @@
 <?php
 
 // Add new fields
-function surbma_hc_checkout_custom_billing_fields( $fields ) {
+add_filter( 'woocommerce_billing_fields', function( $fields ) {
 	$options = get_option( 'surbma_hc_fields' );
 	$billingcompanycheckValue = isset( $options['billingcompanycheck'] ) ? $options['billingcompanycheck'] : 0;
 	$woocommercecheckoutcompanyfieldValue = get_option( 'woocommerce_checkout_company_field' ) != false ? get_option( 'woocommerce_checkout_company_field' ) : 'optional';
@@ -16,8 +16,7 @@ function surbma_hc_checkout_custom_billing_fields( $fields ) {
 		);
 	}
 	return $fields;
-}
-add_filter( 'woocommerce_billing_fields', 'surbma_hc_checkout_custom_billing_fields' );
+} );
 
 add_action( 'woocommerce_checkout_process', function() {
 	$woocommercecheckoutcompanyfieldValue = get_option( 'woocommerce_checkout_company_field' ) != false ? get_option( 'woocommerce_checkout_company_field' ) : 'optional';
@@ -30,7 +29,7 @@ add_action( 'woocommerce_checkout_process', function() {
 } );
 
 // Pre-populate billing_country field, if it's hidden
-function surbma_hc_checkout_default_billing_country( $value ) {
+add_filter( 'default_checkout_billing_country', function( $value ) {
 	$options = get_option( 'surbma_hc_fields' );
 	$nocountryValue = isset( $options['nocountry'] ) ? $options['nocountry'] : 0;
 	if( $nocountryValue == 1 ) {
@@ -45,18 +44,19 @@ function surbma_hc_checkout_default_billing_country( $value ) {
 		$value = $store_country;
 	}
 	return $value;
-}
-add_filter( 'default_checkout_billing_country', 'surbma_hc_checkout_default_billing_country' );
+} );
 
 // Customize the checkout default address fields
-function surbma_hc_checkout_filter_default_address_fields( $address_fields ) {
+add_filter( 'woocommerce_default_address_fields' , function( $address_fields ) {
+	$woocommercecheckoutaddress2fieldValue = get_option( 'woocommerce_checkout_address_2_field' ) != false ? get_option( 'woocommerce_checkout_address_2_field' ) : 'optional';
 	$options = get_option( 'surbma_hc_fields' );
 
 	// Put Postcode and City fields before Address fields
 	$address_fields['postcode']['priority'] = 69;
 	// $address_fields['city']['priority'] = 60;
 	$address_fields['address_1']['priority'] = 95;
-	$address_fields['address_2']['priority'] = 96;
+	if ( $woocommercecheckoutaddress2fieldValue != 'hidden' )
+		$address_fields['address_2']['priority'] = 96;
 
 	$postcodecitypairValue = isset( $options['postcodecitypair'] ) ? $options['postcodecitypair'] : 0;
 	if ( $postcodecitypairValue == 1 ) {
@@ -65,11 +65,10 @@ function surbma_hc_checkout_filter_default_address_fields( $address_fields ) {
 	}
 
 	return $address_fields;
-}
-add_filter( 'woocommerce_default_address_fields' , 'surbma_hc_checkout_filter_default_address_fields' );
+} );
 
 // Customize the checkout fields
-function surbma_hc_checkout_filter_checkout_fields( $fields ) {
+add_filter( 'woocommerce_checkout_fields' , function( $fields ) {
 	$options = get_option( 'surbma_hc_fields' );
 
 	$companytaxnumberpairValue = isset( $options['companytaxnumberpair'] ) ? $options['companytaxnumberpair'] : 0;
@@ -90,8 +89,7 @@ function surbma_hc_checkout_filter_checkout_fields( $fields ) {
 	}
 
 	return $fields;
-}
-add_filter( 'woocommerce_checkout_fields' , 'surbma_hc_checkout_filter_checkout_fields', 9999 );
+}, 9999 );
 
 add_action( 'wp_enqueue_scripts', function() {
 	if( is_checkout() ) {
