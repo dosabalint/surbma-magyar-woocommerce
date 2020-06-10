@@ -141,8 +141,12 @@ jQuery(document).ready(function($){
 				$('#billing_tax_number_field').show();
 
 				// Add saved values back
-				$('#billing_company').val(localStorage.getItem('billing_company'));
-				$('#billing_tax_number').val(localStorage.getItem('billing_tax_number'));
+				if(localStorage.getItem('billing_company')){
+                    $('#billing_company').val(localStorage.getItem('billing_company'));
+                }
+                if(localStorage.getItem('billing_tax_number')){
+				    $('#billing_tax_number').val(localStorage.getItem('billing_tax_number'));
+                }
 			}
 			else if($(this).prop('checked') == false){
 				// Save already entered value, if customer wants to enable company fields again
